@@ -1,0 +1,6 @@
+{
+  "model": "RandomForest",
+  "artifacts": "artifacts",
+  "criterion": "highest validation accuracy across original and new candidates; macro-F1 tie-break",
+  "test_used_for_selection": false
+}

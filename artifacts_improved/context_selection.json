@@ -1,0 +1,44 @@
+{
+  "winner": "ExtraTrees",
+  "file": "best_context_model.joblib",
+  "criterion": "validation component accuracy, macro-F1 tie-break",
+  "context_seconds": 7.875,
+  "validation": {
+    "TangentSVM": {
+      "validation": {
+        "accuracy": 0.045454545454545456,
+        "macro_f1": 0.04285714285714285
+      }
+    },
+    "TangentRidge": {
+      "validation": {
+        "accuracy": 0.09090909090909091,
+        "macro_f1": 0.07376283846872082
+      }
+    },
+    "TangentLogistic": {
+      "validation": {
+        "accuracy": 0.09090909090909091,
+        "macro_f1": 0.07953216374269007
+      }
+    },
+    "LogCovSVM": {
+      "validation": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.06447368421052631
+      }
+    },
+    "ExtraTrees": {
+      "validation": {
+        "accuracy": 0.13636363636363635,
+        "macro_f1": 0.11153846153846153
+      }
+    },
+    "BoostedTrees": {
+      "validation": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.05947712418300653
+      }
+    }
+  }
+}

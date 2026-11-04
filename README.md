@@ -44,7 +44,7 @@ The training-majority baseline achieved 12.12% accuracy and 0.0240 macro-F1. A u
 
 Random Forest had the highest validation macro-F1 and was saved as `artifacts/best_model.joblib` (300 trees, unlimited depth, minimum leaf size 1). SVM selected C=0.1 and gamma=scale. EEGNet achieved the highest observed test scores, but the test set was not used to change the validation-selected winner; its checkpoint is available at `artifacts/EEGNet.pt`. The mismatch between validation and test rankings illustrates uncertainty in this small grouped holdout.
 
-EEGNet stopped after 29 epochs and restored epoch 14. The full experiment took 146.6 seconds on CPU, including inspection, fitting, and evaluation. These models show no useful classification performance on this holdout. They should not be described as a successful speech decoder. No extra tuning was performed after viewing test results.
+EEGNet stopped after 29 epochs and restored epoch 14. The full experiment took 146.6 seconds on CPU, including inspection, fitting, and evaluation. These models show no useful classification performance on this holdout. They should not be described as a successful speech decoder. No extra tuning was performed after viewing test results during this initial experiment; the separate follow-up below was requested afterward.
 
 ![CNN training curves](artifacts/training_curves.png)
 
@@ -92,3 +92,49 @@ Inference includes the same preprocessing and feature extraction, or saved CNN n
 Validation: all four automated tests passed. `eegis.verify` reloads each checkpoint, compares every test prediction, recomputes accuracy/macro-F1, checks confusion counts and model selection, and verifies single-window inference. Its outcome is saved in `artifacts/verification.json`.
 
 These are exploratory results from one fixed holdout split. More seeds and verified subject/session identifiers are needed for stronger generalization claims. Nine-class performance includes rest and should not be presented as eight-word-only accuracy.
+
+
+## Accuracy improvement experiment
+
+This follow-up preserves the original manifest exactly: 205 training, 66 validation, and 66 test overlap groups. Participant identities remain unavailable. The previously reported test set is reused, so these are exploratory follow-up results and require an untouched dataset for confirmation. No split seed was changed to obtain higher accuracy.
+
+New spatial features use linearly detrended signals and five channel covariance matrices: broadband and 4–8, 8–13, 13–30, and 30–40 Hz. Each covariance matrix receives 10% shrinkage toward an isotropic matrix with matching trace. The training partition determines the covariance-whitening reference; symmetric matrix logarithms and upper-triangle vectorization yield 525 features. Trace normalization is tested both enabled and disabled. Log-covariance SVM omits reference whitening. Every fitted transform and scaler stays inside the cross-validation pipeline.
+
+The search performed 159 fits across three stratified group folds inside the training partition. Each family first selects its hyperparameters by training cross-validation accuracy. The final candidate is selected by validation accuracy, with macro-F1 breaking ties, matching the request to improve accuracy. Candidates include tangent-space RBF SVM, ridge classification, tangent logistic regression, log-covariance RBF SVM, Extra Trees, and histogram gradient boosting. Tree candidates use the original 238 features. See the saved `*_cv.csv` files for all configurations and fold scores.
+
+| New candidate | Training CV accuracy | Validation accuracy | Test accuracy | Test macro-F1 |
+|---|---:|---:|---:|---:|
+| TangentSVM | 9.11% | 9.47% | 11.24% | 0.1096 |
+| TangentRidge | 10.08% | 10.48% | 11.36% | 0.1075 |
+| TangentLogistic | 10.16% | 11.11% | 11.62% | 0.1126 |
+| LogCovSVM | 9.51% | 9.72% | 11.24% | 0.1081 |
+| ExtraTrees | 10.97% | 9.72% | 7.70% | 0.0716 |
+| BoostedTrees | 10.42% | 8.96% | 8.08% | 0.0781 |
+
+The new validation-selected candidate is **TangentLogistic**, with 11.11% validation accuracy and 11.62% test accuracy (macro-F1 0.1126). Its checkpoint is `artifacts_improved/best_model.joblib`. The original validation-selected Random Forest scored 8.08% on the same test windows; the new candidate's measured difference is +3.54 percentage points. The 95% paired overlap-group bootstrap interval for this difference is [-0.26, +6.94] points (5,000 resamples, 66 groups). This interval does not establish subject-independent improvement.
+
+For context, the original EEGNet scored 11.24% test accuracy, and the training-majority predictor scored 12.12%. Compare against these as well as the original selected Random Forest. Low scores remain insufficient for a useful speech decoder; a small gain on a reused holdout should not be treated as a validated deployment result.
+
+Across the original and new one-second models, validation accuracy recommends **RandomForest** from `artifacts`. This recommendation does not use test scores. The selected new model parameters are `{"model__C": 10, "spatial__normalize": false}`. The final resumed execution took 613.5 seconds on CPU; this excludes interrupted solver attempts and the earlier completed nonlinear SVM search. The original model files and results are preserved. Seven automated tests passed, including spatial-feature validity, inference independence, group aggregation, and amplitude invariance under trace normalization. `eegis.verify_improved` independently reloads all new models, recomputes predictions and metrics, checks the identical split, and verifies the selected-model inference path.
+
+![Follow-up model comparison](artifacts_improved/comparison.png)
+
+Reproduce and verify this experiment:
+
+```bash
+MPLCONFIGDIR=/tmp/eegis-matplotlib .venv/bin/python -u -m eegis.improve > improvement.log 2>&1
+MPLCONFIGDIR=/tmp/eegis-matplotlib .venv/bin/python -m eegis.verify_improved
+.venv/bin/python -m eegis.compare_runs
+.venv/bin/python -m eegis.report_improved
+.venv/bin/python -m eegis.predict --artifacts artifacts_improved "EEGIS - Electroencephalogram Imagined Speech dataset/raw/class_0/0.csv"
+```
+
+All new results, candidate hyperparameters, cross-validation details, confusion matrices, test predictions, checkpoint metadata, leakage audit, and verification results are under `artifacts_improved/`. The original CNN training curves remain in `artifacts/`; no new neural training is claimed in this follow-up.
+
+### Optional longer-context decisions
+
+A separate experiment averages class probabilities (or decision scores for models without probability output) across all 12 connected windows in a component. This uses 1,008 distinct raw samples, or 7.875 seconds, for one decision. Group membership comes from raw overlap matches; labels do not determine predictions. Entire components remain in their original partition. This is a different latency and evaluation unit from the one-second experiment, so its accuracy is not a direct one-second improvement.
+
+The validation-selected context model is **ExtraTrees**: validation accuracy 13.64%; test accuracy **6.06%**, macro-F1 **0.0559** across 66 test components. The checkpoint is `artifacts_improved/best_context_model.joblib`, with aggregation metadata in `context_selection.json`. `context_test_predictions.csv` saves one prediction per component. Single-chain inference was checked against the recorded predictions.
+
+Reproduce with `.venv/bin/python -m eegis.context`. To predict a new complete chain, run `.venv/bin/python -m eegis.context --predict <12 CSV paths>`; all windows must form one valid connected chain. The code rejects duplicates and incomplete or mixed chains. Re-run `eegis.report_improved` after this optional evaluation to refresh these measured results.

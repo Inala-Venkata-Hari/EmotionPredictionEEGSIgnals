@@ -1,0 +1,75 @@
+{
+  "winner": "TangentLogistic",
+  "criterion": "validation accuracy, macro-F1 tie-break",
+  "candidates": {
+    "TangentSVM": {
+      "validation": {
+        "accuracy": 0.0946969696969697,
+        "macro_f1": 0.09201407576653031
+      },
+      "training_cv_accuracy": 0.09111845221180259,
+      "parameters": {
+        "model__C": 10,
+        "model__kernel": "rbf",
+        "spatial__normalize": false
+      }
+    },
+    "TangentRidge": {
+      "validation": {
+        "accuracy": 0.10479797979797979,
+        "macro_f1": 0.10214954483522903
+      },
+      "training_cv_accuracy": 0.10083949038552618,
+      "parameters": {
+        "model__alpha": 0.1,
+        "spatial__normalize": false
+      }
+    },
+    "TangentLogistic": {
+      "validation": {
+        "accuracy": 0.1111111111111111,
+        "macro_f1": 0.11074990870828223
+      },
+      "training_cv_accuracy": 0.10158544093966088,
+      "parameters": {
+        "model__C": 10,
+        "spatial__normalize": false
+      }
+    },
+    "LogCovSVM": {
+      "validation": {
+        "accuracy": 0.09722222222222222,
+        "macro_f1": 0.09490715756750832
+      },
+      "training_cv_accuracy": 0.0951382968646396,
+      "parameters": {
+        "model__C": 10,
+        "model__kernel": "rbf",
+        "spatial__normalize": false
+      }
+    },
+    "ExtraTrees": {
+      "validation": {
+        "accuracy": 0.09722222222222222,
+        "macro_f1": 0.09027990670859563
+      },
+      "training_cv_accuracy": 0.10970209339774557,
+      "parameters": {
+        "max_features": 1.0,
+        "min_samples_leaf": 1
+      }
+    },
+    "BoostedTrees": {
+      "validation": {
+        "accuracy": 0.08964646464646464,
+        "macro_f1": 0.08557279140155781
+      },
+      "training_cv_accuracy": 0.1041725869091598,
+      "parameters": {
+        "l2_regularization": 10.0,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15
+      }
+    }
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "models": {
+    "TangentSVM": {
+      "validation": {
+        "accuracy": 0.0946969696969697,
+        "macro_f1": 0.09201407576653031
+      },
+      "training_cv_accuracy": 0.09111845221180259,
+      "parameters": {
+        "model__C": 10,
+        "model__kernel": "rbf",
+        "spatial__normalize": false
+      },
+      "test": {
+        "accuracy": 0.11237373737373738,
+        "macro_f1": 0.10958054579474874
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.07142857142857142,
+          "recall": 0.041666666666666664,
+          "f1-score": 0.05263157894736842,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.12396694214876033,
+          "recall": 0.15625,
+          "f1-score": 0.1382488479262673,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.12962962962962962,
+          "recall": 0.09722222222222222,
+          "f1-score": 0.1111111111111111,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.15833333333333333,
+          "recall": 0.19791666666666666,
+          "f1-score": 0.17592592592592593,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.1111111111111111,
+          "recall": 0.11904761904761904,
+          "f1-score": 0.11494252873563218,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.07194244604316546,
+          "recall": 0.11904761904761904,
+          "f1-score": 0.08968609865470852,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.1076923076923077,
+          "recall": 0.07291666666666667,
+          "f1-score": 0.08695652173913043,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.13793103448275862,
+          "recall": 0.09523809523809523,
+          "f1-score": 0.11267605633802817,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.10112359550561797,
+          "recall": 0.10714285714285714,
+          "f1-score": 0.10404624277456648,
+          "support": 84.0
+        },
+        "accuracy": 0.11237373737373738,
+        "macro avg": {
+          "precision": 0.11257321904169507,
+          "recall": 0.11182760141093476,
+          "f1-score": 0.10958054579474874,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11248339885757777,
+          "recall": 0.11237373737373738,
+          "f1-score": 0.1097913052802538,
+          "support": 792.0
+        }
+      }
+    },
+    "TangentRidge": {
+      "validation": {
+        "accuracy": 0.10479797979797979,
+        "macro_f1": 0.10214954483522903
+      },
+      "training_cv_accuracy": 0.10083949038552618,
+      "parameters": {
+        "model__alpha": 0.1,
+        "spatial__normalize": false
+      },
+      "test": {
+        "accuracy": 0.11363636363636363,
+        "macro_f1": 0.10749543524209491
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.08823529411764706,
+          "recall": 0.0625,
+          "f1-score": 0.07317073170731707,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.1258741258741259,
+          "recall": 0.1875,
+          "f1-score": 0.1506276150627615,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.044444444444444446,
+          "recall": 0.027777777777777776,
+          "f1-score": 0.03418803418803419,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.21649484536082475,
+          "recall": 0.21875,
+          "f1-score": 0.21761658031088082,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.12371134020618557,
+          "recall": 0.14285714285714285,
+          "f1-score": 0.13259668508287292,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.07272727272727272,
+          "recall": 0.09523809523809523,
+          "f1-score": 0.08247422680412371,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.12987012987012986,
+          "recall": 0.10416666666666667,
+          "f1-score": 0.11560693641618497,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.09523809523809523,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.08163265306122448,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.07608695652173914,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.07954545454545454,
+          "support": 84.0
+        },
+        "accuracy": 0.11363636363636363,
+        "macro avg": {
+          "precision": 0.10807583381782941,
+          "recall": 0.11039462081128748,
+          "f1-score": 0.10749543524209491,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11098193153487175,
+          "recall": 0.11363636363636363,
+          "f1-score": 0.11053100378122864,
+          "support": 792.0
+        }
+      }
+    },
+    "TangentLogistic": {
+      "validation": {
+        "accuracy": 0.1111111111111111,
+        "macro_f1": 0.11074990870828223
+      },
+      "training_cv_accuracy": 0.10158544093966088,
+      "parameters": {
+        "model__C": 10,
+        "spatial__normalize": false
+      },
+      "test": {
+        "accuracy": 0.11616161616161616,
+        "macro_f1": 0.11262890778609089
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.08536585365853659,
+          "recall": 0.07291666666666667,
+          "f1-score": 0.07865168539325842,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.15447154471544716,
+          "recall": 0.19791666666666666,
+          "f1-score": 0.1735159817351598,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.08064516129032258,
+          "recall": 0.06944444444444445,
+          "f1-score": 0.07462686567164178,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.17,
+          "recall": 0.17708333333333334,
+          "f1-score": 0.17346938775510204,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.1038961038961039,
+          "recall": 0.09523809523809523,
+          "f1-score": 0.09937888198757763,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.061855670103092786,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.06629834254143646,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.1125,
+          "recall": 0.09375,
+          "f1-score": 0.10227272727272728,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.1038961038961039,
+          "recall": 0.09523809523809523,
+          "f1-score": 0.09937888198757763,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.13829787234042554,
+          "recall": 0.15476190476190477,
+          "f1-score": 0.14606741573033707,
+          "support": 84.0
+        },
+        "accuracy": 0.11616161616161616,
+        "macro avg": {
+          "precision": 0.11232536776667029,
+          "recall": 0.11419753086419752,
+          "f1-score": 0.11262890778609089,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11391197585430135,
+          "recall": 0.11616161616161616,
+          "f1-score": 0.1143773349546717,
+          "support": 792.0
+        }
+      }
+    },
+    "LogCovSVM": {
+      "validation": {
+        "accuracy": 0.09722222222222222,
+        "macro_f1": 0.09490715756750832
+      },
+      "training_cv_accuracy": 0.0951382968646396,
+      "parameters": {
+        "model__C": 10,
+        "model__kernel": "rbf",
+        "spatial__normalize": false
+      },
+      "test": {
+        "accuracy": 0.11237373737373738,
+        "macro_f1": 0.10806901867664694
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.09433962264150944,
+          "recall": 0.052083333333333336,
+          "f1-score": 0.06711409395973154,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.15,
+          "recall": 0.1875,
+          "f1-score": 0.16666666666666666,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.1111111111111111,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.09523809523809523,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.13934426229508196,
+          "recall": 0.17708333333333334,
+          "f1-score": 0.1559633027522936,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.10714285714285714,
+          "recall": 0.10714285714285714,
+          "f1-score": 0.10714285714285714,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.07746478873239436,
+          "recall": 0.13095238095238096,
+          "f1-score": 0.09734513274336283,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.08196721311475409,
+          "recall": 0.052083333333333336,
+          "f1-score": 0.06369426751592357,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.11475409836065574,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.09655172413793103,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.11578947368421053,
+          "recall": 0.13095238095238096,
+          "f1-score": 0.12290502793296089,
+          "support": 84.0
+        },
+        "accuracy": 0.11237373737373738,
+        "macro avg": {
+          "precision": 0.11021260300917493,
+          "recall": 0.11160714285714286,
+          "f1-score": 0.10806901867664694,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11057475721997358,
+          "recall": 0.11237373737373738,
+          "f1-score": 0.10858406685280723,
+          "support": 792.0
+        }
+      }
+    },
+    "ExtraTrees": {
+      "validation": {
+        "accuracy": 0.09722222222222222,
+        "macro_f1": 0.09027990670859563
+      },
+      "training_cv_accuracy": 0.10970209339774557,
+      "parameters": {
+        "max_features": 1.0,
+        "min_samples_leaf": 1
+      },
+      "test": {
+        "accuracy": 0.07702020202020202,
+        "macro_f1": 0.07164744737085828
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.0975609756097561,
+          "recall": 0.041666666666666664,
+          "f1-score": 0.058394160583941604,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.08421052631578947,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.08376963350785341,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.030303030303030304,
+          "recall": 0.013888888888888888,
+          "f1-score": 0.01904761904761905,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.109375,
+          "recall": 0.14583333333333334,
+          "f1-score": 0.125,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.06451612903225806,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.06779661016949153,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.03875968992248062,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.046948356807511735,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.12631578947368421,
+          "recall": 0.125,
+          "f1-score": 0.1256544502617801,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.03076923076923077,
+          "recall": 0.023809523809523808,
+          "f1-score": 0.026845637583892617,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.07964601769911504,
+          "recall": 0.10714285714285714,
+          "f1-score": 0.09137055837563451,
+          "support": 84.0
+        },
+        "accuracy": 0.07702020202020202,
+        "macro avg": {
+          "precision": 0.0734951543472605,
+          "recall": 0.07462522045855378,
+          "f1-score": 0.07164744737085828,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.07602051492384261,
+          "recall": 0.07702020202020202,
+          "f1-score": 0.07405393651015195,
+          "support": 792.0
+        }
+      }
+    },
+    "BoostedTrees": {
+      "validation": {
+        "accuracy": 0.08964646464646464,
+        "macro_f1": 0.08557279140155781
+      },
+      "training_cv_accuracy": 0.1041725869091598,
+      "parameters": {
+        "l2_regularization": 10.0,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15
+      },
+      "test": {
+        "accuracy": 0.08080808080808081,
+        "macro_f1": 0.07805274031646109
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.08333333333333333,
+          "recall": 0.03125,
+          "f1-score": 0.045454545454545456,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.12087912087912088,
+          "recall": 0.11458333333333333,
+          "f1-score": 0.11764705882352941,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.08163265306122448,
+          "recall": 0.05555555555555555,
+          "f1-score": 0.06611570247933884,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.09322033898305085,
+          "recall": 0.11458333333333333,
+          "f1-score": 0.102803738317757,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.061224489795918366,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.06593406593406594,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.08196721311475409,
+          "recall": 0.11904761904761904,
+          "f1-score": 0.0970873786407767,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.07692307692307693,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.08,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.05,
+          "recall": 0.047619047619047616,
+          "f1-score": 0.04878048780487805,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.07446808510638298,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.07865168539325842,
+          "support": 84.0
+        },
+        "accuracy": 0.08080808080808081,
+        "macro avg": {
+          "precision": 0.08040536791076243,
+          "recall": 0.080081569664903,
+          "f1-score": 0.07805274031646109,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.08118577871871806,
+          "recall": 0.08080808080808081,
+          "f1-score": 0.07874412545535668,
+          "support": 792.0
+        }
+      }
+    }
+  },
+  "best_model": "TangentLogistic",
+  "selection_criterion": "validation accuracy, macro-F1 tie-break",
+  "elapsed_seconds": 613.477522611618,
+  "split_source": "artifacts/manifest.csv",
+  "evaluation": "same overlap-component holdout; not subject-independent; test set previously reported"
+}

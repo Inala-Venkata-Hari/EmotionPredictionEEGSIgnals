@@ -1,0 +1,8 @@
+{
+  "same_split_as_original": true,
+  "all_checkpoints_match_predictions": true,
+  "metrics_recomputed": true,
+  "selection_valid": true,
+  "inference_verified": true,
+  "test_windows": 792
+}

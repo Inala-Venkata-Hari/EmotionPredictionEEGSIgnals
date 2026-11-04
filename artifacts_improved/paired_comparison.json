@@ -1,0 +1,14 @@
+{
+  "original_selected_model": "RandomForest",
+  "new_selected_model": "TangentLogistic",
+  "original_test_accuracy": 0.08080808080808081,
+  "new_test_accuracy": 0.11616161616161616,
+  "accuracy_difference_percentage_points": 3.5353535353535346,
+  "paired_group_bootstrap_95_percent_interval_pp": [
+    -0.2556818181818176,
+    6.944444444444445
+  ],
+  "bootstrap_replicates": 5000,
+  "groups": 66,
+  "limitation": "Exploratory follow-up on a previously reported test split; participants unidentified. Does not quantify participant-independent uncertainty."
+}

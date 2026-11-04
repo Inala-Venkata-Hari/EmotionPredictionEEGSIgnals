@@ -1,0 +1,70 @@
+{
+  "winner": "ExtraTrees",
+  "models": {
+    "TangentSVM": {
+      "validation": {
+        "accuracy": 0.045454545454545456,
+        "macro_f1": 0.04285714285714285
+      },
+      "test": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.06262183235867447
+      }
+    },
+    "TangentRidge": {
+      "validation": {
+        "accuracy": 0.09090909090909091,
+        "macro_f1": 0.07376283846872082
+      },
+      "test": {
+        "accuracy": 0.13636363636363635,
+        "macro_f1": 0.1323308270676692
+      }
+    },
+    "TangentLogistic": {
+      "validation": {
+        "accuracy": 0.09090909090909091,
+        "macro_f1": 0.07953216374269007
+      },
+      "test": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.07496596970281182
+      }
+    },
+    "LogCovSVM": {
+      "validation": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.06447368421052631
+      },
+      "test": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.06450617283950616
+      }
+    },
+    "ExtraTrees": {
+      "validation": {
+        "accuracy": 0.13636363636363635,
+        "macro_f1": 0.11153846153846153
+      },
+      "test": {
+        "accuracy": 0.06060606060606061,
+        "macro_f1": 0.05589472256138923
+      }
+    },
+    "BoostedTrees": {
+      "validation": {
+        "accuracy": 0.07575757575757576,
+        "macro_f1": 0.05947712418300653
+      },
+      "test": {
+        "accuracy": 0.06060606060606061,
+        "macro_f1": 0.05534084809447129
+      }
+    }
+  },
+  "test_groups": 66,
+  "context_seconds": 7.875,
+  "task": "one decision per complete overlap component using 12 windows; distinct from one-second classification",
+  "single_chain_inference_verified": true,
+  "evaluation": "reused overlap-component holdout; not subject-independent"
+}
