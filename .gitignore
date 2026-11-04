@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+EEGIS*/
+*.zip
+artifacts/cache.npz
+*.joblib
+*.pt
+*.log
+share/

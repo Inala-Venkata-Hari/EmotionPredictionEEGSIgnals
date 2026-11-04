@@ -1,0 +1,288 @@
+{
+  "seed": 42,
+  "evaluation": "overlap-component holdout; participants unidentified",
+  "split_sizes": {
+    "train": 2460,
+    "validation": 792,
+    "test": 792
+  },
+  "split_groups": {
+    "test": 66,
+    "train": 205,
+    "validation": 66
+  },
+  "feature_count": 238,
+  "best_model": "RandomForest",
+  "selection_criterion": "validation macro-F1",
+  "majority_baseline": {
+    "accuracy": 0.12121212121212122,
+    "macro_f1": 0.024024024024024024
+  },
+  "models": {
+    "SVM": {
+      "validation": {
+        "accuracy": 0.11742424242424243,
+        "macro_f1": 0.09859705399651511,
+        "parameters": {
+          "C": 0.1,
+          "gamma": "scale"
+        }
+      },
+      "test": {
+        "accuracy": 0.10479797979797979,
+        "macro_f1": 0.09391654933324725
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.16216216216216217,
+          "recall": 0.0625,
+          "f1-score": 0.09022556390977443,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.25,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.125,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.046875,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.06,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.12903225806451613,
+          "recall": 0.125,
+          "f1-score": 0.12698412698412698,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.14285714285714285,
+          "recall": 0.011904761904761904,
+          "f1-score": 0.02197802197802198,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.20833333333333334,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.09259259259259259,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.14953271028037382,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.2064516129032258,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.06097560975609756,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.060240963855421686,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.045714285714285714,
+          "recall": 0.09523809523809523,
+          "f1-score": 0.06177606177606178,
+          "support": 84.0
+        },
+        "accuracy": 0.10479797979797979,
+        "macro avg": {
+          "precision": 0.13283138912976797,
+          "recall": 0.10152116402116401,
+          "f1-score": 0.09391654933324725,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.13654893402549143,
+          "recall": 0.10479797979797979,
+          "f1-score": 0.09705157442108642,
+          "support": 792.0
+        }
+      }
+    },
+    "RandomForest": {
+      "validation": {
+        "accuracy": 0.13131313131313133,
+        "macro_f1": 0.1307696143134875,
+        "parameters": {
+          "n_estimators": 300,
+          "max_depth": null,
+          "min_samples_leaf": 1
+        }
+      },
+      "test": {
+        "accuracy": 0.08080808080808081,
+        "macro_f1": 0.07977425131727842
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.07894736842105263,
+          "recall": 0.03125,
+          "f1-score": 0.04477611940298507,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.08974358974358974,
+          "recall": 0.07291666666666667,
+          "f1-score": 0.08045977011494253,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.0958904109589041,
+          "recall": 0.09722222222222222,
+          "f1-score": 0.09655172413793103,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.08571428571428572,
+          "recall": 0.125,
+          "f1-score": 0.1016949152542373,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.07407407407407407,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.07272727272727272,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.05217391304347826,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.06030150753768844,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.14864864864864866,
+          "recall": 0.11458333333333333,
+          "f1-score": 0.12941176470588237,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.060240963855421686,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.059880239520958084,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.06363636363636363,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.07216494845360824,
+          "support": 84.0
+        },
+        "accuracy": 0.08080808080808081,
+        "macro avg": {
+          "precision": 0.08322995756620205,
+          "recall": 0.08074294532627867,
+          "f1-score": 0.07977425131727842,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.08410076982180913,
+          "recall": 0.08080808080808081,
+          "f1-score": 0.08008437391407056,
+          "support": 792.0
+        }
+      }
+    },
+    "EEGNet": {
+      "validation": {
+        "accuracy": 0.09848484848484848,
+        "macro_f1": 0.08946899290719419,
+        "parameters": {
+          "epoch": 14,
+          "learning_rate": 0.001,
+          "dropout": 0.35
+        }
+      },
+      "test": {
+        "accuracy": 0.11237373737373738,
+        "macro_f1": 0.10338109029028002
+      },
+      "classification_report": {
+        "rest": {
+          "precision": 0.17391304347826086,
+          "recall": 0.041666666666666664,
+          "f1-score": 0.06722689075630252,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.11510791366906475,
+          "recall": 0.16666666666666666,
+          "f1-score": 0.13617021276595745,
+          "support": 96.0
+        },
+        "Baño": {
+          "precision": 0.1297709923664122,
+          "recall": 0.2361111111111111,
+          "f1-score": 0.16748768472906403,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.11290322580645161,
+          "recall": 0.07291666666666667,
+          "f1-score": 0.08860759493670886,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.18181818181818182,
+          "recall": 0.2619047619047619,
+          "f1-score": 0.2146341463414634,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.06944444444444445,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.0641025641025641,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.1276595744680851,
+          "recall": 0.125,
+          "f1-score": 0.12631578947368421,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.058823529411764705,
+          "recall": 0.011904761904761904,
+          "f1-score": 0.019801980198019802,
+          "support": 84.0
+        },
+        "Sí": {
+          "precision": 0.03759398496240601,
+          "recall": 0.05952380952380952,
+          "f1-score": 0.04608294930875576,
+          "support": 84.0
+        },
+        "accuracy": 0.11237373737373738,
+        "macro avg": {
+          "precision": 0.11189276560278574,
+          "recall": 0.1150242504409171,
+          "f1-score": 0.10338109029028002,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11286449997016594,
+          "recall": 0.11237373737373738,
+          "f1-score": 0.1024824468407762,
+          "support": 792.0
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 146.6430594921112,
+  "versions": {
+    "numpy": "2.5.4",
+    "sklearn": "1.9.1",
+    "torch": "2.15.0+cpu"
+  },
+  "arguments": {
+    "data": "EEGIS - Electroencephalogram Imagined Speech dataset",
+    "out": "artifacts",
+    "subject_map": null,
+    "seed": 42,
+    "epochs": 80,
+    "patience": 15
+  }
+}

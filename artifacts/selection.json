@@ -1,0 +1,32 @@
+{
+  "criterion": "validation macro-F1",
+  "winner": "RandomForest",
+  "validation": {
+    "SVM": {
+      "accuracy": 0.11742424242424243,
+      "macro_f1": 0.09859705399651511,
+      "parameters": {
+        "C": 0.1,
+        "gamma": "scale"
+      }
+    },
+    "RandomForest": {
+      "accuracy": 0.13131313131313133,
+      "macro_f1": 0.1307696143134875,
+      "parameters": {
+        "n_estimators": 300,
+        "max_depth": null,
+        "min_samples_leaf": 1
+      }
+    },
+    "EEGNet": {
+      "accuracy": 0.09848484848484848,
+      "macro_f1": 0.08946899290719419,
+      "parameters": {
+        "epoch": 14,
+        "learning_rate": 0.001,
+        "dropout": 0.35
+      }
+    }
+  }
+}

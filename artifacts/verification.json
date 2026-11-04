@@ -1,0 +1,8 @@
+{
+  "checkpoints_match_predictions": true,
+  "metrics_recomputed": true,
+  "confusion_counts_valid": true,
+  "best_selection_valid": true,
+  "inference_matches_checkpoint": true,
+  "test_windows": 792
+}

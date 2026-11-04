@@ -1,0 +1,15 @@
+# Team setup and collaboration
+
+1. Clone the shared GitHub repository and create a branch for your change.
+2. Create a Python virtual environment. Install the direct dependencies from `requirements.txt`, or use `requirements-lock.txt` for the original Python 3.14 CPU environment. PyTorch CPU wheels may require `--extra-index-url https://download.pytorch.org/whl/cpu`.
+3. Download [EEGIS version 1](https://data.mendeley.com/datasets/73g4fw884c/1) and extract it in the project root with the directory name shown in the README. Data are CC BY 4.0; retain the source attribution.
+4. Run `.venv/bin/python -m unittest discover -s tests -v`.
+5. Run `.venv/bin/python -m eegis.train` to reproduce baseline checkpoints. Read the README before running the more expensive follow-up search.
+
+The repository includes source code, measured reports, split manifests, plots, and tests. Raw EEG files, dataset archives, virtual environments, training logs, and binary model checkpoints are excluded. Regenerate the checkpoints locally with the training scripts before running checkpoint verification or inference. The recorded results are real; low accuracy is a finding, not a placeholder.
+
+Keep `artifacts/manifest.csv` fixed when comparing methods. Keep overlap groups together and fit all learned transforms on training data only. Use training-group cross-validation and validation metrics for model selection. Do not choose models, split seeds, or hyperparameters by test performance. The original test set has already been reported; follow-up scores are exploratory. No verified participant identifiers are available, so do not claim subject-independent performance.
+
+Use a branch and pull request for changes. Describe the experiment, selection criterion, split, measured accuracy/macro-F1, and limitations. Commit small metrics and figures, and keep large model files out of Git. Never replace a measured result with an estimate or a target.
+
+To prepare the same shareable bundle locally, run `python scripts/package_share.py`. It writes `share/eegis-team-project.zip` and an upload manifest. The follow-up report directory is included only after its verification completes.

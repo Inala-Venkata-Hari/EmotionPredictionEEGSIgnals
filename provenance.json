@@ -1,0 +1,7 @@
+{
+  "dataset_url": "https://data.mendeley.com/datasets/73g4fw884c/1",
+  "archive": "EEGIS - Electroencephalogram Imagined Speech dataset.zip",
+  "archive_bytes": 377525903,
+  "archive_sha256": "fd070a2ee44f208c8fb28e1dc877ce8b30703ef5007491a547cbd359842875ac",
+  "python": "3.14.9 (main, Nov  2 2026, 12:51:31) [GCC 16.2.1 20260810]"
+}
