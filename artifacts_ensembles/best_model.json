@@ -1,0 +1,37 @@
+{
+  "model": "Majority",
+  "file": "best_model.joblib",
+  "input_transform": "raw_window_pipeline",
+  "channels": [
+    "AF3",
+    "F7",
+    "F3",
+    "FC5",
+    "T7",
+    "P7",
+    "O1",
+    "O2",
+    "P8",
+    "T8",
+    "FC6",
+    "F4",
+    "F8",
+    "AF4"
+  ],
+  "labels": [
+    "rest",
+    "Ayuda",
+    "Baño",
+    "Dolor",
+    "Gracias",
+    "Hambre",
+    "No",
+    "Sed",
+    "Sí"
+  ],
+  "sample_rate_hz": 128,
+  "input_shape": [
+    128,
+    14
+  ]
+}
