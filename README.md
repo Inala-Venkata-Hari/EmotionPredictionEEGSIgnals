@@ -202,3 +202,57 @@ Single-recording inference is available as `.venv/bin/python -m eegis.epochs --p
 The next useful step is to obtain verified participant/session/trial identifiers and establish an untouched evaluation set before making stronger generalization claims. Further tuning against the already reported holdout risks choosing noise. The existing nine-class task includes rest; reducing the class set would be a different experiment and must be labeled separately.
 
 Related primary research: the dataset authors’ [Feature Generation with Genetic Algorithms for Imagined Speech Electroencephalogram Signal Classification](https://doi.org/10.3390/eng6040075) discusses recognizing Sí and No and describes full-vocabulary EEGIS as future work. Compare published results only after matching the label set, channels, feature-selection procedure, and split protocol. This nine-class experiment is not a reproduction of that binary study.
+
+
+
+## Alternative one-second techniques
+
+This attempt returns to the original nine-class, one-second task. The original manifest, seed, and 2,460/792/792 training/validation/test windows are retained. All overlap groups remain intact in outer partitions and training CV folds.
+
+The search space is recorded before fitting in `artifacts_alternatives/plan.json`. New methods:
+
+- **Filter-bank CSP + SVM:** supervised one-vs-rest spatial filters are fitted independently for each of the five EEG bands. Each class covariance is compared against the mean of the other class covariances, with 10% isotropic shrinkage. The smallest/largest generalized eigenvectors provide one or two filter pairs. Log relative projected variances are ranked with training-only ANOVA feature selection (20 or 50 selected), standardized, and passed to an RBF SVM. Channel reference and C are chosen inside training group CV. CSP fitting, feature selection, and scaling never see a held-out fold.
+- **Haar features + SVM/LDA:** six-level orthonormal Haar decomposition gives seven coefficient groups. Log energy, relative energy, and normalized coefficient entropy yield 294 channel features. Features are averaged across four circular shifts to reduce phase sensitivity. Windows are independently detrended and bandpass filtered; common-average referencing is tested enabled/disabled. The classifiers use training-fitted scaling with RBF SVM or automatically shrunk LDA.
+- **Shallow power CNN:** temporal and spatial convolutions, batch normalization, squaring, full-window average pooling, a safe logarithm, dropout, and a nine-class head learn power-based features. Per-window channel normalization avoids learned population statistics. Training-only time shifts, channel gains, and noise provide augmentation. AdamW trains for a fixed 50 epochs (learning rate 0.0008, weight decay 0.01, batch size 64, dropout 0.5, class-weighted loss with label smoothing 0.05). Neither fold scores nor holdout scores select checkpoints.
+
+The experiment performs 78 training-only grouped CV fits, followed by a full-training refit for each family. The CNN has one prespecified configuration and completes the same fixed-duration procedure in each fold. Family selection uses mean training CV accuracy, with macro-F1 breaking family ties. All configurations and the overall winner are frozen before validation/test predictions are generated. The previously reported holdout is reused, so these results are exploratory rather than independent confirmation.
+
+| Technique | Training CV accuracy | Validation accuracy | Test accuracy | Test macro-F1 |
+|---|---:|---:|---:|---:|
+| FBCSP_SVM | 10.21% | 9.09% | 9.22% | 0.0885 |
+| HaarSVM | 10.49% | 10.48% | 11.74% | 0.1130 |
+| HaarLDA | 9.31% | 9.22% | 10.10% | 0.1008 |
+| ShallowPowerCNN | 9.63% | 8.71% | 9.60% | 0.0953 |
+| Majority | 12.68% | 12.12% | 12.12% | 0.0240 |
+
+The training-CV-selected winner is **Majority**: test accuracy **12.12%**, macro-F1 **0.0240**. The majority baseline scores 12.12% accuracy and 0.0240 macro-F1. The highest observed learned-model test accuracy belongs to HaarSVM (11.74%); test ranking does not change the frozen model selection.
+
+Do not treat a small gain on a reused holdout as a confirmed improvement. Participant identities remain unavailable, and scores do not establish generalization to unseen people. The best prior learned one-second test accuracy was 11.62%; compare against the majority baseline as well. The earlier intentionally invalid random-window control is not used for training selection or performance claims here.
+
+The run took 433.0 seconds on CPU. All five fitted models are saved locally, together with the selected checkpoint `artifacts_alternatives/best_model.joblib` and its input contract. The checkpoint contains a complete raw-window pipeline, so inference applies the matching CSP, wavelet, or neural processing. All 16 automated tests pass. Independent verification reloads every model, reproduces every validation and test prediction, recomputes metrics/confusion matrices, checks group disjointness, and verifies single-window inference.
+
+![Alternative method comparison](artifacts_alternatives/comparison.png)
+
+![Fixed-duration power-CNN training](artifacts_alternatives/cnn_training.png)
+
+Reproduce:
+
+```bash
+MPLCONFIGDIR=/tmp/eegis-matplotlib .venv/bin/python -u -m eegis.train_alternatives > alternatives.log 2>&1
+MPLCONFIGDIR=/tmp/eegis-matplotlib .venv/bin/python -m eegis.verify_alternatives
+.venv/bin/python -m eegis.report_alternatives
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m eegis.predict --artifacts artifacts_alternatives "EEGIS - Electroencephalogram Imagined Speech dataset/raw/class_0/0.csv"
+```
+
+Source: `eegis/alternatives.py`, `train_alternatives.py`, `verify_alternatives.py`, and `report_alternatives.py`. Measured CV results, fold membership, predictions, metrics, confusion matrices, training history, and verification are in `artifacts_alternatives/`. Dataset files, binary checkpoints, and logs remain local. Work is kept on `experiment/reconstructed-recordings`; main is not changed.
+
+No learned candidate beat the majority baseline in training CV. The selected constant predictor is a reference, not a usable speech decoder. No successful accuracy improvement is claimed.
+
+The power CNN reached 30.61% training accuracy on augmented batches, while its grouped CV accuracy was 9.63% and test accuracy was 9.60%. Better fitting of training recordings did not transfer to held-out recordings in this run.
+
+Paired recording-group bootstrap (5,000 resamples, descriptive uncertainty on the reused holdout):
+
+Against previous_TangentLogistic, the frozen winner differs by +0.51 percentage points, with a 95% interval of [-6.57, +8.71] points. These intervals are not used to select a model and do not establish subject-independent improvement.
+
+Against majority, the frozen winner differs by +0.00 percentage points, with a 95% interval of [+0.00, +0.00] points. These intervals are not used to select a model and do not establish subject-independent improvement.

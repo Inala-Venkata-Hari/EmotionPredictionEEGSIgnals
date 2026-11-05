@@ -1,0 +1,58 @@
+{
+  "seed": 42,
+  "selection": "highest training-only grouped three-fold CV accuracy; family macro-F1 tie-break",
+  "evaluation": "original nine-class one-second task; original split unchanged",
+  "holdout_policy": "freeze all hyperparameters and family winner before evaluating validation or test",
+  "test_reused": true,
+  "subject_independent": false,
+  "grids": {
+    "FBCSP_SVM": {
+      "csp__pairs": [
+        1,
+        2
+      ],
+      "csp__reference": [
+        "none",
+        "car"
+      ],
+      "select__k": [
+        20,
+        50
+      ],
+      "model__C": [
+        0.1,
+        1
+      ]
+    },
+    "HaarSVM": {
+      "wavelet__reference": [
+        "none",
+        "car"
+      ],
+      "model__C": [
+        0.1,
+        1,
+        10
+      ]
+    },
+    "HaarLDA": {
+      "wavelet__reference": [
+        "none",
+        "car"
+      ]
+    },
+    "ShallowPowerCNN": {},
+    "Majority": {}
+  },
+  "cnn": {
+    "batch_size": 64,
+    "epochs": 50,
+    "learning_rate": 0.0008,
+    "seed": 42
+  },
+  "new_techniques": [
+    "supervised one-vs-rest filter-bank CSP",
+    "cycle-spun Haar features",
+    "fixed-duration square/log power CNN"
+  ]
+}

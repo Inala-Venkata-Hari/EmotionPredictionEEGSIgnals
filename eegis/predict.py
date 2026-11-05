@@ -25,7 +25,9 @@ def predict(csv, artifacts='artifacts'):
         with torch.no_grad():label=int(net(torch.from_numpy(a)).argmax(1).item())
     else:
         model=joblib.load(root/meta['file'])
-        if meta.get('input_transform') == 'covariance_input':
+        if meta.get('input_transform') == 'raw_window_pipeline':
+            model_input=x
+        elif meta.get('input_transform') == 'covariance_input':
             from .improve import covariance_input
             model_input=covariance_input(x)
         else:
