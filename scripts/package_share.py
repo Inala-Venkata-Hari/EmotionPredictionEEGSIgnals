@@ -8,10 +8,10 @@ root=Path(__file__).resolve().parents[1]
 files=[root/name for name in ['.gitignore','README.md','CONTRIBUTING.md','requirements.txt','requirements-lock.txt','provenance.json'] if (root/name).is_file()]
 for directory in ['eegis','tests','scripts']:
     files.extend(sorted((root/directory).glob('*.py')))
-for directory in ['artifacts','artifacts_improved']:
+for directory in ['artifacts','artifacts_improved','artifacts_epochs','artifacts_diagnostics']:
     base=root/directory
     # Include a follow-up only once its final evaluation and verification have completed.
-    if directory=='artifacts_improved' and not (base/'verification.json').exists():
+    if directory!='artifacts' and not (base/'verification.json').exists():
         continue
     files.extend(sorted(p for p in base.glob('*') if p.suffix in {'.json','.csv','.png'}))
 files=sorted(set(files))

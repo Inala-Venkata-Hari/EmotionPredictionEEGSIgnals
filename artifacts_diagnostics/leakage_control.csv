@@ -1,0 +1,13 @@
+seed,protocol,target,training_windows,heldout_windows,shared_overlap_groups,heldout_windows_with_shared_samples,shared_samples_counting_window_occurrences,accuracy,macro_f1
+42,invalid_random_window,real_labels,1968,492,193,462,34896,0.2682926829268293,0.26559425739135545
+42,invalid_random_window,shuffled_group_labels,1968,492,193,462,34896,0.27235772357723576,0.27069903971874576
+42,valid_overlap_group,real_labels,1968,492,0,0,0,0.10772357723577236,0.10846926647809658
+42,valid_overlap_group,shuffled_group_labels,1968,492,0,0,0,0.09349593495934959,0.0877554287788206
+43,invalid_random_window,real_labels,1968,492,194,459,35424,0.2845528455284553,0.2841118183723893
+43,invalid_random_window,shuffled_group_labels,1968,492,194,459,35424,0.2601626016260163,0.25310360580838753
+43,valid_overlap_group,real_labels,1968,492,0,0,0,0.06504065040650407,0.0661487610364816
+43,valid_overlap_group,shuffled_group_labels,1968,492,0,0,0,0.09959349593495935,0.10443138320018414
+44,invalid_random_window,real_labels,1968,492,195,465,35568,0.29471544715447157,0.29711875730089
+44,invalid_random_window,shuffled_group_labels,1968,492,195,465,35568,0.28252032520325204,0.2673651192431557
+44,valid_overlap_group,real_labels,1968,492,0,0,0,0.11178861788617886,0.11133454079621963
+44,valid_overlap_group,shuffled_group_labels,1968,492,0,0,0,0.06097560975609756,0.06297056746061765

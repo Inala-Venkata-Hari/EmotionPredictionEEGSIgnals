@@ -1,0 +1,9 @@
+{
+  "cross_split_shared_samples": 0,
+  "cross_split_overlap_groups": 0,
+  "recordings": 337,
+  "samples_each": 1008,
+  "all_original_windows_reproduced_exactly": true,
+  "unique_recordings": 337,
+  "source_manifest_sha256": "02fde675f487027fa35cb5ee740856655a7655f913da8e5adee389d5aa9dc601"
+}

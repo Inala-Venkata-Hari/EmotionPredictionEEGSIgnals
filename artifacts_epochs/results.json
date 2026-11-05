@@ -1,0 +1,149 @@
+{
+  "best_model": "Majority",
+  "training_candidates": {
+    "SpectralLDA": {
+      "training_cv_accuracy": 0.07821824381926683,
+      "training_cv_macro_f1": 0.07534066317176052,
+      "parameters": {
+        "features__reference": "none"
+      }
+    },
+    "SpectralSVM": {
+      "training_cv_accuracy": 0.1219806763285024,
+      "training_cv_macro_f1": 0.03099365599365599,
+      "parameters": {
+        "features__reference": "none",
+        "model__C": 0.1,
+        "model__kernel": "rbf",
+        "pca__n_components": 20
+      }
+    },
+    "SpectralLogistic": {
+      "training_cv_accuracy": 0.09761295822676896,
+      "training_cv_macro_f1": 0.09249855949918091,
+      "parameters": {
+        "features__reference": "car",
+        "model__C": 0.01
+      }
+    },
+    "SpatialLDA": {
+      "training_cv_accuracy": 0.09768400113668656,
+      "training_cv_macro_f1": 0.09181594215133947,
+      "parameters": {
+        "features__reference": "none",
+        "tangent__normalize": true
+      }
+    },
+    "Majority": {
+      "training_cv_accuracy": 0.12688263711281614,
+      "training_cv_macro_f1": 0.02501202501202501,
+      "parameters": {}
+    }
+  },
+  "scores": {
+    "validation": {
+      "selected": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      },
+      "majority": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      }
+    },
+    "test": {
+      "selected": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      },
+      "majority": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      }
+    }
+  },
+  "label_shuffle_cv_accuracies": [],
+  "label_shuffle_note": "Fixed selected hyperparameters; descriptive only, not a formal significance test",
+  "test_report": {
+    "rest": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "Ayuda": {
+      "precision": 0.12121212121212122,
+      "recall": 1.0,
+      "f1-score": 0.21621621621621623,
+      "support": 8.0
+    },
+    "Baño": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "Dolor": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "Gracias": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 7.0
+    },
+    "Hambre": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 7.0
+    },
+    "No": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "Sed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 7.0
+    },
+    "Sí": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 7.0
+    },
+    "accuracy": 0.12121212121212122,
+    "macro avg": {
+      "precision": 0.01346801346801347,
+      "recall": 0.1111111111111111,
+      "f1-score": 0.024024024024024024,
+      "support": 66.0
+    },
+    "weighted avg": {
+      "precision": 0.014692378328741965,
+      "recall": 0.12121212121212122,
+      "f1-score": 0.02620802620802621,
+      "support": 66.0
+    }
+  },
+  "split_sizes": {
+    "train": 205,
+    "validation": 66,
+    "test": 66
+  },
+  "arguments": {
+    "data": "EEGIS - Electroencephalogram Imagined Speech dataset",
+    "manifest": "artifacts/manifest.csv",
+    "out": "artifacts_epochs",
+    "predict": null
+  },
+  "elapsed_seconds": 69.43513321876526,
+  "limitations": "Reused holdout; recording-level task; participants unidentified; not subject-independent"
+}

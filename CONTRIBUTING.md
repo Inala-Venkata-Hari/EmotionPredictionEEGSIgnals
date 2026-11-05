@@ -13,3 +13,16 @@ Keep `artifacts/manifest.csv` fixed when comparing methods. Keep overlap groups 
 Use a branch and pull request for changes. Describe the experiment, selection criterion, split, measured accuracy/macro-F1, and limitations. Commit small metrics and figures, and keep large model files out of Git. Never replace a measured result with an estimate or a target.
 
 To prepare the same shareable bundle locally, run `python scripts/package_share.py`. It writes `share/eegis-team-project.zip` and an upload manifest. The follow-up report directory is included only after its verification completes.
+
+## Reconstructed-recording research branch
+
+The `experiment/reconstructed-recordings` branch contains continuous-recording reconstruction, recording-level classification, and training-only leakage controls. To inspect it:
+
+```bash
+git fetch origin
+git switch --track origin/experiment/reconstructed-recordings
+```
+
+Read the final README section before comparing scores. Recording-level decisions use 7.875 seconds of EEG. Random-window control scores are deliberately invalid diagnostic results; never present them as speech-classification test accuracy. The controls also test arbitrary labels assigned to complete recording groups. Their predictions and exact overlap counts are audited separately.
+
+Reproduce the branch experiments with `eegis.epochs`, `eegis.verify_epochs`, `eegis.diagnose_leakage`, `eegis.verify_diagnostics`, and `eegis.report_epochs`. The original split and benchmark files remain unchanged. New small reports are in `artifacts_epochs/` and `artifacts_diagnostics/`; checkpoints are regenerated locally.
