@@ -162,7 +162,7 @@ def fitness_predictions(features, labels, train, validation, genome, classifier,
 
 def genetic_search(features, labels, train, validation, classifier='knn', generations=50,
                    population_size=100, seed=42, device='auto', mutation_rate=None,
-                   progress=None, history_path=None):
+                   progress=None, history_path=None, evaluator=None):
     if generations < 1 or population_size < 2 or population_size % 2:
         raise ValueError('Need positive generations and an even population size >=2')
     if len(set(train) & set(validation)):
@@ -187,8 +187,9 @@ def genetic_search(features, labels, train, validation, classifier='knn', genera
     def evaluate(genome):
         key = genome.tobytes()
         if key not in cache:
-            cache[key] = fitness_predictions(features, labels, train, validation, genome,
-                                             classifier, seed, device)
+            cache[key] = (fitness_predictions(features, labels, train, validation, genome,
+                                              classifier, seed, device) if evaluator is None
+                          else evaluator(features, labels, train, validation, genome, classifier, seed, device))
         return cache[key]
     started = time.time()
     for generation in range(generations+1):

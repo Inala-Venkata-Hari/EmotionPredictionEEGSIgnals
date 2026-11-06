@@ -312,3 +312,16 @@ A separate **Sí/No-only** implementation follows the paper's 214-feature-per-ch
 | paper-window | knn | 87.16% | 62.16% | 0.6215 | 51.89% |
 
 The grouped score is exploratory. The window-split score knowingly shares EEG samples across partitions and is **diagnostic only**. Neither establishes subject-independent performance. The paper's 96% is not claimed as a reproduced result. The executed device is cpu; CUDA-capable code is provided, but GPU execution could not be tested on this host.
+
+
+## Author-source 96% reproduction attempt
+
+Recovered the author's Signalytica functions and exact NumPy/SciPy pins in an isolated Python 3.10 environment. Ran three 100-generation, 100-genome searches and eight fixed published-mask checks. The previous 50-generation implementation is retained. See [the full reproduction report](artifacts_author_reproduction/README.md).
+
+| Protocol | Fitness accuracy | Test accuracy | Test macro-F1 | Majority test accuracy |
+|---|---:|---:|---:|---:|
+| grouped | 82.64% | 46.67% | 0.4664 | 53.33% |
+| grouped / within-window scaling | 82.64% | 51.67% | 0.5159 | 53.33% |
+| paper-window | 93.24% | 61.62% | 0.6162 | 51.89% |
+
+The paper's 96% was not reproduced on the grouped test. Window-split scores are leakage diagnostics; fitness is not independent test accuracy. Original test reuse and missing subject IDs remain limitations. Unpublished author settings prevent a complete 1:1 claim.

@@ -5,3 +5,4 @@ pandas
 matplotlib
 joblib
 torch
+antropy==0.1.9

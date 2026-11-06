@@ -128,6 +128,8 @@ def plot_run(out, results, histories):
     import matplotlib.pyplot as plt
     from sklearn.metrics import ConfusionMatrixDisplay
     title = 'Window split: overlap diagnostic only' if results['diagnostic_only'] else 'Grouped binary evaluation'
+    if results.get('normalization')=='within-window':
+        title += ': within-example scaling'
     fig, ax = plt.subplots(figsize=(8, 5))
     for name, history in histories.items():
         h = pd.DataFrame(history)

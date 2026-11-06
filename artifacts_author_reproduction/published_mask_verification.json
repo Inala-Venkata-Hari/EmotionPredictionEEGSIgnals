@@ -1,0 +1,8 @@
+{
+  "cases_verified": 8,
+  "all_predictions_and_metrics_recomputed": true,
+  "all_scaler_fit_rows_checked": true,
+  "all_masks_match_published_genome": true,
+  "sklearn_prediction_parity": true,
+  "all_cases_diagnostic_only": true
+}
