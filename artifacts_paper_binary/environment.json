@@ -1,0 +1,18 @@
+{
+  "python": "3.14.9",
+  "libraries": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.15.0+cpu",
+    "joblib": "1.6.0"
+  },
+  "torch_cuda_build": null,
+  "cuda_available": false,
+  "cuda_device": null,
+  "resolved_device": "cpu",
+  "cuda_executed": false,
+  "preprocessing_device": "cpu",
+  "non_knn_classifier_device": "cpu"
+}

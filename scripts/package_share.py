@@ -8,12 +8,18 @@ root=Path(__file__).resolve().parents[1]
 files=[root/name for name in ['.gitignore','README.md','CONTRIBUTING.md','requirements.txt','requirements-lock.txt','provenance.json'] if (root/name).is_file()]
 for directory in ['eegis','tests','scripts']:
     files.extend(sorted((root/directory).glob('*.py')))
-for directory in ['artifacts','artifacts_improved','artifacts_epochs','artifacts_diagnostics','artifacts_alternatives','artifacts_ensembles']:
+for directory in ['artifacts','artifacts_improved','artifacts_epochs','artifacts_diagnostics','artifacts_alternatives','artifacts_ensembles','artifacts_paper_binary']:
     base=root/directory
     # Include a follow-up only once its final evaluation and verification have completed.
     if directory!='artifacts' and not (base/'verification.json').exists():
         continue
     files.extend(sorted(p for p in base.glob('*') if p.suffix in {'.json','.csv','.png'}))
+    if (base/'README.md').exists():
+        files.append(base/'README.md')
+    if directory == 'artifacts_paper_binary':
+        diagnostic = base/'paper_window_diagnostic'
+        if (diagnostic/'verification.json').exists():
+            files.extend(sorted(p for p in diagnostic.glob('*') if p.suffix in {'.json','.csv','.png'}))
 files=sorted(set(files))
 share=root/'share';share.mkdir(exist_ok=True)
 archive=share/'eegis-team-project.zip'

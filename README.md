@@ -300,3 +300,15 @@ MPLCONFIGDIR=/tmp/eegis-matplotlib .venv/bin/python -m eegis.verify_ensemble
 The selected checkpoint (`artifacts_ensembles/best_model.joblib`) bundles full base learners, calibrators, stacker, prior, and frozen method. Its `predict_all` method exposes all four comparisons. Binary checkpoints and the derived OOF score matrix are kept local; regenerate training outputs before running verification after cloning. Small reports, group assignments, OOF labels/predictions, confusion matrices, and plots are shareable. Work stays on `experiment/reconstructed-recordings`; main is unchanged.
 
 None of the three learned ensembles beats the majority reference in nested training CV. No successful accuracy improvement is claimed.
+
+
+## Binary paper-method reproduction
+
+A separate **Sí/No-only** implementation follows the paper's 214-feature-per-channel and 228-bit genetic-search design. The test uses **50 GA generations**, not neural epochs. See [the detailed binary report](artifacts_paper_binary/README.md) for assumptions, hardware, commands, and leakage audits.
+
+| Protocol | Model | Fitness validation accuracy | Test accuracy | Test macro-F1 | Majority test accuracy |
+|---|---|---:|---:|---:|---:|
+| grouped | knn | 78.47% | 43.33% | 0.4322 | 53.33% |
+| paper-window | knn | 87.16% | 62.16% | 0.6215 | 51.89% |
+
+The grouped score is exploratory. The window-split score knowingly shares EEG samples across partitions and is **diagnostic only**. Neither establishes subject-independent performance. The paper's 96% is not claimed as a reproduced result. The executed device is cpu; CUDA-capable code is provided, but GPU execution could not be tested on this host.

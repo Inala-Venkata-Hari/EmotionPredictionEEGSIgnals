@@ -1,0 +1,11 @@
+{
+  "winner": "knn",
+  "criterion": "highest search-validation accuracy; stable classifier/genome/k order resolves ties",
+  "fitness": {
+    "knn": {
+      "accuracy": 0.7847222222222222,
+      "k": 13
+    }
+  },
+  "frozen_before_test_evaluation": true
+}
