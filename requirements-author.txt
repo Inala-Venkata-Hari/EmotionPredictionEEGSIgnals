@@ -1,0 +1,15 @@
+# Isolated author-source reproduction. Use Python 3.10, not the main Python 3.14 venv.
+# NumPy/SciPy are exactly pinned by Signalytica 0.1.20.
+# Other releases are compatible, explicit paper-era choices; the paper does not pin them.
+numpy==1.21.6
+scipy==1.7.3
+signalytica==0.1.20
+antropy==0.1.9
+numba==0.57.1
+llvmlite==0.40.1
+scikit-learn==1.6.1
+pandas==1.5.3
+matplotlib==3.7.5
+joblib==1.4.2
+threadpoolctl==3.5.0
+torch==2.2.2+cpu

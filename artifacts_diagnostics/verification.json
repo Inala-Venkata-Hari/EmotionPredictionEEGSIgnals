@@ -1,0 +1,7 @@
+{
+  "original_validation_and_test_excluded": true,
+  "all_twelve_control_predictions_audited": true,
+  "metrics_and_summary_recomputed": true,
+  "sample_overlap_counts_recomputed": true,
+  "scores_are_diagnostic_only": true
+}

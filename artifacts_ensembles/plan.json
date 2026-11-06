@@ -1,0 +1,43 @@
+{
+  "members": [
+    "FBCSP_SVM",
+    "HaarSVM",
+    "HaarLDA",
+    "ShallowPowerCNN"
+  ],
+  "methods": [
+    "HardVote",
+    "CalibratedSoftVote",
+    "Stacking",
+    "Majority"
+  ],
+  "outer_folds": 3,
+  "inner_folds": 2,
+  "seed": 42,
+  "calibration_and_stacker_C": 0.1,
+  "selection": "nested training-group CV accuracy; macro-F1 tie-break",
+  "base_parameters": {
+    "FBCSP_SVM": {
+      "csp__pairs": 2,
+      "csp__reference": "car",
+      "model__C": 0.1,
+      "select__k": 20
+    },
+    "HaarSVM": {
+      "model__C": 10,
+      "wavelet__reference": "car"
+    },
+    "HaarLDA": {
+      "wavelet__reference": "none"
+    },
+    "ShallowPowerCNN": {}
+  },
+  "base_checkpoint_sha256": {
+    "FBCSP_SVM": "e4157b8b04d47cfb5a51bb4a045340f57f657daa81e193a69d18d1e1c4b21e7f",
+    "HaarSVM": "32564cb974ad636245b034e7adac4dfb986515c9cd0955d540c90969917a5d2d",
+    "HaarLDA": "aa577d0aa8485b565b1d428d0156306b8b7a61180111ef2a91df13655f07819a",
+    "ShallowPowerCNN": "b43775150fde0cdbdec1ecd2ee9cb96ed7f2c6ea72f05188f8ac2dec56bb9a08"
+  },
+  "limitations": "Base hyperparameters were previously selected on the training set. Nested fits prevent meta-feature leakage, but CV remains a selection estimate. Previously reported holdout reused; participant identifiers unavailable.",
+  "test_used_for_selection": false
+}

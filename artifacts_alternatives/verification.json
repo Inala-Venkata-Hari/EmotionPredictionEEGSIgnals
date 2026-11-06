@@ -1,0 +1,10 @@
+{
+  "original_split_unchanged": true,
+  "training_cv_groups_disjoint": true,
+  "shared_samples_across_outer_partitions": 0,
+  "all_model_predictions_reproduced": true,
+  "metrics_recomputed": true,
+  "confusion_matrices_verified": true,
+  "training_cv_selection_verified": true,
+  "single_window_inference_verified": true
+}

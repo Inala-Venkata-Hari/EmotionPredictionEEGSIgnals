@@ -1,0 +1,56 @@
+{
+  "paper_doi": "10.3390/eng6040075",
+  "shape": [
+    14,
+    214
+  ],
+  "sample_rate_hz": 128,
+  "band_limits_hz": [
+    [
+      0.5,
+      4
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      13,
+      30
+    ],
+    [
+      30,
+      40
+    ]
+  ],
+  "filter": "4th-order Butterworth SOS, forward-backward scipy.sosfiltfilt; no raw detrending/reference",
+  "raw_omissions": "relative_band_power and band_amplitude: assumed, not explicitly identified in paper",
+  "spectrum": "scipy.signal.periodogram, boxcar, nfft=128, detrend=False, density scaling",
+  "entropy": "natural logarithms, no normalization; permutation order=3 delay=1",
+  "approximate_entropy": "Chebyshev distance; m=2; r=0.2*within-series population std; self matches included",
+  "recurrence": "m=3 delay=1; Chebyshev distance <=0.2*within-series std; main diagonal excluded; min line=2",
+  "dfa_hurst_scales": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "dfa": "integrated demeaned signal; disjoint blocks; linear detrending; log-log slope",
+  "hurst": "mean within-block rescaled range; sample standard deviation; log-log slope",
+  "svd": "delay embedding order=3 delay=1; entropy of normalized singular values",
+  "higuchi": "k=1..8; positive absolute curve increments; normalization (N-1)/(floor((N-1-m)/k)*k**2); negative log-length slope",
+  "higuchi_departure": "Appendix A22-A24 omit absolute increments/sign detail; conventional positive dimension is used",
+  "hjorth_activity": "mean square, as printed in A14 (not centered variance)",
+  "petrosian": "printed A43: 1+log2(N_sign_changes/(N-N_sign_changes)); not conventional Petrosian formula",
+  "katz": "printed A45: log10(curve_length/abs(last-first))/log10(N); not conventional Katz formula",
+  "band_amplitude": "printed A49-A50: mean hypot(signal, time_derivative); derivative=np.gradient(signal)*128; not Hilbert envelope",
+  "relative_power": "band periodogram sum divided by raw periodogram sum for the same example/channel",
+  "edge_frequency": "first discrete frequency with cumulative PSD >= specified fraction",
+  "numerical_policy": "epsilon=1e-12 in undefined ratios/logs; constant series has zero shape/complexity/entropy; nonfinite output raises",
+  "mode": "exact sample mode; smallest value breaks ties, as scipy.stats.mode",
+  "fitted_population_statistics": false
+}

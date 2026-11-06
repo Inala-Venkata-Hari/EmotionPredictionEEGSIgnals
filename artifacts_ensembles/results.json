@@ -1,0 +1,354 @@
+{
+  "best_model": "Majority",
+  "models": {
+    "HardVote": {
+      "training_cv": {
+        "accuracy": 0.09878048780487805,
+        "macro_f1": 0.0930811779218496
+      },
+      "validation": {
+        "accuracy": 0.08964646464646464,
+        "macro_f1": 0.08919700421797182
+      },
+      "test": {
+        "accuracy": 0.10732323232323232,
+        "macro_f1": 0.09961606322717163
+      },
+      "predicted_classes": 9,
+      "classification_report": {
+        "rest": {
+          "precision": 0.07692307692307693,
+          "recall": 0.03125,
+          "f1-score": 0.044444444444444446,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.07971014492753623,
+          "recall": 0.11458333333333333,
+          "f1-score": 0.09401709401709402,
+          "support": 96.0
+        },
+        "Ba\u00f1o": {
+          "precision": 0.06060606060606061,
+          "recall": 0.027777777777777776,
+          "f1-score": 0.0380952380952381,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.10404624277456648,
+          "recall": 0.1875,
+          "f1-score": 0.13382899628252787,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.2,
+          "recall": 0.21428571428571427,
+          "f1-score": 0.20689655172413793,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.06862745098039216,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.07526881720430108,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.1702127659574468,
+          "recall": 0.16666666666666666,
+          "f1-score": 0.16842105263157894,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.1044776119402985,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.09271523178807947,
+          "support": 84.0
+        },
+        "S\u00ed": {
+          "precision": 0.05357142857142857,
+          "recall": 0.03571428571428571,
+          "f1-score": 0.04285714285714286,
+          "support": 84.0
+        },
+        "accuracy": 0.10732323232323232,
+        "macro avg": {
+          "precision": 0.10201942029786737,
+          "recall": 0.10493827160493828,
+          "f1-score": 0.09961606322717163,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.10299257043548803,
+          "recall": 0.10732323232323232,
+          "f1-score": 0.1011883080695791,
+          "support": 792.0
+        }
+      }
+    },
+    "CalibratedSoftVote": {
+      "training_cv": {
+        "accuracy": 0.11869918699186992,
+        "macro_f1": 0.11109553476341603
+      },
+      "validation": {
+        "accuracy": 0.10353535353535354,
+        "macro_f1": 0.08936298739288363
+      },
+      "test": {
+        "accuracy": 0.10858585858585859,
+        "macro_f1": 0.08813170378263824
+      },
+      "predicted_classes": 9,
+      "classification_report": {
+        "rest": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.12727272727272726,
+          "recall": 0.2916666666666667,
+          "f1-score": 0.17721518987341772,
+          "support": 96.0
+        },
+        "Ba\u00f1o": {
+          "precision": 0.2727272727272727,
+          "recall": 0.041666666666666664,
+          "f1-score": 0.07228915662650602,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.125,
+          "recall": 0.125,
+          "f1-score": 0.125,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.12650602409638553,
+          "recall": 0.25,
+          "f1-score": 0.168,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.030303030303030304,
+          "recall": 0.023809523809523808,
+          "f1-score": 0.02666666666666667,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.08860759493670886,
+          "recall": 0.07291666666666667,
+          "f1-score": 0.08,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.08,
+          "recall": 0.023809523809523808,
+          "f1-score": 0.03669724770642202,
+          "support": 84.0
+        },
+        "S\u00ed": {
+          "precision": 0.09090909090909091,
+          "recall": 0.13095238095238096,
+          "f1-score": 0.1073170731707317,
+          "support": 84.0
+        },
+        "accuracy": 0.10858585858585859,
+        "macro avg": {
+          "precision": 0.10459174891613505,
+          "recall": 0.1066468253968254,
+          "f1-score": 0.08813170378263824,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.10087020047270716,
+          "recall": 0.10858585858585859,
+          "f1-score": 0.08882156623565335,
+          "support": 792.0
+        }
+      }
+    },
+    "Stacking": {
+      "training_cv": {
+        "accuracy": 0.12154471544715448,
+        "macro_f1": 0.11762145124453788
+      },
+      "validation": {
+        "accuracy": 0.1148989898989899,
+        "macro_f1": 0.10824495143288951
+      },
+      "test": {
+        "accuracy": 0.10858585858585859,
+        "macro_f1": 0.10462121096392053
+      },
+      "predicted_classes": 9,
+      "classification_report": {
+        "rest": {
+          "precision": 0.15,
+          "recall": 0.0625,
+          "f1-score": 0.08823529411764706,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.13157894736842105,
+          "recall": 0.20833333333333334,
+          "f1-score": 0.16129032258064516,
+          "support": 96.0
+        },
+        "Ba\u00f1o": {
+          "precision": 0.16279069767441862,
+          "recall": 0.09722222222222222,
+          "f1-score": 0.12173913043478261,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.18181818181818182,
+          "recall": 0.08333333333333333,
+          "f1-score": 0.11428571428571428,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.10948905109489052,
+          "recall": 0.17857142857142858,
+          "f1-score": 0.13574660633484162,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.04285714285714286,
+          "recall": 0.03571428571428571,
+          "f1-score": 0.03896103896103896,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.09574468085106383,
+          "recall": 0.09375,
+          "f1-score": 0.09473684210526316,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.11538461538461539,
+          "recall": 0.07142857142857142,
+          "f1-score": 0.08823529411764706,
+          "support": 84.0
+        },
+        "S\u00ed": {
+          "precision": 0.075,
+          "recall": 0.14285714285714285,
+          "f1-score": 0.09836065573770492,
+          "support": 84.0
+        },
+        "accuracy": 0.10858585858585859,
+        "macro avg": {
+          "precision": 0.11829592411652601,
+          "recall": 0.10819003527336861,
+          "f1-score": 0.10462121096392053,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.11892415654097555,
+          "recall": 0.10858585858585859,
+          "f1-score": 0.1049688686875982,
+          "support": 792.0
+        }
+      }
+    },
+    "Majority": {
+      "training_cv": {
+        "accuracy": 0.12682926829268293,
+        "macro_f1": 0.025012025012025013
+      },
+      "validation": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      },
+      "test": {
+        "accuracy": 0.12121212121212122,
+        "macro_f1": 0.024024024024024024
+      },
+      "predicted_classes": 1,
+      "classification_report": {
+        "rest": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "Ayuda": {
+          "precision": 0.12121212121212122,
+          "recall": 1.0,
+          "f1-score": 0.21621621621621623,
+          "support": 96.0
+        },
+        "Ba\u00f1o": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 72.0
+        },
+        "Dolor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "Gracias": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 84.0
+        },
+        "Hambre": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 84.0
+        },
+        "No": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "Sed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 84.0
+        },
+        "S\u00ed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 84.0
+        },
+        "accuracy": 0.12121212121212122,
+        "macro avg": {
+          "precision": 0.01346801346801347,
+          "recall": 0.1111111111111111,
+          "f1-score": 0.024024024024024024,
+          "support": 792.0
+        },
+        "weighted avg": {
+          "precision": 0.014692378328741965,
+          "recall": 0.12121212121212122,
+          "f1-score": 0.02620802620802621,
+          "support": 792.0
+        }
+      }
+    }
+  },
+  "arguments": {
+    "data": "EEGIS - Electroencephalogram Imagined Speech dataset",
+    "base": "artifacts_alternatives",
+    "out": "artifacts_ensembles"
+  },
+  "elapsed_seconds": 283.6325092315674,
+  "base_models": [
+    "FBCSP_SVM",
+    "HaarSVM",
+    "HaarLDA",
+    "ShallowPowerCNN"
+  ],
+  "limitations": "Base hyperparameters were previously selected on the training set. Nested fits prevent meta-feature leakage, but CV remains a selection estimate. Previously reported holdout reused; participant identifiers unavailable."
+}

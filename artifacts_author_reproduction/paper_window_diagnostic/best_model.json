@@ -1,0 +1,14 @@
+{
+  "model": "AuthorSourceGA_kNN",
+  "file": "best_model.joblib",
+  "input": "six supplied layers, shape (N,6,128,14); use AuthorBinaryModel.predict_layers",
+  "class_ids": [
+    6,
+    8
+  ],
+  "class_names": [
+    "No",
+    "Sí"
+  ],
+  "diagnostic_only": true
+}

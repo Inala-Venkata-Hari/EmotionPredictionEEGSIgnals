@@ -1,0 +1,25 @@
+{
+  "comparisons": [
+    {
+      "reference": "previous_TangentLogistic",
+      "selected_model": "Majority",
+      "accuracy_difference_percentage_points": 0.5050505050505051,
+      "paired_group_bootstrap_95_percent_interval_pp": [
+        -6.565656565656567,
+        8.712121212121213
+      ]
+    },
+    {
+      "reference": "majority",
+      "selected_model": "Majority",
+      "accuracy_difference_percentage_points": 0.0,
+      "paired_group_bootstrap_95_percent_interval_pp": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "groups": 66,
+  "replicates": 5000,
+  "limitations": "Descriptive uncertainty on a reused holdout; no model selection by these differences; not participant-independent evidence"
+}

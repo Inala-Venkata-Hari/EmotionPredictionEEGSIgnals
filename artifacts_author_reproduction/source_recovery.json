@@ -1,0 +1,38 @@
+{
+  "paper_doi": "10.3390/eng6040075",
+  "paper_library_spelling": "signalityca",
+  "resolved_library": "signalytica",
+  "identity_evidence": [
+    "https://ri-ng.uaq.mx/bitstream/123456789/12198/1/IGMAC-320366.pdf",
+    "https://pypi.org/project/signalytica/",
+    "https://github.com/Edgar-La/signalytica"
+  ],
+  "signalytica_requirements": [
+    "scipy (==1.7.3)",
+    "numpy (==1.21.6)"
+  ],
+  "exact_author_dependency_pins_recovered": {
+    "numpy": "1.21.6",
+    "scipy": "1.7.3"
+  },
+  "full_training_code_located": false,
+  "author_public_repositories_inspected": 28,
+  "authors_contacted": false,
+  "test_seed_search": false,
+  "normalization_cases_selected_by_test_score": false,
+  "published_genome_bits": 228,
+  "published_selected_channels": 8,
+  "published_feature_positions": 103,
+  "published_flattened_values": 824,
+  "published_k_conflict": [
+    7,
+    9
+  ],
+  "published_split_conflict": [
+    "80/20",
+    "20/80"
+  ],
+  "source_pdf_sha256": "74cce3e74179ec51a44ee816e8c0786495770404dc90746995a08b4ec52c8a22",
+  "fixed_threadpool_limit": 4,
+  "tie_handling_note": "sklearn class predictions can change with thread count for exact distance ties; thread count fixed for reproducibility, not selected by accuracy"
+}

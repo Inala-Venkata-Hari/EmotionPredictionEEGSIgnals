@@ -1,0 +1,55 @@
+{
+  "selection": "highest mean training-only three-fold CV accuracy; macro-F1 tie-break",
+  "seed": 42,
+  "test_policy": "evaluate only the frozen winner and the training-majority baseline",
+  "evaluation_unit": "one reconstructed 7.875-second overlap component",
+  "subject_independent": false,
+  "test_previously_reported": true,
+  "candidates": {
+    "SpectralLDA": {
+      "features__reference": [
+        "none",
+        "car"
+      ]
+    },
+    "SpectralSVM": {
+      "features__reference": [
+        "none",
+        "car"
+      ],
+      "pca__n_components": [
+        20,
+        50
+      ],
+      "model__C": [
+        0.1,
+        1,
+        10
+      ],
+      "model__kernel": [
+        "rbf"
+      ]
+    },
+    "SpectralLogistic": {
+      "features__reference": [
+        "none",
+        "car"
+      ],
+      "model__C": [
+        0.01,
+        0.1,
+        1
+      ]
+    },
+    "SpatialLDA": {
+      "features__reference": [
+        "none",
+        "car"
+      ],
+      "tangent__normalize": [
+        false,
+        true
+      ]
+    }
+  }
+}

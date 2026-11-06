@@ -1,0 +1,11 @@
+{
+  "paper_target": 0.96,
+  "grouped_test_accuracies": [
+    0.4666666666666667,
+    0.5166666666666667
+  ],
+  "reproduced_on_any_grouped_test": false,
+  "no_protocol_selected_by_test_score": true,
+  "all_fixed_mask_cases_reported": 8,
+  "exact_original_experiment_still_not_identifiable": true
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "protocol": "grouped",
+    "diagnostic_only": false,
+    "selected_model": "knn",
+    "models": {
+      "knn": {
+        "test": {
+          "accuracy": 0.43333333333333335,
+          "macro_f1": 0.4322117763483424
+        },
+        "fitness_validation_accuracy": 0.7847222222222222,
+        "k": 13,
+        "channels": [
+          "F7",
+          "FC5",
+          "T7",
+          "P7",
+          "O1",
+          "T8"
+        ],
+        "feature_types": 87,
+        "flattened_features": 522,
+        "sklearn_knn_prediction_parity": true,
+        "report": {
+          "No": {
+            "precision": 0.4673913043478261,
+            "recall": 0.4479166666666667,
+            "f1-score": 0.4574468085106383,
+            "support": 96.0
+          },
+          "Sí": {
+            "precision": 0.3977272727272727,
+            "recall": 0.4166666666666667,
+            "f1-score": 0.4069767441860465,
+            "support": 84.0
+          },
+          "accuracy": 0.43333333333333335,
+          "macro avg": {
+            "precision": 0.43255928853754944,
+            "recall": 0.4322916666666667,
+            "f1-score": 0.4322117763483424,
+            "support": 180.0
+          },
+          "weighted avg": {
+            "precision": 0.43488142292490123,
+            "recall": 0.43333333333333335,
+            "f1-score": 0.4338941118258288,
+            "support": 180.0
+          }
+        }
+      }
+    },
+    "majority": {
+      "accuracy": 0.5333333333333333,
+      "macro_f1": 0.34782608695652173
+    },
+    "overlap_audit": {
+      "outer": {
+        "shared_overlap_groups": 0,
+        "heldout_windows_with_shared_samples": 0,
+        "shared_samples_counting_window_occurrences": 0
+      },
+      "inner": {
+        "shared_overlap_groups": 0,
+        "heldout_windows_with_shared_samples": 0,
+        "shared_samples_counting_window_occurrences": 0
+      }
+    }
+  },
+  {
+    "protocol": "paper-window",
+    "diagnostic_only": true,
+    "selected_model": "knn",
+    "models": {
+      "knn": {
+        "test": {
+          "accuracy": 0.6216216216216216,
+          "macro_f1": 0.6215220949263502
+        },
+        "fitness_validation_accuracy": 0.8716216216216216,
+        "k": 5,
+        "channels": [
+          "F3",
+          "FC5",
+          "P7",
+          "O2",
+          "P8",
+          "T8",
+          "FC6",
+          "F8"
+        ],
+        "feature_types": 105,
+        "flattened_features": 840,
+        "sklearn_knn_prediction_parity": true,
+        "report": {
+          "No": {
+            "precision": 0.6413043478260869,
+            "recall": 0.6145833333333334,
+            "f1-score": 0.6276595744680851,
+            "support": 96.0
+          },
+          "Sí": {
+            "precision": 0.6021505376344086,
+            "recall": 0.6292134831460674,
+            "f1-score": 0.6153846153846154,
+            "support": 89.0
+          },
+          "accuracy": 0.6216216216216216,
+          "macro avg": {
+            "precision": 0.6217274427302477,
+            "recall": 0.6218984082397003,
+            "f1-score": 0.6215220949263502,
+            "support": 185.0
+          },
+          "weighted avg": {
+            "precision": 0.6224681904906308,
+            "recall": 0.6216216216216216,
+            "f1-score": 0.6217543238819835,
+            "support": 185.0
+          }
+        }
+      }
+    },
+    "majority": {
+      "accuracy": 0.518918918918919,
+      "macro_f1": 0.3416370106761566
+    },
+    "overlap_audit": {
+      "outer": {
+        "shared_overlap_groups": 71,
+        "heldout_windows_with_shared_samples": 165,
+        "shared_samples_counting_window_occurrences": 12240
+      },
+      "inner": {
+        "shared_overlap_groups": 66,
+        "heldout_windows_with_shared_samples": 125,
+        "shared_samples_counting_window_occurrences": 8400
+      }
+    }
+  }
+]

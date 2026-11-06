@@ -1,0 +1,41 @@
+{
+  "winner": "Majority",
+  "criterion": "highest training-only grouped three-fold CV accuracy; family macro-F1 tie-break",
+  "candidates": {
+    "FBCSP_SVM": {
+      "training_cv_accuracy": 0.10207682106659088,
+      "training_cv_macro_f1": 0.08407761741190327,
+      "parameters": {
+        "csp__pairs": 2,
+        "csp__reference": "car",
+        "model__C": 0.1,
+        "select__k": 20
+      }
+    },
+    "HaarSVM": {
+      "training_cv_accuracy": 0.1049007767358151,
+      "training_cv_macro_f1": 0.10133577930625437,
+      "parameters": {
+        "model__C": 10,
+        "wavelet__reference": "car"
+      }
+    },
+    "HaarLDA": {
+      "training_cv_accuracy": 0.09310765368949513,
+      "training_cv_macro_f1": 0.09066066187832378,
+      "parameters": {
+        "wavelet__reference": "none"
+      }
+    },
+    "ShallowPowerCNN": {
+      "training_cv_accuracy": 0.09634010609074546,
+      "training_cv_macro_f1": 0.09573756423534496,
+      "parameters": {}
+    },
+    "Majority": {
+      "training_cv_accuracy": 0.12681159420289856,
+      "training_cv_macro_f1": 0.025002288160182896,
+      "parameters": {}
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "target": "Attempt the paper's 96% by recovering source behavior, not tuning test labels",
+  "generations": 100,
+  "population": 100,
+  "seed": 42,
+  "protocols": [
+    "grouped",
+    "paper-window"
+  ],
+  "fitness_objective": "fixed inner validation accuracy",
+  "fixed_mask_cases": [
+    "grouped k7/k9",
+    "window80/20 k7/k9",
+    "window20/80 k7/k9",
+    "window80/20 global-scaler diagnostic k7/k9"
+  ],
+  "selection_policy": "Never choose seeds, masks, normalization, split ratios, k, or protocols using outer test scores",
+  "fitness_not_test_accuracy": true,
+  "no_target_based_early_stopping": true,
+  "no_author_contact_or_messages_sent": true,
+  "libraries": {
+    "signalytica": "0.1.20",
+    "antropy": "0.1.9",
+    "numpy": "1.21.6",
+    "scipy": "1.7.3",
+    "scikit-learn": "1.6.1",
+    "torch": "2.2.2+cpu",
+    "numba": "0.57.1"
+  },
+  "device": "cpu",
+  "cuda_executed": false,
+  "additional_predeclared_variant": {
+    "name": "within_window_grouped",
+    "reason": "Paper standardizes an (M,N) electrode-feature matrix before flattening; columns may mean within-example electrodes rather than samples. Exact normalization axis is unspecified.",
+    "decision_basis": "Method-text ambiguity, declared before observing either full 100-generation outer-test score",
+    "generations": 100,
+    "population": 100,
+    "seed": 42,
+    "outer_split": "unchanged original grouped test",
+    "fitness": "unchanged group-separated inner validation; test labels excluded"
+  },
+  "within_window_tie_correction": {
+    "reason": "Failed prediction parity: 9/180 disagreements between Torch stable ties and sklearn defaults for a two-electrode mask.",
+    "action": "Discard incomplete run from results; exact independent sklearn prediction per k and exact sklearn within-example scaling; rerun all 100 generations.",
+    "decision_not_based_on_test_accuracy": true
+  },
+  "threadpool_limit": 4,
+  "equal_distance_thread_count_not_tuned_by_accuracy": true
+}

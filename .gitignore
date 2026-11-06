@@ -8,3 +8,6 @@ artifacts/cache.npz
 *.pt
 *.log
 share/
+*.npz
+.venv-paper/
+.python-paper/

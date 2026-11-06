@@ -1,0 +1,59 @@
+{
+  "protocol": "grouped",
+  "diagnostic_only": false,
+  "selected_model": "knn",
+  "normalization": "within-window",
+  "models": {
+    "knn": {
+      "test": {
+        "accuracy": 0.5166666666666667,
+        "macro_f1": 0.5159345924391827
+      },
+      "fitness_validation_accuracy": 0.8263888888888888,
+      "k": 7,
+      "channels": [
+        "FC5",
+        "T7",
+        "O1"
+      ],
+      "feature_types": 100,
+      "flattened_features": 300,
+      "report": {
+        "No": {
+          "precision": 0.5494505494505495,
+          "recall": 0.5208333333333334,
+          "f1-score": 0.5347593582887701,
+          "support": 96.0
+        },
+        "Sí": {
+          "precision": 0.48314606741573035,
+          "recall": 0.5119047619047619,
+          "f1-score": 0.49710982658959535,
+          "support": 84.0
+        },
+        "accuracy": 0.5166666666666667,
+        "macro avg": {
+          "precision": 0.51629830843314,
+          "recall": 0.5163690476190477,
+          "f1-score": 0.5159345924391827,
+          "support": 180.0
+        },
+        "weighted avg": {
+          "precision": 0.5185084578343006,
+          "recall": 0.5166666666666667,
+          "f1-score": 0.5171895768291552,
+          "support": 180.0
+        }
+      }
+    }
+  },
+  "majority": {
+    "accuracy": 0.5333333333333333,
+    "macro_f1": 0.34782608695652173
+  },
+  "elapsed_seconds": 952.0781967639923,
+  "target_accuracy": 0.96,
+  "target_met_on_grouped_test": false,
+  "subject_independent": false,
+  "test_previously_reported": true
+}

@@ -1,0 +1,52 @@
+{
+  "purpose": "Demonstrate overlap leakage and recording fingerprints, not estimate test-set classification accuracy",
+  "original_partition_used": "train only",
+  "original_validation_and_test_used": false,
+  "model": "RandomForest: 300 trees, balanced class weights, original 238 features",
+  "group_shuffle": "Permutation of the 205 training component labels, consistent across all windows of each component",
+  "summary": [
+    {
+      "protocol": "invalid_random_window",
+      "target": "real_labels",
+      "runs": 3,
+      "accuracy_mean": 0.28252032520325204,
+      "accuracy_std": 0.013328127081914635,
+      "macro_f1_mean": 0.28227494435487827,
+      "macro_f1_std": 0.015842320008563022
+    },
+    {
+      "protocol": "invalid_random_window",
+      "target": "shuffled_group_labels",
+      "runs": 3,
+      "accuracy_mean": 0.271680216802168,
+      "accuracy_std": 0.011194249079849792,
+      "macro_f1_mean": 0.26372258825676304,
+      "macro_f1_std": 0.009346167536138506
+    },
+    {
+      "protocol": "valid_overlap_group",
+      "target": "real_labels",
+      "runs": 3,
+      "accuracy_mean": 0.0948509485094851,
+      "accuracy_std": 0.02589636159026611,
+      "macro_f1_mean": 0.09531752277026594,
+      "macro_f1_std": 0.025301481083945167
+    },
+    {
+      "protocol": "valid_overlap_group",
+      "target": "shuffled_group_labels",
+      "runs": 3,
+      "accuracy_mean": 0.08468834688346882,
+      "accuracy_std": 0.020760912528515668,
+      "macro_f1_mean": 0.08505245981320746,
+      "macro_f1_std": 0.02086215092864041
+    }
+  ],
+  "elapsed_seconds": 60.81922125816345,
+  "arguments": {
+    "data": "EEGIS - Electroencephalogram Imagined Speech dataset",
+    "manifest": "artifacts/manifest.csv",
+    "out": "artifacts_diagnostics"
+  },
+  "subject_independent": false
+}
