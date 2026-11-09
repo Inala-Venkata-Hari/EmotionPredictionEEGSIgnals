@@ -1,0 +1,25 @@
+{
+  "verified_utc": "2026-11-09T07:33:18.923417+00:00",
+  "source_commit": "dad3fed74871077d86fb9d6be652d19b022cbf04",
+  "share_file_count": 412,
+  "archive_sha256": "8166eb4b8f8950ceb78d42121e726b2159c084fb276a23fe99bf289f63505963",
+  "clean_copy_used_excluded_feature_caches": false,
+  "raw_data_supplied_locally": true,
+  "used_existing_pinned_environment": true,
+  "new_venv_install_or_network_download_tested": false,
+  "feature_array_sha256": "9692f2ae3f8c3513ae97bc881f36e74ae25619a8bc5dba1d7553dc0c05f10add",
+  "feature_array_matches_recorded_run_exactly": true,
+  "cache_key_and_numeric_feature_source_hashes_match": true,
+  "feature_audit_source_difference": "paper_protocol.py contains the already documented CLI-only serialization repair; all four numeric feature dependencies match",
+  "generations": 1,
+  "population": 4,
+  "results_predictions_selected_genomes_match_recorded_integration_check": true,
+  "paper_and_grouped_independent_verification_passed": true,
+  "root_checkpoint_predictions_and_metadata_verified": true,
+  "full_100_generation_results": false,
+  "commands": [
+    "eegis.paper_protocol --prepare-only --out artifacts_paper_method/features_replay",
+    "eegis.train_knn100 --feature-run artifacts_paper_method/features_replay --out artifacts_paper_method/knn100_replay --generations 1 --population 4",
+    "eegis.verify_knn100 --artifacts artifacts_paper_method/knn100_replay"
+  ]
+}
