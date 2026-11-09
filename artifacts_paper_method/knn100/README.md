@@ -12,7 +12,7 @@ The grouped checkpoint is predeclared as the primary saved model. Final scores d
 
 The median-handling optimization retains the original batched sklearn transform bit for bit. Reference sklearn predicts independently for each of the seven candidate k values. Optimization parity and sampled live checkpoint audits are recorded separately; they do not replace final verification.
 
-Use the pinned Python 3.10 environment from requirements-author-lock.txt. Regenerate the verified feature bank first using the smoke command in ../smoke/README.md, with --out artifacts_paper_method/smoke, then run:
+Use the pinned Python 3.10 environment from requirements-author-lock.txt. The commands below resume this local study with its existing feature bank. A fresh clone must first prepare a new bank and use a new output directory, as shown afterward:
 
 ```bash
 NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -u -m eegis.train_knn100
@@ -21,3 +21,12 @@ NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 
 ```
 
 Training resumes a local checkpoint only when code, data and configuration hashes match. Binary caches and search checkpoints are not included in GitHub. The other nine classifiers have only the earlier small functional-test results. Exact unpublished author settings remain unavailable; no unqualified numerical 1:1 claim is made.
+
+For a fresh clone, regenerate excluded binary files without overwriting the shared measurements:
+
+```bash
+NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -m eegis.paper_protocol --prepare-only --out artifacts_paper_method/features_replay
+NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -u -m eegis.train_knn100 --feature-run artifacts_paper_method/features_replay --out artifacts_paper_method/knn100_replay
+NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -m eegis.verify_knn100 --artifacts artifacts_paper_method/knn100_replay
+.venv-paper/bin/python -m eegis.report_knn100 --artifacts artifacts_paper_method/knn100_replay
+```

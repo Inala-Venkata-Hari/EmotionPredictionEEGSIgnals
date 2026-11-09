@@ -34,6 +34,7 @@
   "both_masks_frozen_before_final_predictions": true,
   "root_model_is_predeclared_grouped_model": true,
   "generations": 1,
+  "root_model_predictions_and_metadata_verified": true,
   "population": 4,
   "subject_independent": false,
   "grouped_result_exploratory": true,

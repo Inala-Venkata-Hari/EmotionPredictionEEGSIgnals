@@ -154,9 +154,18 @@ def verify(root,data,manifest):
         print(mode+': independent verification passed',flush=True)
     root_model=joblib.load(root/'best_model.joblib')
     np.testing.assert_array_equal(root_model.genome,frozen['selections']['grouped']['genome'])
+    grouped_predictions=pd.read_csv(root/'grouped'/'predictions.csv').prediction.to_numpy()
+    np.testing.assert_array_equal(root_model.predict_features(bank[split['grouped']['final_evaluation']]),
+                                  grouped_predictions)
+    np.testing.assert_array_equal(root_model.predict(x[split['grouped']['final_evaluation'][:1]]),
+                                  grouped_predictions[:1])
+    metadata=json.loads((root/'best_model.json').read_text())
+    assert metadata['mode']=='grouped' and metadata['class_ids']==[6,8]
+    assert metadata['exploratory'] is True and metadata['subject_independent'] is False
     dump(root/'verification.json',{'modes':receipt,'all_source_and_feature_hashes_match':True,
         'four_raw_examples_rebuilt':True,'both_masks_frozen_before_final_predictions':True,
         'root_model_is_predeclared_grouped_model':True,'generations':plan['generations'],
+        'root_model_predictions_and_metadata_verified':True,
         'population':plan['population'],'subject_independent':False,
         'grouped_result_exploratory':True,'paper_result_diagnostic_only':True})
 
