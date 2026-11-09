@@ -40,6 +40,12 @@ def report(root):
     for row in table.to_dict('records'):
         lines.append(f'| {row["mode"]} | {row["fitness_accuracy"]:.2%} | {row["accuracy"]:.2%} | '
             f'{row["macro_f1"]:.4f} | {row["majority_accuracy"]:.2%} | {row["k"]} | {row["evaluation_windows"]} |')
+    grouped=table.set_index('mode').loc['grouped']
+    if grouped.accuracy <= grouped.majority_accuracy:
+        lines+=['', 'The grouped result does not beat its training-majority baseline. '
+                'This run does not demonstrate useful classification performance or an accuracy improvement.']
+    if table.accuracy.max() < .96:
+        lines+=['', 'The paper\'s reported 96% accuracy was not reproduced.']
     lines+=['','The paper-style result is a **diagnostic**, because EEG overlap and reuse of selection labels '
         'prevent independent validation. The grouped result keeps entire overlap components together and excludes '
         'the original 180-window holdout from its entire genetic search. That holdout was reported in earlier work, '

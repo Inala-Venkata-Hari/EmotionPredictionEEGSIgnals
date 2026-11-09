@@ -1,0 +1,13 @@
+{
+  "raw_csv": "EEGIS - Electroencephalogram Imagined Speech dataset/raw/class_6/0.csv",
+  "stored_prediction": 8,
+  "cli_output": {
+    "class_id": 8,
+    "label": "Sí",
+    "model_file": "artifacts_paper_method/knn100/best_model.joblib",
+    "protocol": "grouped",
+    "exploratory": true,
+    "subject_independent": false
+  },
+  "matches_saved_prediction": true
+}

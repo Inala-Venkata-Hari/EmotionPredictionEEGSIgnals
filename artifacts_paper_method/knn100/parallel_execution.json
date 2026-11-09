@@ -1,0 +1,8 @@
+{
+  "numerical_settings_unchanged": true,
+  "study_sha256": "85f6a990c167afe6a9499ed82d791f9f666e58c2502c278af37524a540c7cd5c",
+  "worker_source_sha256": "3e768189bf0c367e1a4fd0e9b66381de35f43e06ad1fbf3431d7e6b230b19416",
+  "final_predictions_generated_by_worker": false,
+  "threads_per_search": 4,
+  "completed_checkpoint_promotion": "atomic; never overwrite a primary-owned directory"
+}

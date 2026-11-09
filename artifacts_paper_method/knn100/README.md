@@ -1,18 +1,27 @@
-# Binary kNN study: training in progress
+# Full kNN searches: paper-style and grouped evaluation
 
-Status snapshot: 2026-11-09T07:11:41.033882+00:00. This note is a publication snapshot, not live training telemetry. See publication_status.json for completed generation counts.
+Each search used population **100** and **100 generations**, plus initialization. All values were measured and independently verified.
 
-Two searches use population 100 and 100 genetic generations, plus initialization. Both use the fixed printed-equation feature bank for 480 No and 444 Sí windows. Both masks must be frozen before either final evaluation. **Final accuracy and macro-F1 are not yet available.** Adaptive GA fitness must not be reported as final test accuracy.
+| Protocol | Search fitness | Final accuracy | Macro-F1 | Majority accuracy | k | Evaluation windows |
+|---|---:|---:|---:|---:|---:|---:|
+| paper | 92.97% | 55.95% | 0.5585 | 51.89% | 9 | 740 |
+| grouped | 84.72% | 45.00% | 0.4500 | 53.33% | 7 | 180 |
 
-The paper-style protocol searches with 739 fitting and 185 fitness windows, then fits the frozen mask on 184 windows and evaluates 740 with k=9. EEG overlap and selection-label reuse make that score diagnostic.
+The grouped result does not beat its training-majority baseline. This run does not demonstrate useful classification performance or an accuracy improvement.
 
-The exploratory grouped protocol excludes the original 180-window holdout from the whole GA. It uses 600 fitting and 144 fitness windows internally, then fits 744 windows before the final evaluation. Entire exact-overlap components stay together. This holdout was reported previously, and participant identifiers are unavailable; the result will not establish subject-independent accuracy.
+The paper's reported 96% accuracy was not reproduced.
 
-The grouped checkpoint is predeclared as the primary saved model. Final scores do not select the protocol, seed, normalization, k or feature mask. See study_plan.json for frozen source/data hashes and split indices.
+The paper-style result is a **diagnostic**, because EEG overlap and reuse of selection labels prevent independent validation. The grouped result keeps entire overlap components together and excludes the original 180-window holdout from its entire genetic search. That holdout was reported in earlier work, so this remains **exploratory**. Participant identifiers are unavailable; neither result establishes subject independence.
 
-The median-handling optimization retains the original batched sklearn transform bit for bit. Reference sklearn predicts independently for each of the seven candidate k values. Optimization parity and sampled live checkpoint audits are recorded separately; they do not replace final verification.
+Both searches and their settings were declared before training. Both masks were frozen before any final predictions. The paper experiment uses the later 184/740 split and k=9; the grouped experiment uses 600 fitting and 144 fitness windows inside 744 training windows and the frozen 180-window test, with k selected on inner fitness. Seeds, normalization and feature settings were not chosen using final accuracy.
 
-Use the pinned Python 3.10 environment from requirements-author-lock.txt. The commands below resume this local study with its existing feature bank. A fresh clone must first prepare a new bank and use a new output directory, as shown afterward:
+The feature bank is unchanged from the printed-equation functional run. It includes the disclosed conventional Higuchi alternative and within-example handling of 131 undefined raw Katz values. Exact author settings remain unavailable, and no unqualified numerical 1:1 claim is made.
+
+The optimization only avoids computing medians for nonmissing features. Transforms were checked bit for bit against the reference implementation; actual sklearn prediction is still called independently for every k. The GA follows the same population/RNG transitions and writes an atomic checkpoint after every generation.
+
+The primary saved checkpoint is the predeclared grouped model. The paper diagnostic score never determines which checkpoint is saved as the primary model.
+
+## Replay
 
 ```bash
 NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -u -m eegis.train_knn100
@@ -20,9 +29,9 @@ NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 
 .venv-paper/bin/python -m eegis.report_knn100
 ```
 
-Training resumes a local checkpoint only when code, data and configuration hashes match. Binary caches and search checkpoints are not included in GitHub. The other nine classifiers have only the earlier small functional-test results. Exact unpublished author settings remain unavailable; no unqualified numerical 1:1 claim is made.
+The training command above resumes local generation checkpoints only when code/data/configuration hashes match. Use a different --out for a different experiment. Only kNN received full searches here; the other nine classifiers retain the earlier functional-test results.
 
-For a fresh clone, regenerate excluded binary files without overwriting the shared measurements:
+A fresh clone excludes binary feature caches and model checkpoints. After installing the pinned Python 3.10 environment and extracting the dataset, rebuild features and train into new output directories:
 
 ```bash
 NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -m eegis.paper_protocol --prepare-only --out artifacts_paper_method/features_replay
@@ -30,3 +39,19 @@ NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 
 NUMBA_CACHE_DIR=/tmp/eegis-numba-paper OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 .venv-paper/bin/python -m eegis.verify_knn100 --artifacts artifacts_paper_method/knn100_replay
 .venv-paper/bin/python -m eegis.report_knn100 --artifacts artifacts_paper_method/knn100_replay
 ```
+
+The output path is included in the frozen plan; a replay creates its own plan without altering the measured original.
+
+Single raw-window prediction with the locally regenerated grouped model:
+
+```bash
+.venv-paper/bin/python -m eegis.predict_knn100 --artifacts artifacts_paper_method/knn100_replay "EEGIS - Electroencephalogram Imagined Speech dataset/raw/class_6/0.csv"
+```
+
+![GA histories](training_graph.png)
+
+![Separate protocol comparisons](comparison.png)
+
+![Grouped confusion](grouped/confusion.png)
+
+![Paper diagnostic confusion](paper/confusion.png)

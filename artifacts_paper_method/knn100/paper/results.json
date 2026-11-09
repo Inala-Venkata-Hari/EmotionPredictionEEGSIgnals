@@ -1,0 +1,51 @@
+{
+  "mode": "paper",
+  "fitness_accuracy": 0.9297297297297298,
+  "final": {
+    "accuracy": 0.5594594594594594,
+    "macro_f1": 0.5585274977856833
+  },
+  "majority": {
+    "accuracy": 0.518918918918919,
+    "macro_f1": 0.3416370106761566
+  },
+  "k": 9,
+  "selected_search_k": 5,
+  "channels": 13,
+  "feature_types": 101,
+  "flattened_values": 1313,
+  "diagnostic_only": true,
+  "exploratory": true,
+  "subject_independent": false,
+  "final_fit_windows": 184,
+  "evaluation_windows": 740,
+  "test_previously_reported": true,
+  "all_parameters_frozen_before_evaluation": true,
+  "report": {
+    "No": {
+      "precision": 0.5900621118012422,
+      "recall": 0.4947916666666667,
+      "f1-score": 0.5382436260623229,
+      "support": 384.0
+    },
+    "Sí": {
+      "precision": 0.5358851674641149,
+      "recall": 0.6292134831460674,
+      "f1-score": 0.5788113695090439,
+      "support": 356.0
+    },
+    "accuracy": 0.5594594594594594,
+    "macro avg": {
+      "precision": 0.5629736396326785,
+      "recall": 0.5620025749063671,
+      "f1-score": 0.5585274977856833,
+      "support": 740.0
+    },
+    "weighted avg": {
+      "precision": 0.5639986088498674,
+      "recall": 0.5594594594594594,
+      "f1-score": 0.5577599999366913,
+      "support": 740.0
+    }
+  }
+}

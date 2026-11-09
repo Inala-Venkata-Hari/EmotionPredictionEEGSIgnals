@@ -2,7 +2,7 @@
 
 This project trains an RBF SVM, Random Forest, and compact EEGNet-style CNN on the locally supplied EEGIS version 1 archive. Experiments use real CSV signals; results are recorded by the training program.
 
-Latest work: [printed-paper implementation and verified ten-classifier functional test](artifacts_paper_method/README.md), [methodology recheck](artifacts_author_recheck/README.md), and [adversarial code review](artifacts_adversarial_review/README.md). The [100-generation binary kNN study](artifacts_paper_method/knn100/README.md) is in progress; its adaptive GA fitness is not final test accuracy. These changes are shared on `experiment/reconstructed-recordings` through [draft PR #1](https://github.com/Inala-Venkata-Hari/EmotionPredictionEEGSIgnals/pull/1).
+Latest work: the [verified 100-generation binary kNN study](artifacts_paper_method/knn100/README.md) is complete. Grouped exploratory accuracy is **45.00%** (macro-F1 **0.4500**), below its **53.33%** majority baseline. The paper-style diagnostic is **55.95%** (macro-F1 **0.5585**). The paper's reported 96% was not reproduced. See the [printed-paper implementation and ten-classifier functional test](artifacts_paper_method/README.md), [methodology recheck](artifacts_author_recheck/README.md), and [adversarial code review](artifacts_adversarial_review/README.md). These changes are shared on `experiment/reconstructed-recordings` through [draft PR #1](https://github.com/Inala-Venkata-Hari/EmotionPredictionEEGSIgnals/pull/1).
 
 ## Dataset and provenance
 
