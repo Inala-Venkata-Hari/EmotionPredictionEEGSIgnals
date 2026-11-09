@@ -78,7 +78,10 @@ def main():
       'It selects AF3, T7, O1, O2, P8, T8, F4, F8 and 103 feature positions. '
       'These yield 824 flattened values. Table 2 row activations agree with the feature order. '
       'Its bottom theta/alpha counts appear swapped: the genome yields 16/14, not 14/16.', '',
-      'The paper states both k=7 and k=9, and both 80/20 and 20/80 split proportions. '
+      'The paper reports k=7 for the GA output and k=9 for a separate validation experiment; '
+      '9 is absent from its stated k-search candidates. '
+      'Section 2.1 describes an initial 80/20 split and Section 3 a separate 20/80 validation experiment. '
+      'These can be different stages, so the two ratios alone are not a contradiction. '
       'The following fixed checks report all declared cases, with seed 42. '
       'The global-scaler case tests a possible interpretation of standardization before splitting. '
       '**These are diagnostics:** the published feature mask may already have used all released data. '
@@ -133,10 +136,16 @@ def main():
       'The original AntroPy/sklearn versions, feature assembly details and GA rates remain unspecified. '
       'Thus, source behavior and two dependency pins are recovered, but a complete numerical 1:1 claim is not justified. '
       'No authors or teammates were messaged.', '',
-      '## Reproduce','', '```bash',
+      '## Reproduce','',
+      'The historical grouped and window-search results used Torch kNN on CPU. '
+      'The command below explicitly selects that legacy backend. '
+      'The default CPU backend has since been corrected to scikit-learn defaults; '
+      'use a different output directory for a new experiment. '
+      'See the [adversarial review](../artifacts_adversarial_review/README.md) for the bug, scope of verification, and cache fixes.',
+      '', '```bash',
       'python3.10 -m venv .venv-paper',
       '.venv-paper/bin/python -m pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-author.txt',
-      'NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper .venv-paper/bin/python -u -m eegis.author_reproduction --generations 100 --population 100 > author_reproduction.log 2>&1',
+      'NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper .venv-paper/bin/python -u -m eegis.author_reproduction --generations 100 --population 100 --device cpu --knn-backend legacy-torch > author_reproduction.log 2>&1',
       'NUMBA_CACHE_DIR=/tmp/eegis-numba-paper MPLCONFIGDIR=/tmp/eegis-matplotlib-paper .venv-paper/bin/python -u -m eegis.author_window_scaling --generations 100 --population 100 > author_window_scaling.log 2>&1',
       'NUMBA_CACHE_DIR=/tmp/eegis-numba-paper .venv-paper/bin/python -m eegis.verify_author_reproduction',
       '.venv-paper/bin/python -m eegis.report_author_reproduction',

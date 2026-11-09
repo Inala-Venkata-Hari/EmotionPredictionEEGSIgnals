@@ -1,0 +1,9 @@
+{
+  "cached_features_hash_verified": true,
+  "binary_counts_and_group_count_verified": true,
+  "existing_test_predictions_and_metrics_recomputed_with_sklearn": 3,
+  "selected_genome_k_fitness_scores_recomputed_with_sklearn": 21,
+  "within_window_scaler_matches_independent_sklearn_bitwise": true,
+  "new_fixed_diagnostic_cases": 6,
+  "winner_selected": false
+}

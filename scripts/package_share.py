@@ -21,6 +21,34 @@ for directory in ['artifacts','artifacts_improved','artifacts_epochs','artifacts
             diagnostic = base/child
             if (diagnostic/'verification.json').exists():
                 files.extend(sorted(p for p in diagnostic.glob('*') if p.suffix in {'.json','.csv','.png'}))
+
+# Completed methodology reviews and the verified printed-equation smoke run.
+for directory in ['artifacts_author_recheck', 'artifacts_adversarial_review']:
+    base = root / directory
+    if (base / 'verification.json').exists():
+        files.extend(sorted(p for p in base.iterdir()
+                            if p.is_file() and p.suffix in {'.md', '.json', '.csv', '.png'}))
+
+paper = root / 'artifacts_paper_method'
+if (paper / 'README.md').exists():
+    files.append(paper / 'README.md')
+for name in ['smoke', 'knn100_check', 'knn100']:
+    base = paper / name
+    if (base / 'verification.json').exists():
+        files.extend(sorted(p for p in base.rglob('*') if p.is_file()
+                            and p.suffix in {'.md', '.json', '.csv', '.png', '.py'}
+                            and 'original_checkpoints' not in p.parts))
+    elif name == 'knn100':
+        # Only immutable plans and an explicit status snapshot while training.
+        # Mutable partial histories and adaptive fitness are not final results.
+        for filename in ['study_plan.json', 'publication_status.json', 'README.md',
+                         'optimization_parity.json', 'live_reference_audit.json']:
+            if (base / filename).is_file():
+                files.append(base / filename)
+literal = paper / 'literal_check'
+if (literal / 'strict_literal_status.json').exists():
+    files.extend(sorted(p for p in literal.iterdir()
+                        if p.is_file() and p.suffix in {'.json', '.csv'}))
 files=sorted(set(files))
 share=root/'share';share.mkdir(exist_ok=True)
 archive=share/'eegis-team-project.zip'

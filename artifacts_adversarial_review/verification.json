@@ -1,0 +1,11 @@
+{
+  "published_genome_matches_pdf_bitwise": true,
+  "historical_feature_array_hash_matches": true,
+  "feature_comparisons": 2568,
+  "historical_candidate_genomes_sampled": 189,
+  "sparse_prediction_sets_with_counterexamples": 19,
+  "cache_band_setting_counterexample_reproduced_and_new_guard_detects_change": true,
+  "stage_two_diagnostic_cases": 6,
+  "ga_rerun": false,
+  "winner_selected": false
+}

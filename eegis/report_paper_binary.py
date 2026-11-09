@@ -35,7 +35,9 @@ def main():
         'kNN searches k in {5, 7, 13, 15, 17, 21, 37} for every candidate. '
         'Rank-weighted mating, uniform bit crossover, bit-flip mutation at 1/228, and top-100 survival implement the search.', '',
         '**This is a transparent implementation of the stated method, not a claim of an exact numerical 1:1 reproduction.** '
-        'The paper gives conflicting split ratios and kNN settings. It omits several feature and GA parameters. '
+        'The paper describes an initial 80/20 split and a separate 20/80 validation experiment; '
+        'these can be different stages. It reports k=7 for the GA output and k=9 for validation, '
+        'although 9 is absent from its stated search candidates. It omits several feature and GA parameters. '
         '`feature_spec.json`, `feature_columns.csv`, and `plan.json` record the assumptions. '
         'The printed Hjorth activity, Petrosian, Katz, and band-amplitude definitions are retained. '
         'Higuchi uses conventional absolute curve increments and a positive dimension because the printed equations lack necessary details. '

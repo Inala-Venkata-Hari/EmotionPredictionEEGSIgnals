@@ -1,0 +1,87 @@
+{
+  "source_rows": [
+    0,
+    479,
+    480,
+    923
+  ],
+  "channels": [
+    0,
+    6,
+    13
+  ],
+  "comparisons": 2568,
+  "available_public_function_comparisons": 1992,
+  "restored_antropy_call_comparisons_not_independent_author_reference": 576,
+  "maximum_absolute_error": 7.771561172376096e-16,
+  "mismatches": [],
+  "per_window_butterworth_vs_supplied_layers": [
+    {
+      "band": [
+        0.5,
+        4
+      ],
+      "max_absolute_error": 7.105427357601002e-15,
+      "rms_error": 4.762821828690013e-16
+    },
+    {
+      "band": [
+        4,
+        8
+      ],
+      "max_absolute_error": 1.7763568394002505e-15,
+      "rms_error": 1.6214288861670938e-16
+    },
+    {
+      "band": [
+        8,
+        13
+      ],
+      "max_absolute_error": 3.552713678800501e-15,
+      "rms_error": 3.6346675633415165e-16
+    },
+    {
+      "band": [
+        13,
+        30
+      ],
+      "max_absolute_error": 3.552713678800501e-15,
+      "rms_error": 1.964319413556453e-16
+    },
+    {
+      "band": [
+        30,
+        40
+      ],
+      "max_absolute_error": 1.7763568394002505e-15,
+      "rms_error": 1.1965573979616584e-16
+    }
+  ],
+  "paper_equation_and_input_flow_examples": {
+    "raw_coefficient_variation": {
+      "appendix_A3": 0.004057197008665297,
+      "implemented": 290.19764736428016
+    },
+    "raw_activity": {
+      "appendix_A14": 17629859.160055712,
+      "implemented": 290.19764736428016
+    },
+    "raw_q1": {
+      "appendix_A8_median_lower_half": 4186.666504,
+      "implemented_percentile": 4186.666504
+    },
+    "raw_q3": {
+      "appendix_A9_median_upper_half": 4209.230712500001,
+      "implemented_percentile": 4208.9742427500005
+    },
+    "beta_relative_power_input": {
+      "public_function_on_raw": 0.181644511847865,
+      "public_function_on_beta_layer": 0.9850139701638121
+    },
+    "delta_amplitude_input": {
+      "public_function_on_raw_once_filtered": 4.130897856934606,
+      "public_function_on_delta_layer_twice_filtered": 3.509656545798757
+    },
+    "interpretation": "Library/input choices differ from printed equations; complete original assembly is unknown."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "shape": [
+    924,
+    14,
+    214
+  ],
+  "source_sha256": "f8817a59d9c0c23092d06c46bd0b52cb3133e16e44695be68edcf278d7662476",
+  "array_sha256": "9692f2ae3f8c3513ae97bc881f36e74ae25619a8bc5dba1d7553dc0c05f10add",
+  "cache_key": "34b2edc53d8a023b7b15931cd256a7c69ae8e16b6cd4984f2cf144abab3fcf4b",
+  "cache_path": "artifacts_paper_method/cache/34b2edc53d8a023b7b15931cd256a7c69ae8e16b6cd4984f2cf144abab3fcf4b.npz",
+  "undefined_values": 131,
+  "code_sha256": {
+    "paper_equations.py": "dc7fbbebd16871b7cdba344d26b6dbcba9a9079fad199e72f2dfeac727a7e865",
+    "paper_protocol.py": "a8e32e2ca9c6ea0317debad007613814b2416031976f8a80cc105c21819573ce",
+    "paper_features.py": "65b104c74ecb426e6bf05ebf20aef3a165ef6ad0da70900efd3414fbb5f63013",
+    "paper_ga.py": "2b6abd0e3ec6a7f6be312e7224c018e2bcc3e4282ff301beb444f7f3a6d4cf58",
+    "data.py": "e887eeeb8ffbb2f135afda3d3086e3d8064fc4cf717b6fa9e9e892342feb98ba",
+    "epochs.py": "f41691031b34e506b8f3cd6aad57543469dbf3641db6cd90be31181af1760dd3",
+    "train_paper_binary.py": "9b39ac18774fa11c37164f5ffa6d6d8a9e685b1f324de670789edf7e9e267e04"
+  }
+}

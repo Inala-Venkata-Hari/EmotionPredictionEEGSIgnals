@@ -1,5 +1,10 @@
 import unittest
 import importlib.util
+import hashlib
+import json
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
@@ -8,7 +13,7 @@ from eegis.author_features import (author_features, author_series_features, publ
                                    reference_library)
 from eegis.author_reproduction import fast_fitness, fixed_cases, fit_model
 from eegis.paper_features import COLUMNS
-from eegis.paper_ga import fitness_predictions, genome_columns
+from eegis.paper_ga import TorchKNN, fitness_predictions, genome_columns
 from eegis.author_window_scaling import WithinWindowScaler,window_fitness
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
@@ -16,6 +21,68 @@ from sklearn.metrics import accuracy_score,f1_score
 
 
 class AuthorReproductionTests(unittest.TestCase):
+    def test_cpu_fitness_matches_sklearn_defaults_for_sparse_tied_masks(self):
+        rng = np.random.default_rng(0)
+        bank = np.zeros((80, 14, 214))
+        bank[:, 0, 28] = rng.integers(0, 4, size=80)
+        labels = rng.choice([6, 8], size=80)
+        genome = np.zeros(228, dtype=np.uint8)
+        genome[[0, 14+28]] = 1
+        fit, val = np.arange(60), np.arange(60, 80)
+        result = fast_fitness(bank, labels, fit, val, genome, 'knn', 42, 'cpu')
+        x = bank[:, 0, 28, None]
+        scaler = StandardScaler().fit(x[fit])
+        for row in result['all_k_scores']:
+            predicted = KNeighborsClassifier(n_neighbors=row['k']).fit(
+                scaler.transform(x[fit]), labels[fit]).predict(scaler.transform(x[val]))
+            self.assertEqual(row['accuracy'], accuracy_score(labels[val], predicted))
+        model = fit_model(bank, labels, fit, genome, 37, device='cpu')
+        expected = KNeighborsClassifier(n_neighbors=37).fit(scaler.transform(x[fit]), labels[fit])
+        np.testing.assert_array_equal(model.predict_features(bank[val]), expected.predict(scaler.transform(x[val])))
+        legacy = fast_fitness(bank, labels, fit, val, genome, 'knn', 42, 'cpu', backend='legacy-torch')
+        original = fitness_predictions(bank, labels, fit, val, genome, 'knn', 42, 'cpu')
+        self.assertEqual(legacy['all_k_scores'], original['all_k_scores'])
+        legacy_model = fit_model(bank, labels, fit, genome, 37, device='cpu', backend='legacy-torch')
+        self.assertIsInstance(legacy_model.estimator, TorchKNN)
+
+    def test_feature_fingerprint_changes_with_imported_code_or_band_limits(self):
+        from eegis.feature_provenance import DEPENDENCIES, feature_fingerprint, fingerprint_sha
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for name in DEPENDENCIES:
+                (root/name).write_text('original\n')
+            first = fingerprint_sha(feature_fingerprint(root, [(0.5,4)]))
+            (root/'paper_features.py').write_text('changed imported feature kernel\n')
+            changed = fingerprint_sha(feature_fingerprint(root, [(0.5,4)]))
+            self.assertNotEqual(first, changed)
+            self.assertNotEqual(changed, fingerprint_sha(feature_fingerprint(root, [(1,4)])))
+
+    def test_unversioned_feature_cache_is_rebuilt_instead_of_silently_reused(self):
+        from eegis.author_reproduction import prepare
+        from eegis.data import digest
+        x = np.random.default_rng(8).normal(size=(2, 128, 14))
+        layers = np.repeat(x[:, None], 6, axis=1)
+        spec = {'test': 'fixed source specification'}
+        code = Path(__file__).resolve().parents[1]/'eegis'/'author_features.py'
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp)
+            manifest = out/'manifest.csv'
+            manifest.write_text('test manifest\n')
+            np.savez_compressed(out/'feature_cache.npz', features=np.zeros((2,14,214)),
+                source_sha=digest(layers), code_sha=hashlib.sha256(code.read_bytes()).hexdigest(),
+                spec_sha=hashlib.sha256(json.dumps(spec,sort_keys=True).encode()).hexdigest())
+            with patch('eegis.author_reproduction.binary_data', return_value=(x,pd.DataFrame({'label':[6,8]}))), \
+                 patch('eegis.author_reproduction.load_layers', return_value=layers), \
+                 patch('eegis.author_reproduction.source_spec', return_value=spec), \
+                 patch('eegis.author_reproduction.author_features', return_value=np.ones((2,14,214))) as extract:
+                result = prepare('unused', str(manifest), out)[3]
+                extract.assert_called_once()
+                extract.reset_mock()
+                cached = prepare('unused', str(manifest), out)[3]
+                extract.assert_not_called()
+            np.testing.assert_array_equal(result, np.ones((2,14,214)))
+            np.testing.assert_array_equal(cached, result)
+
     def test_within_example_scaling_matches_individual_standardscalers(self):
         x=np.random.default_rng(6).normal(size=(5,8,20));x[:,:,0]=7
         scaler=WithinWindowScaler(8,20).fit(x[:2].reshape(2,-1))
@@ -110,7 +177,7 @@ class AuthorReproductionTests(unittest.TestCase):
         bank[60:]+=1000
         b=fit_model(bank,y,train,g,7,device='cpu')
         np.testing.assert_array_equal(a.scaler.mean_,b.scaler.mean_)
-        np.testing.assert_array_equal(a.estimator.x_,b.estimator.x_)
+        np.testing.assert_array_equal(a.estimator._fit_X,b.estimator._fit_X)
 
 
 if __name__=='__main__':

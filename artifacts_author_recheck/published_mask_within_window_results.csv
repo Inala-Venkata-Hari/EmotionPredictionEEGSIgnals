@@ -1,0 +1,7 @@
+case,k,normalization,train_windows,test_windows,diagnostic_only,shared_overlap_groups,accuracy,macro_f1,correct,total,confusion
+grouped,7,within-window,744,180,True,0,0.4666666666666667,0.4660734149054505,84,180,"[[39, 57], [39, 45]]"
+grouped,9,within-window,744,180,True,0,0.45,0.449166950017001,81,180,"[[37, 59], [40, 44]]"
+window_80_20,7,within-window,739,185,True,71,0.6,0.5985808116349989,111,185,"[[50, 46], [28, 61]]"
+window_80_20,9,within-window,739,185,True,71,0.5945945945945946,0.5928816642704147,110,185,"[[49, 47], [28, 61]]"
+window_20_80,7,within-window,184,740,True,71,0.5391891891891892,0.5391479515150187,399,740,"[[196, 188], [153, 203]]"
+window_20_80,9,within-window,184,740,True,71,0.5527027027027027,0.5526626743444902,409,740,"[[201, 183], [148, 208]]"

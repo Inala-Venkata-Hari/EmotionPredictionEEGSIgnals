@@ -28,10 +28,11 @@
     7,
     9
   ],
-  "published_split_conflict": [
-    "80/20",
-    "20/80"
-  ],
+  "published_split_stages": {
+    "initial_experiment_section_2_1": "80/20",
+    "separate_validation_section_3": "20/80",
+    "interpretation": "These may be different stages; ratios alone are not a contradiction."
+  },
   "source_pdf_sha256": "74cce3e74179ec51a44ee816e8c0786495770404dc90746995a08b4ec52c8a22",
   "fixed_threadpool_limit": 4,
   "tie_handling_note": "sklearn class predictions can change with thread count for exact distance ties; thread count fixed for reproducibility, not selected by accuracy"

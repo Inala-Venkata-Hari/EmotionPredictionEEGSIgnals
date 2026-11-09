@@ -1,0 +1,35 @@
+{
+  "assessment": "manual paper-to-current-code review with file-hash verification",
+  "is_one_to_one_reproduction": false,
+  "paper_sha256": "74cce3e74179ec51a44ee816e8c0786495770404dc90746995a08b4ec52c8a22",
+  "reviewed_files_sha256": {
+    "eegis/author_reproduction.py": "762a32305b64480f7d50fc360ce09ccaa1f8af69dc5d62be8d6f94d4aae84139",
+    "eegis/feature_provenance.py": "21ed6e2f645520ad50f27d9520cfe031177ee8958e133411832a513b71cd9c70",
+    "eegis/verify_author_reproduction.py": "3400b01781596090914cf525543336cfb2d0f64e98d8fc51498c418651afa6d4",
+    "eegis/adversarial_review.py": "35fa0b74ca298dac6bdad7e4c55109009f1a47dfd119ca16e0f3aa93179f58cf",
+    "eegis/report_author_reproduction.py": "749c60e487e8ad3924c4b6c6c0e793bab90c2d6a39ed34b32a69a1a0a4ca53af",
+    "tests/test_author_reproduction.py": "ff653d44c545bfce62576ccea925d5de5c80da4e19642998402bfe47d267a58f",
+    "eegis/author_features.py": "24173308994dd5c2425ce4274d6d796a6980645db8dccf8916b30fb81044449e",
+    "eegis/paper_ga.py": "2b6abd0e3ec6a7f6be312e7224c018e2bcc3e4282ff301beb444f7f3a6d4cf58",
+    "eegis/train_paper_binary.py": "9b39ac18774fa11c37164f5ffa6d6d8a9e685b1f324de670789edf7e9e267e04"
+  },
+  "confirmed_differences": [
+    "coefficient of variation formula",
+    "Hjorth activity formula",
+    "band-amplitude calculation",
+    "additional inner/outer partitioning"
+  ],
+  "incomplete_full_study": [
+    "ten-classifier route through the author-source features",
+    "complete original two-stage experimental sequence"
+  ],
+  "unresolved": [
+    "original band-feature assembly",
+    "exact GA probabilities and seed",
+    "normalization axis",
+    "original complete execution environment and split indices"
+  ],
+  "code_unchanged_since_passing_adversarial_test_receipt": true,
+  "new_training_executed": false,
+  "latest_fixes_establish_methodology_parity": false
+}

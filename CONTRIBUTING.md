@@ -12,7 +12,7 @@ Keep `artifacts/manifest.csv` fixed when comparing methods. Keep overlap groups 
 
 Use a branch and pull request for changes. Describe the experiment, selection criterion, split, measured accuracy/macro-F1, and limitations. Commit small metrics and figures, and keep large model files out of Git. Never replace a measured result with an estimate or a target.
 
-To prepare the same shareable bundle locally, run `python scripts/package_share.py`. It writes `share/eegis-team-project.zip` and an upload manifest. The follow-up report directory is included only after its verification completes.
+To prepare the same shareable bundle locally, run `python scripts/package_share.py`. It writes `share/eegis-team-project.zip` and an upload manifest. Completed follow-up measurements are included only after verification. An unfinished study can share its immutable plan and an explicitly dated status note; partial histories are excluded.
 
 ## Reconstructed-recording research branch
 
@@ -33,7 +33,7 @@ The grouped ensemble experiment combines the four learned one-second methods thr
 
 The binary paper-method experiment is separate from the nine-class benchmark. Run `eegis.train_paper_binary --generations 50 --population 100 --device auto`, then `eegis.verify_paper_binary` and `eegis.report_paper_binary`. It uses No (6) and Sí (8), the original one-second raw windows, 214 features per channel, and a 228-bit channel/feature mask. The default smoke run searches kNN; `--classifiers all` runs ten separate searches and takes substantially longer. These are genetic generations, not neural-network epochs.
 
-Read `artifacts_paper_binary/feature_spec.json` and `plan.json` before describing the method as a reproduction. The paper leaves parameters undefined and gives conflicting split and kNN settings. The grouped result prevents exact overlap leakage; the nested `paper_window_diagnostic/` directory intentionally measures an overlapping-window split and must never be reported as valid decoder accuracy. The old nine-class benchmark remains intact. The checkpoint returns original class IDs 6 and 8.
+Read `artifacts_paper_binary/feature_spec.json` and `plan.json` before describing the method as a reproduction. The paper leaves parameters undefined. Its initial 80/20 and later 20/80 splits can describe separate stages; k=7 during GA selection versus k=9 in later validation remains unexplained. The grouped result prevents exact overlap leakage; the nested `paper_window_diagnostic/` directory intentionally measures an overlapping-window split and must never be reported as valid decoder accuracy. The old nine-class benchmark remains intact. The checkpoint returns original class IDs 6 and 8.
 
 The CUDA-capable kNN uses the existing PyTorch dependency for distance calculations and neighbor sorting. SciPy feature extraction, standardization, voting, and other scikit-learn models remain on CPU. `--device cuda` requires a working NVIDIA driver and a CUDA-enabled PyTorch build; it fails clearly when unavailable. The pinned `requirements-lock.txt` describes the measured CPU environment, not a CUDA installation. The current host could only validate CPU execution. The test suite conditionally runs a real CPU/CUDA prediction comparison when CUDA is available.
 

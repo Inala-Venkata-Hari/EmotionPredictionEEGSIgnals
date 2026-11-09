@@ -2,6 +2,8 @@
 
 This project trains an RBF SVM, Random Forest, and compact EEGNet-style CNN on the locally supplied EEGIS version 1 archive. Experiments use real CSV signals; results are recorded by the training program.
 
+Latest work: [printed-paper implementation and verified ten-classifier functional test](artifacts_paper_method/README.md), [methodology recheck](artifacts_author_recheck/README.md), and [adversarial code review](artifacts_adversarial_review/README.md). The [100-generation binary kNN study](artifacts_paper_method/knn100/README.md) is in progress; its adaptive GA fitness is not final test accuracy. These changes are shared on `experiment/reconstructed-recordings` through [draft PR #1](https://github.com/Inala-Venkata-Hari/EmotionPredictionEEGSIgnals/pull/1).
+
 ## Dataset and provenance
 
 Source: [EEGIS version 1, DOI 10.17632/73g4fw884c.1](https://data.mendeley.com/datasets/73g4fw884c/1), Edgar Lara, Andras Takacs, and Juvenal Rodríguez, CC BY 4.0. The source describes ten participants, Emotiv EPOC+, and 128 Hz sampling. The release contains raw signals plus delta, theta, alpha, beta, and gamma variants. Windows contain 128 time samples and 14 channels, with an exported row-index column. The source reports 48-sample overlap after trimming each state recording. Channel names are AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4.
@@ -325,3 +327,23 @@ Recovered the author's Signalytica functions and exact NumPy/SciPy pins in an is
 | paper-window | 93.24% | 61.62% | 0.6162 | 51.89% |
 
 The paper's 96% was not reproduced on the grouped test. Window-split scores are leakage diagnostics; fitness is not independent test accuracy. Original test reuse and missing subject IDs remain limitations. Unpublished author settings prevent a complete 1:1 claim.
+
+## Paper claim recheck
+
+The paper does report GA + kNN at 96% after comparing ten classifiers. Its initial 80/20 split and separate 20/80 validation experiment can describe different stages; earlier wording calling the ratios a contradiction was incorrect. Our full GA runs cover kNN and do not reproduce the complete two-stage, ten-classifier study.
+
+[The detailed recheck](artifacts_author_recheck/README.md) records confirmed implementation differences, fresh scikit-learn verification of the three existing runs, and six additional published-mask/within-window-scaling diagnostics. The new 20/80 scores are 53.92% at k=7 and 55.27% at k=9. These are diagnostic scores, not independently validated decoder performance; the complete cause of the 96% gap remains unresolved.
+
+## Adversarial implementation review
+
+[The adversarial review](artifacts_adversarial_review/README.md) identifies feature-equation/input-flow differences, missing parts of the two-stage ten-classifier experiment, and concrete kNN/cache bugs. The author-source CPU path now uses actual sklearn defaults per k, and future feature caches track imported source files and band settings. `--knn-backend legacy-torch` retains replay of the historical Torch-backed searches.
+
+The review checked 2,568 real cached feature values, 189 historical genomes, sparse-mask counterexamples, and six later-stage diagnostics for our frozen GA masks. At k=9, those diagnostic accuracies were 56.22%, 48.78%, and 56.89%; they are not independent validation scores. Previous measurements are preserved; no full GA result after these fixes is claimed.
+
+## Printed-paper feature and two-stage pipeline
+
+The new [paper_equations.py](eegis/paper_equations.py) profile implements the printed CV, quartile, Hjorth, Petrosian, Katz, raw-context relative-power and band-amplitude definitions. [paper_protocol.py](eegis/paper_protocol.py) supports all ten classifiers, direct 80/20 GA fitness and the later 20/80 experiment with kNN k=9. Historical experiments remain available.
+
+The runnable profile explicitly uses conventional Higuchi and a declared missing-value policy. Strict literal Higuchi is mathematically undefined on 18 of 24 declared real EEG checks; `--strict-literal` records the issue and stops without substituting another formula. Seeds, GA rates, spectral/recurrence settings and normalization remain stated reconstruction choices. An exact numerical replica of the unpublished author program is not certified.
+
+The [two-generation, four-genome functional run](artifacts_paper_method/smoke/README.md) completed and was independently verified for all ten classifiers. Its later-stage accuracies include kNN **54.05%**, SVM **54.32%**, Random Forest **52.30%**, and MLP **57.97%**; the majority reference is **51.89%**. These scores are diagnostics because window overlap and reuse of selection labels prevent an independent validation claim. The full command defaults to 100 generations, 100 genomes and all ten classifiers; the full new study has not been run.

@@ -15,6 +15,7 @@ from threadpoolctl import threadpool_limits
 from .author_features import author_features, load_layers, published_genome, source_spec
 from .author_reproduction import fixed_cases
 from .data import audit_shared_samples, digest
+from .feature_provenance import feature_fingerprint, fingerprint_sha
 from .diagnose_leakage import leakage_counts
 from .paper_ga import CLASS_IDS, fitness_predictions, genome_columns
 from .train_paper_binary import array_sha, binary_data, dump, metrics, split_binary
@@ -37,7 +38,7 @@ def check_model(model, features, labels, train, test, expected, scaler_rows=None
     np.testing.assert_allclose(stored, independently_scaled[train])
     model.estimator.device = 'cpu'
     np.testing.assert_array_equal(model.predict_features(features[test]), expected)
-    reference = KNeighborsClassifier(n_neighbors=model.estimator.n_neighbors, algorithm='brute')
+    reference = KNeighborsClassifier(n_neighbors=model.estimator.n_neighbors)
     reference.fit(independently_scaled[train], labels[train])
     np.testing.assert_array_equal(reference.predict(independently_scaled[test]), expected)
 
@@ -56,15 +57,20 @@ def verify_ga(out, x, source, layers, features):
         inner=m.iloc[train].copy();inner['split']=inner.search_role
         audit_shared_samples(x[train], inner)
     local_fit,local_val=np.flatnonzero(np.isin(train,fit)),np.flatnonzero(np.isin(train,val))
-    # Independent original scorer (sklearn metrics), rather than the optimized callback.
-    if plan.get('normalization','train')=='within-window':
+    # Preserve the legacy Torch objective for old plans; new CPU plans use
+    # independent sklearn predictions, including its default tree/tie behavior.
+    if (plan.get('normalization','train')=='within-window'
+            or plan.get('knn_backend','').startswith('sklearn CPU defaults')):
         from .paper_ga import K_VALUES
         flat=features.reshape(len(features),-1)[:,genome_columns(selected['genome'])]
-        dimensions=(len(selected['selected_channels']),len(selected['selected_features']))
-        z=np.stack([StandardScaler().fit_transform(a.reshape(*dimensions)).ravel() for a in flat])
+        if plan.get('normalization','train')=='within-window':
+            dimensions=(len(selected['selected_channels']),len(selected['selected_features']))
+            z=np.stack([StandardScaler().fit_transform(a.reshape(*dimensions)).ravel() for a in flat])
+        else:
+            z=StandardScaler().fit(flat[fit]).transform(flat)
         candidates=[]
         for k in K_VALUES:
-            reference=KNeighborsClassifier(n_neighbors=k,algorithm='brute').fit(z[fit],y[fit])
+            reference=KNeighborsClassifier(n_neighbors=k).fit(z[fit],y[fit])
             candidates.append({'k':k,**metrics(y[val],reference.predict(z[val]))})
         score=max(candidates,key=lambda r:r['accuracy'])
     else:
@@ -108,7 +114,12 @@ def verify_ga(out, x, source, layers, features):
     verification={'protocol':plan['protocol'],'diagnostic_only':plan['diagnostic_only'],
                   'normalization':plan.get('normalization','train'),
                   'source_split_and_overlap_counts_reproduced':True,
-                  'all_population_states_checked':len(history),'candidate_fitness_scores_checked':len(evaluated),
+                  'all_population_states_checked':len(history),
+                  'candidate_score_records_checked_for_consistency':len(evaluated),
+                  'all_candidate_fitness_predictions_independently_recomputed':False,
+                  'selected_fitness_prediction_backend':('sklearn defaults'
+                      if plan.get('normalization')=='within-window' or plan.get('knn_backend','').startswith('sklearn CPU defaults')
+                      else 'legacy Torch float64; sklearn metrics'),
                   'selected_fitness_recomputed_with_original_scorer':True,'scaler_fitted_to_training_only':True,
                   'scaler_policy':'independent within-example electrode statistics' if plan.get('normalization')=='within-window' else 'outer training population only',
                   'checkpoint_and_sklearn_predictions_match':True,'six_layer_inference_matches':True,
@@ -134,6 +145,9 @@ def main():
     assert hashlib.sha256(json.dumps(spec,sort_keys=True).encode()).hexdigest()==audit['feature_spec_sha256']
     with np.load(out/'feature_cache.npz',allow_pickle=False) as data:
         features=data['features']
+        if 'feature_dependency_sha256' in audit:
+            assert fingerprint_sha(feature_fingerprint()) == audit['feature_dependency_sha256']
+            assert str(data['dependency_sha']) == audit['feature_dependency_sha256']
     assert array_sha(features)==audit['feature_array_sha256']
     with threadpool_limits(limits=4):
         subset=[0,len(features)//2,len(features)-1]

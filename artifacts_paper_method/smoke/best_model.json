@@ -1,0 +1,24 @@
+{
+  "model": "knn",
+  "file": "best_model.joblib",
+  "selection": "highest stage1 GA fitness; never stage2 accuracy",
+  "input": "original raw windows, shape (N,128,14), no exported CSV index",
+  "class_ids": [
+    6,
+    8
+  ],
+  "class_names": [
+    "No",
+    "Sí"
+  ],
+  "diagnostic_only": true,
+  "feature_config": {
+    "higuchi": "conventional",
+    "kmax": 10,
+    "power_low": 0.0,
+    "power_high": 64.0,
+    "recurrence_std_fraction": 0.2
+  },
+  "undefined_policy": "median",
+  "full_100_generation_study": false
+}

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import time
+from functools import partial
 from importlib.metadata import version
 from pathlib import Path
 
@@ -19,19 +20,30 @@ from threadpoolctl import threadpool_limits
 from .author_features import (AuthorBinaryModel, author_features, load_layers,
                               published_genome, source_spec)
 from .data import CHANNELS, digest
+from .feature_provenance import feature_fingerprint, fingerprint_sha
 from .paper_features import COLUMNS
 from .paper_ga import CLASS_IDS, CLASS_NAMES, K_VALUES, TorchKNN, genetic_search, genome_columns, resolve_device
 from .train_paper_binary import array_sha, binary_data, dump, metrics, plot_run, split_binary
 
 
-def fast_fitness(features, labels, train, validation, genome, classifier, seed, device):
-    """Same uniform Euclidean kNN objective; vectorized metrics avoid 7 sklearn fits/calls."""
+def fast_fitness(features, labels, train, validation, genome, classifier, seed, device, backend='reference'):
+    """CPU uses sklearn defaults independently per k, including sparse-mask ties.
+
+    The optional CUDA path uses Torch; it is not an exact sklearn tie replica.
+    """
     if classifier != 'knn':
         raise ValueError('This paper-winner experiment is kNN only')
+    if backend not in ['reference','legacy-torch']:
+        raise ValueError('Unknown kNN backend')
     selected = features.reshape(len(features), -1)[:, genome_columns(genome)]
     scaler = StandardScaler().fit(selected[train])
-    model = TorchKNN(device=device).fit(scaler.transform(selected[train]), labels[train])
-    predictions = np.stack(model.predict_many(scaler.transform(selected[validation]), K_VALUES))
+    a, b = scaler.transform(selected[train]), scaler.transform(selected[validation])
+    if backend == 'reference' and resolve_device(device) == 'cpu':
+        predictions = np.stack([KNeighborsClassifier(n_neighbors=k).fit(a, labels[train]).predict(b)
+                                for k in K_VALUES])
+    else:
+        model = TorchKNN(device=device).fit(a, labels[train])
+        predictions = np.stack(model.predict_many(b, K_VALUES))
     target = labels[validation][None]
     accuracy = (predictions == target).mean(axis=1)
     class_f1 = []
@@ -55,16 +67,21 @@ def prepare(data, manifest, out):
     source_sha = digest(layers)
     code_sha = hashlib.sha256(Path(__file__).with_name('author_features.py').read_bytes()).hexdigest()
     spec_sha = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()
+    dependency_fingerprint = feature_fingerprint()
+    dependency_sha = fingerprint_sha(dependency_fingerprint)
     cache_path = out/'feature_cache.npz'
     features = None
     if cache_path.exists():
         with np.load(cache_path, allow_pickle=False) as cache:
-            if str(cache['source_sha']) == source_sha and str(cache['code_sha']) == code_sha and str(cache['spec_sha']) == spec_sha:
+            if ('dependency_sha' in cache and str(cache['dependency_sha']) == dependency_sha
+                    and str(cache['source_sha']) == source_sha and str(cache['code_sha']) == code_sha
+                    and str(cache['spec_sha']) == spec_sha):
                 features = cache['features']
     started = time.time()
     if features is None:
         features = author_features(layers, progress=lambda s: print(s, flush=True))
-        np.savez_compressed(cache_path, features=features, source_sha=source_sha, code_sha=code_sha, spec_sha=spec_sha)
+        np.savez_compressed(cache_path, features=features, source_sha=source_sha, code_sha=code_sha,
+                            spec_sha=spec_sha, dependency_sha=dependency_sha)
     else:
         print('Reusing author-source feature bank with checked source/code/spec hashes', flush=True)
     if features.shape != (len(source), 14, 214) or not np.isfinite(features).all():
@@ -73,13 +90,17 @@ def prepare(data, manifest, out):
     dump(out/'feature_audit.json', {'shape': list(features.shape), 'source_layers_sha256': source_sha,
                                   'feature_code_sha256': code_sha, 'feature_spec_sha256': spec_sha,
                                   'feature_array_sha256': array_sha(features),
+                                  'feature_dependency_fingerprint': dependency_fingerprint,
+                                  'feature_dependency_sha256': dependency_sha,
                                   'source_manifest_sha256': hashlib.sha256(Path(manifest).read_bytes()).hexdigest(),
                                   'feature_preparation_seconds_this_invocation': time.time()-started,
-                                  'data': data, 'manifest': manifest})
+                                  'data': str(data), 'manifest': str(manifest)})
     return x, source, layers, features
 
 
-def fit_model(features, labels, train, genome, k, device='cpu', scaler_rows=None, normalization='train'):
+def fit_model(features, labels, train, genome, k, device='cpu', scaler_rows=None, normalization='train', backend='reference'):
+    if backend not in ['reference','legacy-torch']:
+        raise ValueError('Unknown kNN backend')
     cols = genome_columns(genome)
     selected = features.reshape(len(features), -1)[:, cols]
     if normalization == 'within-window':
@@ -92,6 +113,8 @@ def fit_model(features, labels, train, genome, k, device='cpu', scaler_rows=None
     if normalization=='within-window':
         if device=='cuda':
             raise ValueError('Within-window source-default tie handling uses sklearn CPU')
+        model=KNeighborsClassifier(n_neighbors=k).fit(scaler.transform(selected[train]),labels[train])
+    elif backend == 'reference' and resolve_device(device) == 'cpu':
         model=KNeighborsClassifier(n_neighbors=k).fit(scaler.transform(selected[train]),labels[train])
     else:
         model = TorchKNN(k, device=device).fit(scaler.transform(selected[train]), labels[train])
@@ -109,7 +132,7 @@ def fixed_cases(source, seed):
             ('window_80_20_global_scaling', np.sort(train80), np.sort(test20), True)]
 
 
-def fixed_published_mask(x, source, features, out, seed, device):
+def fixed_published_mask(x, source, features, out, seed, device, backend='reference'):
     """Evaluate the two conflicting published k values without choosing by test accuracy."""
     from .diagnose_leakage import leakage_counts
     genome, y, groups = published_genome(), source.label.to_numpy(), source.overlap_group.to_numpy()
@@ -127,7 +150,7 @@ def fixed_published_mask(x, source, features, out, seed, device):
                       'reason': 'Published feature mask was selected on this dataset; additional overlap/global-scaling leakage when indicated'})
         for k in [7, 9]:
             model = fit_model(features, y, train, genome, k, device,
-                              scaler_rows=np.arange(len(source)) if global_scaling else None)
+                              scaler_rows=np.arange(len(source)) if global_scaling else None, backend=backend)
             predicted = model.predict_features(features[test])
             row = {'case': case, 'k': k, 'train_windows': len(train), 'test_windows': len(test),
                    'global_scaling': global_scaling, 'diagnostic_only': True,
@@ -153,7 +176,8 @@ def run_ga(args, x, source, features, protocol, out):
     overlap = {'outer': leakage_counts(x, groups, train, test), 'inner': leakage_counts(x, groups, fit, val)}
     diagnostic = protocol != 'grouped'
     normalization = getattr(args, 'normalization', 'train')
-    evaluator = fast_fitness
+    backend = getattr(args, 'knn_backend', 'reference')
+    evaluator = partial(fast_fitness, backend=backend)
     if normalization == 'within-window':
         from .author_window_scaling import window_fitness
         evaluator = window_fitness
@@ -161,7 +185,10 @@ def run_ga(args, x, source, features, protocol, out):
         raise AssertionError('Grouped run leaks samples')
     dump(out/'plan.json', {'protocol': protocol, 'diagnostic_only': diagnostic, 'seed': args.seed,
                           'normalization': normalization,
-                          'knn_backend': 'sklearn CPU defaults, independent prediction per k' if normalization=='within-window' else 'Torch float64, sklearn final parity checked',
+                          'knn_backend': ('sklearn CPU defaults, independent prediction per k'
+                              if normalization=='within-window' or (backend=='reference' and resolve_device(args.device)=='cpu')
+                              else 'Torch float64; exact sklearn tie parity not guaranteed'),
+                          'knn_backend_option': backend,
                           'threadpool_limit':4,
                           'generations': args.generations, 'population_size': args.population,
                           'knn_candidates': K_VALUES, 'mutation_rate': 1/228,
@@ -188,11 +215,12 @@ def run_ga(args, x, source, features, protocol, out):
     dump(out/'knn_selection.json', selected)
     dump(out/'selection.json', {'winner': 'knn', 'criterion': 'highest fixed inner fitness accuracy; earliest k/genome breaks ties',
                                'frozen_before_test_evaluation': True})
-    model = fit_model(features, y, train, selected['genome'], selected['k'], args.device, normalization=normalization)
+    model = fit_model(features, y, train, selected['genome'], selected['k'], args.device,
+                      normalization=normalization, backend=backend)
     predicted = model.predict_features(features[test])
     cols = genome_columns(selected['genome'])
     flat = features.reshape(len(features), -1)[:, cols]
-    reference = KNeighborsClassifier(n_neighbors=selected['k'], algorithm='brute').fit(model.scaler.transform(flat[train]), y[train])
+    reference = KNeighborsClassifier(n_neighbors=selected['k']).fit(model.scaler.transform(flat[train]), y[train])
     np.testing.assert_array_equal(reference.predict(model.scaler.transform(flat[test])), predicted)
     joblib.dump(model, out/'best_model.joblib')
     joblib.dump(model, out/'knn.joblib')
@@ -228,6 +256,8 @@ def main():
     p.add_argument('--population', type=int, default=100)
     p.add_argument('--seed', type=int, default=42)
     p.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
+    p.add_argument('--knn-backend', choices=['reference','legacy-torch'], default='reference',
+                   help='CPU sklearn reference by default; legacy-torch replays earlier Torch-backed runs')
     p.add_argument('--prepare-only', action='store_true')
     args = p.parse_args()
     if args.generations < 1 or args.population < 2 or args.population % 2:
@@ -249,12 +279,13 @@ def main():
         'no_author_contact_or_messages_sent': True,
         'libraries': {name: version(name) for name in ['signalytica','antropy','numpy','scipy','scikit-learn','torch','numba']},
         'device': device, 'cuda_executed': device == 'cuda',
+        'knn_backend_option': args.knn_backend,
     })
     with threadpool_limits(limits=4):
         x, source, layers, features = prepare(args.data, args.manifest, out)
         if args.prepare_only:
             return
-        fixed_published_mask(x, source, features, out, args.seed, args.device)
+        fixed_published_mask(x, source, features, out, args.seed, args.device, args.knn_backend)
         for protocol in ['grouped', 'paper-window']:
             run_ga(args, x, source, features, protocol,
                    out if protocol == 'grouped' else out/'paper_window_diagnostic')

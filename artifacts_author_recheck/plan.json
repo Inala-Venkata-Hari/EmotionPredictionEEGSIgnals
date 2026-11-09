@@ -1,0 +1,25 @@
+{
+  "purpose": "Audit the paper claim; resolve an untested normalization/mask combination",
+  "fixed_before_new_predictions": true,
+  "seed": 42,
+  "threadpool_limit": 4,
+  "new_diagnostics": {
+    "mask": "published 228-bit genome",
+    "normalization": "within-window",
+    "cases": [
+      "grouped",
+      "window_80_20",
+      "window_20_80"
+    ],
+    "k_values": [
+      7,
+      9
+    ]
+  },
+  "all_cases_reported": true,
+  "select_winner": false,
+  "ga_rerun": false,
+  "diagnostic_only": true,
+  "previous_test_exposure": true,
+  "reason": "Published mask was selected on this dataset; window splits also share EEG samples"
+}
