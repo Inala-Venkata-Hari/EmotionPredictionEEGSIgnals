@@ -1,0 +1,80 @@
+{
+  "winner": {
+    "name": "lagged_ridge",
+    "bank": "lagged",
+    "parameters": {
+      "model__alpha": 100.0,
+      "select__k": 30
+    },
+    "inner_balanced_accuracy": 0.5565476190476191,
+    "inner_macro_f1": 0.5508520074696546
+  },
+  "families": [
+    {
+      "name": "connectivity_ridge",
+      "bank": "connectivity",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 300
+      },
+      "inner_balanced_accuracy": 0.4523809523809524,
+      "inner_macro_f1": 0.43565676383013846
+    },
+    {
+      "name": "lagged_ridge",
+      "bank": "lagged",
+      "parameters": {
+        "model__alpha": 100.0,
+        "select__k": 30
+      },
+      "inner_balanced_accuracy": 0.5565476190476191,
+      "inner_macro_f1": 0.5508520074696546
+    },
+    {
+      "name": "high_frequency_ridge",
+      "bank": "high_frequency",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 100
+      },
+      "inner_balanced_accuracy": 0.4702380952380952,
+      "inner_macro_f1": 0.46652661064425766
+    },
+    {
+      "name": "joint_ridge",
+      "bank": "joint",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 300
+      },
+      "inner_balanced_accuracy": 0.4523809523809524,
+      "inner_macro_f1": 0.4311714429361488
+    },
+    {
+      "name": "connectivity_svm",
+      "bank": "connectivity",
+      "parameters": {
+        "model__C": 0.1,
+        "select__k": 100
+      },
+      "inner_balanced_accuracy": 0.44940476190476186,
+      "inner_macro_f1": 0.324074074074074
+    },
+    {
+      "name": "power_cnn",
+      "bank": "raw",
+      "parameters": {
+        "high": 40.0
+      },
+      "inner_balanced_accuracy": 0.41071428571428575,
+      "inner_macro_f1": 0.37423147887544167
+    },
+    {
+      "name": "majority",
+      "bank": "high_frequency",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.5,
+      "inner_macro_f1": 0.33816425120772947
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "direct_kernel_mean_formula_matches_weighted_quadratic_form": true,
+  "all_999_permutation_p_values_recomputed": true,
+  "training_overlap_components": 47,
+  "original_holdouts_not_used": true,
+  "classifier_accuracy_estimated": false,
+  "interpretation_exploratory": true
+}

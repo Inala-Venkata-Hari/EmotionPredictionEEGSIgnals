@@ -1,0 +1,3 @@
+unit,duration_seconds,accuracy,balanced_accuracy,macro_f1,majority_balanced_accuracy,balanced_accuracy_ci95_low,balanced_accuracy_ci95_high,training_groups,final_selected_family,prototype_gate_met
+window,1.0,0.5106382978723404,0.5,0.3380281690140845,0.5,0.5,0.5,47,majority,False
+recording,7.875,0.5531914893617021,0.5461956521739131,0.4946236559139785,0.5,0.44156640773020084,0.6539855072463768,47,majority,False

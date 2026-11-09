@@ -1,0 +1,214 @@
+{
+  "study_kind": "domain",
+  "source_sha256": {
+    "train_domain_models.py": "f4533a1b1d44169d7a1ef5a61484b116d330283345f339563968678f30a45f32",
+    "domain_features.py": "6adc908807aacd2ffbd86d6da353bcb4b4ba3505f879834ca1c5f01065dcb057",
+    "research_protocol.py": "3339aa2cf478946df061d79c1b08d0d3eaa90d4872165bdd5a35b9ccb6e6bda5",
+    "accuracy_features.py": "77065c0aba0e907ad6aa8563737cc11ce1266b201f03246c71f7bfca5e6df24a",
+    "train_accuracy.py": "f903601be40db3186cdb19f898122282d758f39d2cdb182747e6a7961753cb25",
+    "data.py": "e887eeeb8ffbb2f135afda3d3086e3d8064fc4cf717b6fa9e9e892342feb98ba",
+    "epochs.py": "f41691031b34e506b8f3cd6aad57543469dbf3641db6cd90be31181af1760dd3",
+    "improve.py": "a43ed63c93af669e85fea819aecd83dae58fad37877de74741928712fdb5002d",
+    "train_paper_binary.py": "9b39ac18774fa11c37164f5ffa6d6d8a9e685b1f324de670789edf7e9e267e04",
+    "paper_ga.py": "2b6abd0e3ec6a7f6be312e7224c018e2bcc3e4282ff301beb444f7f3a6d4cf58",
+    "paper_features.py": "65b104c74ecb426e6bf05ebf20aef3a165ef6ad0da70900efd3414fbb5f63013"
+  },
+  "window_sha256": "f8817a59d9c0c23092d06c46bd0b52cb3133e16e44695be68edcf278d7662476",
+  "manifest_sha256": "02fde675f487027fa35cb5ee740856655a7655f913da8e5adee389d5aa9dc601",
+  "python": "3.14.9",
+  "libraries": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.1",
+    "joblib": "1.6.0"
+  },
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "seed": 42,
+  "threads": 4,
+  "classes": [
+    6,
+    8
+  ],
+  "original_holdouts_not_evaluated": true,
+  "only_original_train_used_for_fitting_and_search": true,
+  "all_results_exploratory": true,
+  "subject_independent": false,
+  "prototype_target_balanced_accuracy": 0.7,
+  "selection": "inner grouped balanced accuracy, then macro-F1, then declared order",
+  "methods": "Fixed homologous-electrode contrasts, within-example spectral topography, inner-fold low-dimensional feature selection, and training-only latent nuisance alignment. Clusters are NOT verified participant IDs.",
+  "candidates": [
+    {
+      "name": "lateral_ridge",
+      "bank": "lateral",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model',\n                 RidgeClassifier(class_weight='balanced', solver='lsqr'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__alpha": [
+          1.0,
+          100.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "lateral_svm",
+      "bank": "lateral",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model', SVC(class_weight='balanced'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__C": [
+          0.1,
+          1.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "topography_ridge",
+      "bank": "topography",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model',\n                 RidgeClassifier(class_weight='balanced', solver='lsqr'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__alpha": [
+          1.0,
+          100.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "topography_svm",
+      "bank": "topography",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model', SVC(class_weight='balanced'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__C": [
+          0.1,
+          1.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "relative_spectrum_ridge",
+      "bank": "relative_spectrum",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model',\n                 RidgeClassifier(class_weight='balanced', solver='lsqr'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__alpha": [
+          1.0,
+          100.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "relative_spectrum_svm",
+      "bank": "relative_spectrum",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model', SVC(class_weight='balanced'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__C": [
+          0.1,
+          1.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "spectral_ridge",
+      "bank": "spectral",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model',\n                 RidgeClassifier(class_weight='balanced', solver='lsqr'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__alpha": [
+          1.0,
+          100.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "spectral_svm",
+      "bank": "spectral",
+      "estimator": "Pipeline(steps=[('select', SelectKBest()), ('scale', StandardScaler()),\n                ('model', SVC(class_weight='balanced'))])",
+      "grid": {
+        "select__k": [
+          3,
+          10,
+          20
+        ],
+        "model__C": [
+          0.1,
+          1.0
+        ]
+      },
+      "configurations": 6
+    },
+    {
+      "name": "lateral_lda",
+      "bank": "lateral",
+      "estimator": "Pipeline(steps=[('scale', StandardScaler()),\n                ('model',\n                 LinearDiscriminantAnalysis(priors=[0.5, 0.5], shrinkage='auto',\n                                            solver='lsqr'))])",
+      "grid": {},
+      "configurations": 1
+    },
+    {
+      "name": "latent_alignment",
+      "bank": "domain",
+      "estimator": "Pipeline(steps=[('align', LatentAlignment()),\n                ('model',\n                 RidgeClassifier(class_weight='balanced', solver='lsqr'))])",
+      "grid": {
+        "align__clusters": [
+          2,
+          5,
+          10
+        ],
+        "align__mode": [
+          "center",
+          "interact"
+        ],
+        "model__alpha": [
+          1.0,
+          100.0
+        ]
+      },
+      "configurations": 12
+    },
+    {
+      "name": "majority",
+      "bank": "lateral",
+      "estimator": "DummyClassifier(strategy='most_frequent')",
+      "grid": {},
+      "configurations": 1
+    }
+  ]
+}

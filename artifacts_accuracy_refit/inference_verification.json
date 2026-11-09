@@ -1,0 +1,34 @@
+{
+  "metrics_recomputed_from_csv": true,
+  "all_confusion_and_classification_reports_match_csv": true,
+  "raw_cli_checks": [
+    {
+      "unit": "window",
+      "raw_file_count": 1,
+      "cli_output": {
+        "class_id": 6,
+        "label": "No",
+        "unit": "window",
+        "input_seconds": 1.0,
+        "model_file": "artifacts_accuracy_refit/window/best_model.joblib",
+        "exploratory": true,
+        "subject_independent": false
+      },
+      "matches_first_saved_prediction": true
+    },
+    {
+      "unit": "recording",
+      "raw_file_count": 12,
+      "cli_output": {
+        "class_id": 6,
+        "label": "No",
+        "unit": "recording",
+        "input_seconds": 7.875,
+        "model_file": "artifacts_accuracy_refit/recording/best_model.joblib",
+        "exploratory": true,
+        "subject_independent": false
+      },
+      "matches_first_saved_prediction": true
+    }
+  ]
+}

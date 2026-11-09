@@ -1,0 +1,60 @@
+{
+  "modern_tests": {
+    "run": 52,
+    "passed": 50,
+    "skipped": 2
+  },
+  "pinned_paper_protocol_tests": {
+    "run": 12,
+    "passed": 12
+  },
+  "classifiers_independently_verified": 10,
+  "ga_generations": 2,
+  "population": 4,
+  "full_100_generation_run_executed": false,
+  "diagnostic_only": true,
+  "historical_measurement_and_manifest_files_unchanged": [
+    "artifacts_author_reproduction/feature_audit.json",
+    "artifacts_author_reproduction/feature_spec.json",
+    "artifacts_author_reproduction/knn_history.csv",
+    "artifacts_author_reproduction/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/knn_selection.json",
+    "artifacts_author_reproduction/manifest.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_history.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_selection.json",
+    "artifacts_author_reproduction/paper_window_diagnostic/manifest.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/results.json",
+    "artifacts_author_reproduction/paper_window_diagnostic/test_predictions.csv",
+    "artifacts_author_reproduction/published_mask_predictions.csv",
+    "artifacts_author_reproduction/published_mask_results.csv",
+    "artifacts_author_reproduction/results.json",
+    "artifacts_author_reproduction/source_manifest.csv",
+    "artifacts_author_reproduction/test_predictions.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_history.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_selection.json",
+    "artifacts_author_reproduction/within_window_grouped/manifest.csv",
+    "artifacts_author_reproduction/within_window_grouped/results.json",
+    "artifacts_author_reproduction/within_window_grouped/test_predictions.csv"
+  ],
+  "checkpoint_portability_fixed_without_retraining": true,
+  "raw_csv_prediction_cli_executed": true,
+  "literal_higuchi_check": {
+    "cases": 24,
+    "undefined": 18,
+    "strict_mode_trained": false
+  },
+  "feature_undefined_values": {
+    "raw_katz_endpoint_zero": 131
+  },
+  "current_source_sha256": {
+    "eegis/paper_equations.py": "dc7fbbebd16871b7cdba344d26b6dbcba9a9079fad199e72f2dfeac727a7e865",
+    "eegis/paper_protocol.py": "d0482667e5e85113530cf53f29a9d1bdc21d37d44f7085a42537c2bc201325fa",
+    "eegis/verify_paper_protocol.py": "5b9c34a7915569a0b0d405ba6e70c78906171914a89979d33da7392b48cd0d39",
+    "eegis/report_paper_protocol.py": "5347632a36604ce3a3670b1ba5393292f9b3f1a7450cd9fe1c08b56090466194",
+    "eegis/predict_paper_protocol.py": "a5258236b9adfd61ccc5716c8c688cf17162a19cb1501ed0eae473e94b6448c2",
+    "eegis/migrate_paper_checkpoints.py": "1a5492acbc61c814af556fe06eb88a253d334556a975ceef97d3fcb5bcaaddd7",
+    "tests/test_paper_protocol.py": "b5642934f13a55369da393004aef3dd30b8a964e3402513cb6ebd70cd05fa070"
+  }
+}

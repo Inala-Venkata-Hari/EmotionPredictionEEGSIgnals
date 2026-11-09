@@ -1,0 +1,33 @@
+{
+  "target_balanced_accuracy": 0.7,
+  "target_macro_f1": 0.7,
+  "results": [
+    {
+      "unit": "window",
+      "duration_seconds": 1.0,
+      "accuracy": 0.4592198581560284,
+      "balanced_accuracy": 0.4556159420289855,
+      "macro_f1": 0.44130304162133194,
+      "majority_balanced_accuracy": 0.5,
+      "balanced_accuracy_ci95_low": 0.3534669384057971,
+      "balanced_accuracy_ci95_high": 0.5618955878226711,
+      "training_groups": 47,
+      "final_selected_family": "topography_ridge",
+      "prototype_gate_met": false
+    },
+    {
+      "unit": "recording",
+      "duration_seconds": 7.875,
+      "accuracy": 0.5319148936170213,
+      "balanced_accuracy": 0.5317028985507246,
+      "macro_f1": 0.5317028985507246,
+      "majority_balanced_accuracy": 0.5,
+      "balanced_accuracy_ci95_low": 0.3851796497584541,
+      "balanced_accuracy_ci95_high": 0.6781818181818182,
+      "training_groups": 47,
+      "final_selected_family": "relative_spectrum_ridge",
+      "prototype_gate_met": false
+    }
+  ],
+  "independent_confirmation_available": false
+}

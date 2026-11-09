@@ -1,0 +1,11 @@
+{
+  "source_split_unchanged": true,
+  "all_36_fits_have_disjoint_groups": true,
+  "outer_groups_excluded_from_inner_meta_features": true,
+  "training_cv_scores_recomputed": true,
+  "meta_models_reproduced_from_group_oof_scores": true,
+  "base_checkpoint_hashes_verified": true,
+  "all_holdout_predictions_and_metrics_reproduced": true,
+  "confusion_matrices_verified": true,
+  "inference_verified": true
+}

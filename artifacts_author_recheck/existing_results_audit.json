@@ -1,0 +1,442 @@
+{
+  "test_runs": [
+    {
+      "run": "grouped",
+      "selected_k": 15,
+      "fitness_accuracy": 0.8263888888888888,
+      "accuracy": 0.4666666666666667,
+      "macro_f1": 0.46640316205533594,
+      "correct": 84,
+      "total": 180,
+      "confusion": [
+        [
+          40,
+          56
+        ],
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "selected_k": 7,
+      "fitness_accuracy": 0.8263888888888888,
+      "accuracy": 0.5166666666666667,
+      "macro_f1": 0.5159345924391827,
+      "correct": 93,
+      "total": 180,
+      "confusion": [
+        [
+          50,
+          46
+        ],
+        [
+          41,
+          43
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "selected_k": 5,
+      "fitness_accuracy": 0.9324324324324325,
+      "accuracy": 0.6162162162162163,
+      "macro_f1": 0.6161713567692353,
+      "correct": 114,
+      "total": 185,
+      "confusion": [
+        [
+          58,
+          38
+        ],
+        [
+          33,
+          56
+        ]
+      ]
+    }
+  ],
+  "selected_genome_fitness_all_k_actual_sklearn": [
+    {
+      "run": "grouped",
+      "k": 5,
+      "accuracy": 0.5972222222222222,
+      "macro_f1": 0.5965217391304347,
+      "correct": 86,
+      "total": 144,
+      "confusion": [
+        [
+          46,
+          26
+        ],
+        [
+          32,
+          40
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 7,
+      "accuracy": 0.7430555555555556,
+      "macro_f1": 0.7429439861050804,
+      "correct": 107,
+      "total": 144,
+      "confusion": [
+        [
+          52,
+          20
+        ],
+        [
+          17,
+          55
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 13,
+      "accuracy": 0.8055555555555556,
+      "macro_f1": 0.8052173913043479,
+      "correct": 116,
+      "total": 144,
+      "confusion": [
+        [
+          55,
+          17
+        ],
+        [
+          11,
+          61
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 15,
+      "accuracy": 0.8263888888888888,
+      "macro_f1": 0.8263135041250542,
+      "correct": 119,
+      "total": 144,
+      "confusion": [
+        [
+          58,
+          14
+        ],
+        [
+          11,
+          61
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 17,
+      "accuracy": 0.7986111111111112,
+      "macro_f1": 0.798523664785063,
+      "correct": 115,
+      "total": 144,
+      "confusion": [
+        [
+          56,
+          16
+        ],
+        [
+          13,
+          59
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 21,
+      "accuracy": 0.7569444444444444,
+      "macro_f1": 0.7566510549949302,
+      "correct": 109,
+      "total": 144,
+      "confusion": [
+        [
+          52,
+          20
+        ],
+        [
+          15,
+          57
+        ]
+      ]
+    },
+    {
+      "run": "grouped",
+      "k": 37,
+      "accuracy": 0.5555555555555556,
+      "macro_f1": 0.5552123552123551,
+      "correct": 80,
+      "total": 144,
+      "confusion": [
+        [
+          42,
+          30
+        ],
+        [
+          34,
+          38
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 5,
+      "accuracy": 0.7013888888888888,
+      "macro_f1": 0.7010284389937714,
+      "correct": 101,
+      "total": 144,
+      "confusion": [
+        [
+          53,
+          19
+        ],
+        [
+          24,
+          48
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 7,
+      "accuracy": 0.8263888888888888,
+      "macro_f1": 0.8263135041250542,
+      "correct": 119,
+      "total": 144,
+      "confusion": [
+        [
+          58,
+          14
+        ],
+        [
+          11,
+          61
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 13,
+      "accuracy": 0.6458333333333334,
+      "macro_f1": 0.6458162527128044,
+      "correct": 93,
+      "total": 144,
+      "confusion": [
+        [
+          47,
+          25
+        ],
+        [
+          26,
+          46
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 15,
+      "accuracy": 0.6041666666666666,
+      "macro_f1": 0.6041475765613696,
+      "correct": 87,
+      "total": 144,
+      "confusion": [
+        [
+          44,
+          28
+        ],
+        [
+          29,
+          43
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 17,
+      "accuracy": 0.5833333333333334,
+      "macro_f1": 0.5826086956521739,
+      "correct": 84,
+      "total": 144,
+      "confusion": [
+        [
+          45,
+          27
+        ],
+        [
+          33,
+          39
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 21,
+      "accuracy": 0.5625,
+      "macro_f1": 0.5614637211775511,
+      "correct": 81,
+      "total": 144,
+      "confusion": [
+        [
+          44,
+          28
+        ],
+        [
+          35,
+          37
+        ]
+      ]
+    },
+    {
+      "run": "within_window_grouped",
+      "k": 37,
+      "accuracy": 0.5347222222222222,
+      "macro_f1": 0.534160590990295,
+      "correct": 77,
+      "total": 144,
+      "confusion": [
+        [
+          41,
+          31
+        ],
+        [
+          36,
+          36
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 5,
+      "accuracy": 0.9324324324324325,
+      "macro_f1": 0.9323830409356726,
+      "correct": 138,
+      "total": 148,
+      "confusion": [
+        [
+          71,
+          6
+        ],
+        [
+          4,
+          67
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 7,
+      "accuracy": 0.831081081081081,
+      "macro_f1": 0.8304541080511387,
+      "correct": 123,
+      "total": 148,
+      "confusion": [
+        [
+          66,
+          11
+        ],
+        [
+          14,
+          57
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 13,
+      "accuracy": 0.777027027027027,
+      "macro_f1": 0.773290628046233,
+      "correct": 115,
+      "total": 148,
+      "confusion": [
+        [
+          67,
+          10
+        ],
+        [
+          23,
+          48
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 15,
+      "accuracy": 0.7297297297297297,
+      "macro_f1": 0.7265336289726534,
+      "correct": 108,
+      "total": 148,
+      "confusion": [
+        [
+          62,
+          15
+        ],
+        [
+          25,
+          46
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 17,
+      "accuracy": 0.7027027027027027,
+      "macro_f1": 0.7000184263865856,
+      "correct": 104,
+      "total": 148,
+      "confusion": [
+        [
+          59,
+          18
+        ],
+        [
+          26,
+          45
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 21,
+      "accuracy": 0.6824324324324325,
+      "macro_f1": 0.6781864445986583,
+      "correct": 101,
+      "total": 148,
+      "confusion": [
+        [
+          59,
+          18
+        ],
+        [
+          29,
+          42
+        ]
+      ]
+    },
+    {
+      "run": "paper_window_diagnostic",
+      "k": 37,
+      "accuracy": 0.6959459459459459,
+      "macro_f1": 0.6935817805383022,
+      "correct": 103,
+      "total": 148,
+      "confusion": [
+        [
+          58,
+          19
+        ],
+        [
+          26,
+          45
+        ]
+      ]
+    }
+  ],
+  "scope": "All seven k values for each selected genome, not every intermediate GA genome"
+}

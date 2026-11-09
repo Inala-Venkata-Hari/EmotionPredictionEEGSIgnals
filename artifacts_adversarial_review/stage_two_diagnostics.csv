@@ -1,0 +1,7 @@
+source_run,normalization,k,train_windows,test_windows,diagnostic_only,correct,accuracy,macro_f1
+grouped,train,15,184,740,True,415,0.5608108108108109,0.5432749370934815
+grouped,train,9,184,740,True,416,0.5621621621621622,0.5543461289675016
+within_window_grouped,within-window,7,184,740,True,376,0.5081081081081081,0.5050676544734269
+within_window_grouped,within-window,9,184,740,True,361,0.48783783783783785,0.48519707557577124
+paper_window_diagnostic,train,5,184,740,True,424,0.572972972972973,0.5714578935022285
+paper_window_diagnostic,train,9,184,740,True,421,0.5689189189189189,0.5634266733985438

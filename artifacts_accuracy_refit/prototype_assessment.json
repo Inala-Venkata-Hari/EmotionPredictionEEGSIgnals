@@ -1,0 +1,9 @@
+{
+  "target_balanced_accuracy": 0.7,
+  "target_macro_f1": 0.7,
+  "target_reached": false,
+  "best_observed_nested_balanced_accuracy": 0.5461956521739131,
+  "configurations": 242,
+  "all_results_exploratory": true,
+  "independent_confirmation_available": false
+}

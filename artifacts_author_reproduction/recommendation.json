@@ -1,0 +1,7 @@
+{
+  "selection": "highest predeclared grouped inner fitness accuracy only",
+  "selected_protocol": "grouped",
+  "model_directory": "artifacts_author_reproduction",
+  "test_scores_not_used_for_selection": true,
+  "all_grouped_results_reported": true
+}

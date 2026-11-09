@@ -1,0 +1,19 @@
+{
+  "mode": "grouped",
+  "file": "best_model.joblib",
+  "selection": "predeclared grouped model; inner fitness selected genome/k; final scores never select a model",
+  "feature_config": {
+    "higuchi": "conventional",
+    "kmax": 10,
+    "power_low": 0.0,
+    "power_high": 64.0,
+    "recurrence_std_fraction": 0.2
+  },
+  "input": "raw EEG windows (N,128,14)",
+  "class_ids": [
+    6,
+    8
+  ],
+  "exploratory": true,
+  "subject_independent": false
+}

@@ -1,0 +1,65 @@
+{
+  "classifiers": [
+    "knn",
+    "logistic",
+    "random_forest",
+    "decision_tree",
+    "gradient_boosting",
+    "adaboost",
+    "naive_bayes",
+    "lda",
+    "mlp",
+    "svm"
+  ],
+  "generations": 100,
+  "population": 100,
+  "seed": 42,
+  "validation_seed": 43,
+  "normalization": "within-window",
+  "undefined_policy": "error",
+  "feature_config": {
+    "higuchi": "literal",
+    "kmax": 10,
+    "power_low": 0.0,
+    "power_high": 64.0,
+    "recurrence_std_fraction": 0.2
+  },
+  "stage1": "80% fit / 20% GA fitness, without an additional inner split",
+  "stage2": "freeze every GA output, then fit on20% and evaluate on80%; kNN k=9 per Section3",
+  "final_knn_k": 9,
+  "knn_search": [
+    5,
+    7,
+    13,
+    15,
+    17,
+    21,
+    37
+  ],
+  "diagnostic_only": true,
+  "selection": "highest stage1 fitness only; classifier order resolves ties; freeze before stage2",
+  "ga_rates": {
+    "mutation": 0.0043859649122807015,
+    "uniform_crossover_bit_probability": 0.5
+  },
+  "device": "cpu",
+  "threadpool_limit": 4,
+  "code_sha256": {
+    "paper_equations.py": "dc7fbbebd16871b7cdba344d26b6dbcba9a9079fad199e72f2dfeac727a7e865",
+    "paper_protocol.py": "a8e32e2ca9c6ea0317debad007613814b2416031976f8a80cc105c21819573ce",
+    "paper_features.py": "65b104c74ecb426e6bf05ebf20aef3a165ef6ad0da70900efd3414fbb5f63013",
+    "paper_ga.py": "2b6abd0e3ec6a7f6be312e7224c018e2bcc3e4282ff301beb444f7f3a6d4cf58",
+    "data.py": "e887eeeb8ffbb2f135afda3d3086e3d8064fc4cf717b6fa9e9e892342feb98ba",
+    "epochs.py": "f41691031b34e506b8f3cd6aad57543469dbf3641db6cd90be31181af1760dd3",
+    "train_paper_binary.py": "9b39ac18774fa11c37164f5ffa6d6d8a9e685b1f324de670789edf7e9e267e04"
+  },
+  "assumptions": [
+    "Original split indices, seed, GA rates and exact library versions are not supplied.",
+    "Stratified row splits approximate the stated ratios and permit overlapping EEG.",
+    "Within-window feature-column standardization is the default interpretation of MxN maps before flattening.",
+    "Missing mathematical values require an explicit error/median policy; this is absent from the paper.",
+    "Sklearn estimators retain defaults; a declared global RNG seed makes random_state=None repeatable.",
+    "A degenerate genome whose classifier cannot fit receives a declared zero fitness penalty, not a measured accuracy.",
+    "Accuracy is standard accuracy. Printed precision TP/(TP+TN) is reported separately from standard metrics."
+  ]
+}

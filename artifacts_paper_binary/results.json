@@ -1,0 +1,86 @@
+{
+  "protocol": "grouped",
+  "diagnostic_only": false,
+  "selected_model": "knn",
+  "models": {
+    "knn": {
+      "test": {
+        "accuracy": 0.43333333333333335,
+        "macro_f1": 0.4322117763483424
+      },
+      "fitness_validation_accuracy": 0.7847222222222222,
+      "k": 13,
+      "channels": [
+        "F7",
+        "FC5",
+        "T7",
+        "P7",
+        "O1",
+        "T8"
+      ],
+      "feature_types": 87,
+      "flattened_features": 522,
+      "sklearn_knn_prediction_parity": true,
+      "report": {
+        "No": {
+          "precision": 0.4673913043478261,
+          "recall": 0.4479166666666667,
+          "f1-score": 0.4574468085106383,
+          "support": 96.0
+        },
+        "Sí": {
+          "precision": 0.3977272727272727,
+          "recall": 0.4166666666666667,
+          "f1-score": 0.4069767441860465,
+          "support": 84.0
+        },
+        "accuracy": 0.43333333333333335,
+        "macro avg": {
+          "precision": 0.43255928853754944,
+          "recall": 0.4322916666666667,
+          "f1-score": 0.4322117763483424,
+          "support": 180.0
+        },
+        "weighted avg": {
+          "precision": 0.43488142292490123,
+          "recall": 0.43333333333333335,
+          "f1-score": 0.4338941118258288,
+          "support": 180.0
+        }
+      }
+    }
+  },
+  "majority": {
+    "accuracy": 0.5333333333333333,
+    "macro_f1": 0.34782608695652173
+  },
+  "majority_label": 6,
+  "split_sizes": {
+    "outer_train": 744,
+    "test": 180,
+    "fitness_fit": 600,
+    "fitness_validation": 144
+  },
+  "subject_independent": false,
+  "test_previously_reported": true,
+  "environment": {
+    "python": "3.14.9",
+    "libraries": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "torch": "2.15.0+cpu",
+      "joblib": "1.6.0"
+    },
+    "torch_cuda_build": null,
+    "cuda_available": false,
+    "cuda_device": null,
+    "resolved_device": "cpu",
+    "cuda_executed": false,
+    "preprocessing_device": "cpu",
+    "non_knn_classifier_device": "cpu"
+  },
+  "limitations": "exploratory grouped binary window classification; participants unidentified",
+  "elapsed_seconds": 363.6757667064667
+}

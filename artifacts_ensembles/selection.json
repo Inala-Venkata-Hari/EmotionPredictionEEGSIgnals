@@ -1,0 +1,22 @@
+{
+  "winner": "Majority",
+  "criterion": "nested training-group CV accuracy; macro-F1 tie-break",
+  "training_cv": {
+    "HardVote": {
+      "accuracy": 0.09878048780487805,
+      "macro_f1": 0.0930811779218496
+    },
+    "CalibratedSoftVote": {
+      "accuracy": 0.11869918699186992,
+      "macro_f1": 0.11109553476341603
+    },
+    "Stacking": {
+      "accuracy": 0.12154471544715448,
+      "macro_f1": 0.11762145124453788
+    },
+    "Majority": {
+      "accuracy": 0.12682926829268293,
+      "macro_f1": 0.025012025012025013
+    }
+  }
+}

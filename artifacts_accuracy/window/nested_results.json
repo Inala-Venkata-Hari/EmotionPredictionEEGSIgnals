@@ -1,0 +1,96 @@
+{
+  "unit": "window",
+  "duration_seconds": 1.0,
+  "windows": 564,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.4875886524822695,
+    "balanced_accuracy": 0.4863375603864734,
+    "macro_f1": 0.48512674721629945
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "car_ridge",
+        "bank": "car",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.515542328042328,
+        "inner_macro_f1": 0.5129527386323754
+      },
+      "accuracy": 0.6083333333333333,
+      "balanced_accuracy": 0.6083333333333334,
+      "macro_f1": 0.6076521739130435
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "car_covariance_csp",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 0.01,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.5519179894179894,
+        "inner_macro_f1": 0.5223274874803474
+      },
+      "accuracy": 0.2833333333333333,
+      "balanced_accuracy": 0.2833333333333333,
+      "macro_f1": 0.2825361512791991
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "car_svm",
+        "bank": "car",
+        "parameters": {
+          "model__C": 0.01
+        },
+        "inner_balanced_accuracy": 0.5162037037037037,
+        "inner_macro_f1": 0.4067568721917551
+      },
+      "accuracy": 0.49074074074074076,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4903474903474903
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "majority",
+        "bank": "spectral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "covariance_csp",
+        "bank": "covariance",
+        "parameters": {
+          "model__C": 0.01,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.5363756613756614,
+        "inner_macro_f1": 0.5279526485599436
+      },
+      "accuracy": 0.5092592592592593,
+      "balanced_accuracy": 0.4979166666666667,
+      "macro_f1": 0.49679120879120875
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

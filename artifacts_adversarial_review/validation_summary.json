@@ -1,0 +1,53 @@
+{
+  "modern_tests": {
+    "run": 40,
+    "passed": 38,
+    "skipped": 2
+  },
+  "pinned_author_tests": {
+    "run": 11,
+    "passed": 11
+  },
+  "historical_measurement_and_manifest_files_unchanged": [
+    "artifacts_author_reproduction/feature_audit.json",
+    "artifacts_author_reproduction/feature_spec.json",
+    "artifacts_author_reproduction/knn_history.csv",
+    "artifacts_author_reproduction/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/knn_selection.json",
+    "artifacts_author_reproduction/manifest.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_history.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/knn_selection.json",
+    "artifacts_author_reproduction/paper_window_diagnostic/manifest.csv",
+    "artifacts_author_reproduction/paper_window_diagnostic/results.json",
+    "artifacts_author_reproduction/paper_window_diagnostic/test_predictions.csv",
+    "artifacts_author_reproduction/published_mask_predictions.csv",
+    "artifacts_author_reproduction/published_mask_results.csv",
+    "artifacts_author_reproduction/results.json",
+    "artifacts_author_reproduction/source_manifest.csv",
+    "artifacts_author_reproduction/test_predictions.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_history.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_search_evaluations.csv",
+    "artifacts_author_reproduction/within_window_grouped/knn_selection.json",
+    "artifacts_author_reproduction/within_window_grouped/manifest.csv",
+    "artifacts_author_reproduction/within_window_grouped/results.json",
+    "artifacts_author_reproduction/within_window_grouped/test_predictions.csv"
+  ],
+  "historical_checkpoints_and_predictions_reverified": 3,
+  "new_full_ga_run_executed": false,
+  "accuracy_improvement_claimed": false,
+  "fixes": {
+    "cpu_reference_knn": true,
+    "explicit_legacy_replay_backend": true,
+    "transitive_feature_cache_guard": true,
+    "verification_scope_labels": true
+  },
+  "post_review_code_sha256": {
+    "eegis/author_reproduction.py": "762a32305b64480f7d50fc360ce09ccaa1f8af69dc5d62be8d6f94d4aae84139",
+    "eegis/feature_provenance.py": "21ed6e2f645520ad50f27d9520cfe031177ee8958e133411832a513b71cd9c70",
+    "eegis/verify_author_reproduction.py": "3400b01781596090914cf525543336cfb2d0f64e98d8fc51498c418651afa6d4",
+    "eegis/adversarial_review.py": "35fa0b74ca298dac6bdad7e4c55109009f1a47dfd119ca16e0f3aa93179f58cf",
+    "eegis/report_author_reproduction.py": "749c60e487e8ad3924c4b6c6c0e793bab90c2d6a39ed34b32a69a1a0a4ca53af",
+    "tests/test_author_reproduction.py": "ff653d44c545bfce62576ccea925d5de5c80da4e19642998402bfe47d267a58f"
+  }
+}

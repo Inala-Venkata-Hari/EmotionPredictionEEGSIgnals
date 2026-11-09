@@ -1,0 +1,13 @@
+{
+  "source_commit": "c431221e6cfd23dbfa9950e0180682fb322b0548",
+  "architecture_sha256": "7b3514c9a661ebd417a2dd9834a9f2fab0a2e518c8212c73ebebaaa165c29d88",
+  "architecture_body_modified": false,
+  "adaptations": [
+    "timm helper imports replaced by local Torch equivalents",
+    "two einops reshapes replaced by local equivalents",
+    "model registration is a no-op"
+  ],
+  "license": "MIT; full terms retained in adapted sources",
+  "checkpoint_expected_bytes": 96612769,
+  "checkpoint_expected_git_blob_sha": "221148b5af403e9178629bb61e94b2e7d89ef172"
+}

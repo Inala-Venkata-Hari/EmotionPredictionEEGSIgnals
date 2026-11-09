@@ -1,0 +1,14 @@
+[
+  {
+    "mode": "paper",
+    "checkpoint_generation": 23,
+    "all_seven_fitness_values_match_independent_sklearn": true,
+    "final_evaluation_labels_used": false
+  },
+  {
+    "mode": "grouped",
+    "checkpoint_generation": 39,
+    "all_seven_fitness_values_match_independent_sklearn": true,
+    "final_evaluation_labels_used": false
+  }
+]

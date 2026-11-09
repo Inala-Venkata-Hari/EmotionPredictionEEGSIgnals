@@ -1,0 +1,17 @@
+{
+  "classifiers_verified": 10,
+  "source_and_feature_hashes_checked": true,
+  "four_raw_examples_rebuilt": true,
+  "selected_fitness_independently_recomputed_for_all_classifiers": true,
+  "all_seven_knn_values_independently_recomputed": true,
+  "stored_candidate_score_records_checked_for_consistency": 120,
+  "all_candidate_fitness_predictions_recomputed": false,
+  "both_stage_splits_and_overlap_recomputed": true,
+  "all_stage2_models_refitted_independently": true,
+  "raw_inference_and_cached_feature_predictions_match": true,
+  "all_accuracy_macro_f1_confusions_recomputed": true,
+  "winner_uses_stage1_only": true,
+  "diagnostic_only": true,
+  "full_100_generation_study": false,
+  "exact_unpublished_author_execution_reproduced": false
+}

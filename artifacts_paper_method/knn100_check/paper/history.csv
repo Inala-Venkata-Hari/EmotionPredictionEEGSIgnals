@@ -1,0 +1,3 @@
+generation,best_validation_accuracy,best_validation_macro_f1,mean_survivor_accuracy,best_k,selected_channels,selected_feature_types,unique_evaluations,elapsed_seconds
+0,0.6756756756756757,0.6755903670797287,0.6472972972972973,7,9,106,4,0.8599864380003055
+1,0.6918918918918919,0.6901172529313233,0.677027027027027,5,9,98,8,1.7649058970000624

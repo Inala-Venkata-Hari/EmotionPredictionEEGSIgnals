@@ -1,0 +1,14 @@
+{
+  "source_commit": "98c13323251a011722de2d6f68a772554af9b9ea",
+  "source_sha256": "24c4338c1ab0450f1ef5eb91ff6979f897ba067f9e46de2a1e0dbd3393aa95dd",
+  "numerical_function_sha256": {
+    "_fit_dilations": "5fd1670dab0ba71974db58e9e3f73ac60d554bff469f5188d6db0a8922c1518e",
+    "_quantiles": "45c57339b26dd4075e9f4958983e7ae4b78846d1e0b5ab93d9f5defd1003565c",
+    "_static_fit": "4973df929e400f27e772be7a5ada70528db2369708ef2d34f36c170cea2d5d40",
+    "_PPV": "038452abf235f0c49133089d839f8fef9638cf20fb24a18902678962069636a3",
+    "_static_transform_multi": "687507590b437a772d94433f36e5ad4b9a638dbd0d754881085fcbfd83f647f1",
+    "_fit_biases": "c08086c2e4f8e5dda7512e4309f025ad27f20599d7754e62c0e182f89ff4db24"
+  },
+  "license": "BSD-3-Clause; full copyright/conditions retained in module header",
+  "helper_bodies_modified": false
+}

@@ -1,0 +1,28 @@
+{
+  "snapshot_utc": "2026-11-09T08:01:16.452760+00:00",
+  "status": "completed_and_independently_verified",
+  "progress": {
+    "paper": {
+      "completed_generation": 100,
+      "planned_generations": 100
+    },
+    "grouped": {
+      "completed_generation": 100,
+      "planned_generations": 100
+    }
+  },
+  "final_metrics_available": true,
+  "both_masks_frozen_before_final_evaluation": true,
+  "partial_fitness_is_not_test_accuracy": true,
+  "subject_independent": false,
+  "results": "comparison.csv",
+  "verification": "verification.json",
+  "excluded": [
+    "raw_EEG",
+    "virtual_environments",
+    "feature_caches",
+    "binary_models",
+    "population_checkpoints",
+    "training_logs"
+  ]
+}

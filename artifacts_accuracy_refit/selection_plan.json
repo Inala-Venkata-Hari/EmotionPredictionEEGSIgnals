@@ -1,0 +1,1359 @@
+{
+  "selection": "original-training inner-CV balanced accuracy, macro-F1, declared study/family order",
+  "winners": {
+    "window": {
+      "study": "artifacts_accuracy",
+      "module": "train_accuracy",
+      "name": "car_ridge",
+      "bank": "car",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.5270337301587301,
+      "inner_macro_f1": 0.5255357414529882
+    },
+    "recording": {
+      "study": "artifacts_domain_models",
+      "module": "train_domain_models",
+      "name": "relative_spectrum_ridge",
+      "bank": "relative_spectrum",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.5773809523809524,
+      "inner_macro_f1": 0.5702237305178482
+    }
+  },
+  "all_candidates": {
+    "window": [
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_ridge",
+        "bank": "spectral",
+        "parameters": {
+          "model__alpha": 10.0
+        },
+        "inner_balanced_accuracy": 0.4771825396825397,
+        "inner_macro_f1": 0.47324063738174466
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_svm",
+        "bank": "spectral",
+        "parameters": {
+          "model__C": 0.01
+        },
+        "inner_balanced_accuracy": 0.47098214285714285,
+        "inner_macro_f1": 0.3402469135802469
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_ridge",
+        "bank": "car",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5270337301587301,
+        "inner_macro_f1": 0.5255357414529882
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_svm",
+        "bank": "car",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.4868551587301588,
+        "inner_macro_f1": 0.4806854047161653
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "shape_ridge",
+        "bank": "shape",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.46999007936507936,
+        "inner_macro_f1": 0.46799890055196475
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "shape_svm",
+        "bank": "shape",
+        "parameters": {
+          "model__C": 0.01
+        },
+        "inner_balanced_accuracy": 0.4712301587301588,
+        "inner_macro_f1": 0.33893470828318967
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "rocket_ridge",
+        "bank": "rocket",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.4481646825396825,
+        "inner_macro_f1": 0.44617314137963593
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "derivative_ridge",
+        "bank": "derivative",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.4312996031746032,
+        "inner_macro_f1": 0.4290418281219643
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "combined_ridge",
+        "bank": "combined",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.4223710317460318,
+        "inner_macro_f1": 0.42017937267925176
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_lda",
+        "bank": "spectral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.46502976190476186,
+        "inner_macro_f1": 0.46170421863357625
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_tangent",
+        "bank": "covariance",
+        "parameters": {
+          "model__alpha": 1.0,
+          "spatial__normalize": false
+        },
+        "inner_balanced_accuracy": 0.4449404761904762,
+        "inner_macro_f1": 0.44470329663763447
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_svm",
+        "bank": "covariance",
+        "parameters": {
+          "model__C": 0.1,
+          "spatial__normalize": true
+        },
+        "inner_balanced_accuracy": 0.4990079365079365,
+        "inner_macro_f1": 0.3838283280791992
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_csp",
+        "bank": "covariance",
+        "parameters": {
+          "model__C": 0.01,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.4600694444444445,
+        "inner_macro_f1": 0.45637573045833085
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_tangent",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__alpha": 1.0,
+          "spatial__normalize": false
+        },
+        "inner_balanced_accuracy": 0.47991071428571425,
+        "inner_macro_f1": 0.47813107471789057
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_svm",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 0.1,
+          "spatial__normalize": true
+        },
+        "inner_balanced_accuracy": 0.4848710317460318,
+        "inner_macro_f1": 0.37194453889455587
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_csp",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 0.01,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.5168650793650794,
+        "inner_macro_f1": 0.5166749626679942
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "extra_trees",
+        "bank": "spectral",
+        "parameters": {
+          "max_features": "sqrt",
+          "min_samples_leaf": 2
+        },
+        "inner_balanced_accuracy": 0.4290674603174603,
+        "inner_macro_f1": 0.4249785884856581
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "boosted",
+        "bank": "spectral",
+        "parameters": {
+          "l2_regularization": 10.0
+        },
+        "inner_balanced_accuracy": 0.4412202380952381,
+        "inner_macro_f1": 0.4391412767166358
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "majority",
+        "bank": "spectral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "connectivity_ridge",
+        "bank": "connectivity",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.4662698412698412,
+        "inner_macro_f1": 0.466000156534713
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "lagged_ridge",
+        "bank": "lagged",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.46329365079365087,
+        "inner_macro_f1": 0.46291557202986544
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "high_frequency_ridge",
+        "bank": "high_frequency",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.46502976190476186,
+        "inner_macro_f1": 0.4623630283018385
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "joint_ridge",
+        "bank": "joint",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.4694940476190476,
+        "inner_macro_f1": 0.4681317672353815
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "connectivity_svm",
+        "bank": "connectivity",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.4367559523809524,
+        "inner_macro_f1": 0.43630411359633386
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "power_cnn",
+        "bank": "raw",
+        "parameters": {
+          "high": 40.0
+        },
+        "inner_balanced_accuracy": 0.4288194444444445,
+        "inner_macro_f1": 0.424092843178489
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "majority",
+        "bank": "high_frequency",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_ridge",
+        "bank": "lateral",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 20
+        },
+        "inner_balanced_accuracy": 0.47767857142857145,
+        "inner_macro_f1": 0.47328022159293265
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_svm",
+        "bank": "lateral",
+        "parameters": {
+          "model__C": 0.1,
+          "select__k": 20
+        },
+        "inner_balanced_accuracy": 0.4613095238095238,
+        "inner_macro_f1": 0.42600659697793614
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "topography_ridge",
+        "bank": "topography",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5109126984126985,
+        "inner_macro_f1": 0.5024093353040722
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "topography_svm",
+        "bank": "topography",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5096726190476191,
+        "inner_macro_f1": 0.4943724891146409
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "relative_spectrum_ridge",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.4446924603174603,
+        "inner_macro_f1": 0.44338108185746733
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "relative_spectrum_svm",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.4427083333333333,
+        "inner_macro_f1": 0.437472903445997
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "spectral_ridge",
+        "bank": "spectral",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.4298115079365079,
+        "inner_macro_f1": 0.4223504502251177
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "spectral_svm",
+        "bank": "spectral",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.4295634920634921,
+        "inner_macro_f1": 0.4241969091760634
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_lda",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.4771825396825397,
+        "inner_macro_f1": 0.473039964995535
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "latent_alignment",
+        "bank": "domain",
+        "parameters": {
+          "align__clusters": 5,
+          "align__mode": "interact",
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.4957837301587302,
+        "inner_macro_f1": 0.4941237752168513
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "majority",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_minirocket",
+        "module": "train_minirocket",
+        "name": "minirocket",
+        "bank": "raw",
+        "parameters": {
+          "model__alpha": 100.0,
+          "rocket__mode": "raw"
+        },
+        "inner_balanced_accuracy": 0.4556051587301588,
+        "inner_macro_f1": 0.45281525075835855
+      },
+      {
+        "study": "artifacts_minirocket",
+        "module": "train_minirocket",
+        "name": "majority",
+        "bank": "raw",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__cls_ridge",
+        "bank": "physical__cls",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.46974206349206354,
+        "inner_macro_f1": 0.46392528493684465
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__cls_svm",
+        "bank": "physical__cls",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.46502976190476186,
+        "inner_macro_f1": 0.4025504364320742
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__mean_ridge",
+        "bank": "physical__mean",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.44022817460317465,
+        "inner_macro_f1": 0.4355166375924875
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__mean_svm",
+        "bank": "physical__mean",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.4662698412698412,
+        "inner_macro_f1": 0.40611931980429006
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__cls_ridge",
+        "bank": "normalized__cls",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.4694940476190476,
+        "inner_macro_f1": 0.46769812632806457
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__cls_svm",
+        "bank": "normalized__cls",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.45089285714285715,
+        "inner_macro_f1": 0.4500329504239238
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__mean_ridge",
+        "bank": "normalized__mean",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.49751984126984133,
+        "inner_macro_f1": 0.49642526235011447
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__mean_svm",
+        "bank": "normalized__mean",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.499751984126984,
+        "inner_macro_f1": 0.49877079143453096
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__cls_ridge",
+        "bank": "car_physical__cls",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.48239087301587297,
+        "inner_macro_f1": 0.4822996187317348
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__cls_svm",
+        "bank": "car_physical__cls",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.4605654761904762,
+        "inner_macro_f1": 0.3795201883669083
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__mean_ridge",
+        "bank": "car_physical__mean",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.4697420634920635,
+        "inner_macro_f1": 0.46801573524321016
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__mean_svm",
+        "bank": "car_physical__mean",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.4630456349206349,
+        "inner_macro_f1": 0.351429334387604
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__cls_ridge",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.513640873015873,
+        "inner_macro_f1": 0.5128924513621362
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__cls_svm",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__C": 1.0
+        },
+        "inner_balanced_accuracy": 0.5079365079365079,
+        "inner_macro_f1": 0.5078998988196639
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__mean_ridge",
+        "bank": "car_normalized__mean",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.49082341269841273,
+        "inner_macro_f1": 0.49029694907918037
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__mean_svm",
+        "bank": "car_normalized__mean",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.4712301587301588,
+        "inner_macro_f1": 0.3592350221563705
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "majority",
+        "bank": "physical__mean",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_finetune",
+        "module": "train_finetune",
+        "name": "last_block",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.4605654761904762,
+        "inner_macro_f1": 0.4532468053292648
+      },
+      {
+        "study": "artifacts_finetune",
+        "module": "train_finetune",
+        "name": "majority",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      }
+    ],
+    "recording": [
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_ridge",
+        "bank": "spectral",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.4077380952380952,
+        "inner_macro_f1": 0.3845964206645321
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_svm",
+        "bank": "spectral",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.48809523809523814,
+        "inner_macro_f1": 0.4821862348178138
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_ridge",
+        "bank": "car",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5357142857142857,
+        "inner_macro_f1": 0.5131203677643307
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_svm",
+        "bank": "car",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.5089285714285715,
+        "inner_macro_f1": 0.5033963585434174
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "shape_ridge",
+        "bank": "shape",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.36607142857142855,
+        "inner_macro_f1": 0.34854497354497355
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "shape_svm",
+        "bank": "shape",
+        "parameters": {
+          "model__C": 0.01
+        },
+        "inner_balanced_accuracy": 0.47321428571428575,
+        "inner_macro_f1": 0.3402445507708665
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "rocket_ridge",
+        "bank": "rocket",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.3244047619047619,
+        "inner_macro_f1": 0.3123464770523594
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "derivative_ridge",
+        "bank": "derivative",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.47321428571428575,
+        "inner_macro_f1": 0.4538161643424801
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "combined_ridge",
+        "bank": "combined",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.4077380952380952,
+        "inner_macro_f1": 0.38955105208975177
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "spectral_lda",
+        "bank": "spectral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.38392857142857145,
+        "inner_macro_f1": 0.36246725410812103
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_tangent",
+        "bank": "covariance",
+        "parameters": {
+          "model__alpha": 1000.0,
+          "spatial__normalize": true
+        },
+        "inner_balanced_accuracy": 0.4523809523809524,
+        "inner_macro_f1": 0.4383442265795207
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_svm",
+        "bank": "covariance",
+        "parameters": {
+          "model__C": 10.0,
+          "spatial__normalize": false
+        },
+        "inner_balanced_accuracy": 0.49404761904761907,
+        "inner_macro_f1": 0.4761904761904762
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "covariance_csp",
+        "bank": "covariance",
+        "parameters": {
+          "model__C": 1.0,
+          "spatial__pairs": 3
+        },
+        "inner_balanced_accuracy": 0.4523809523809524,
+        "inner_macro_f1": 0.4398148148148148
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_tangent",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__alpha": 1000.0,
+          "spatial__normalize": true
+        },
+        "inner_balanced_accuracy": 0.47321428571428575,
+        "inner_macro_f1": 0.45726735138499847
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_svm",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 0.1,
+          "spatial__normalize": false
+        },
+        "inner_balanced_accuracy": 0.49404761904761907,
+        "inner_macro_f1": 0.3703703703703704
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "car_covariance_csp",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 0.01,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.49404761904761907,
+        "inner_macro_f1": 0.4867269984917044
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "extra_trees",
+        "bank": "spectral",
+        "parameters": {
+          "max_features": 0.5,
+          "min_samples_leaf": 2
+        },
+        "inner_balanced_accuracy": 0.44940476190476186,
+        "inner_macro_f1": 0.44642857142857145
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "boosted",
+        "bank": "spectral",
+        "parameters": {
+          "l2_regularization": 10.0
+        },
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_accuracy",
+        "module": "train_accuracy",
+        "name": "majority",
+        "bank": "spectral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "connectivity_ridge",
+        "bank": "connectivity",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.4523809523809524,
+        "inner_macro_f1": 0.43565676383013846
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "lagged_ridge",
+        "bank": "lagged",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.5565476190476191,
+        "inner_macro_f1": 0.5508520074696546
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "high_frequency_ridge",
+        "bank": "high_frequency",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 100
+        },
+        "inner_balanced_accuracy": 0.4702380952380952,
+        "inner_macro_f1": 0.46652661064425766
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "joint_ridge",
+        "bank": "joint",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.4523809523809524,
+        "inner_macro_f1": 0.4311714429361488
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "connectivity_svm",
+        "bank": "connectivity",
+        "parameters": {
+          "model__C": 0.1,
+          "select__k": 100
+        },
+        "inner_balanced_accuracy": 0.44940476190476186,
+        "inner_macro_f1": 0.324074074074074
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "power_cnn",
+        "bank": "raw",
+        "parameters": {
+          "high": 40.0
+        },
+        "inner_balanced_accuracy": 0.41071428571428575,
+        "inner_macro_f1": 0.37423147887544167
+      },
+      {
+        "study": "artifacts_signal_models",
+        "module": "train_signal_models",
+        "name": "majority",
+        "bank": "high_frequency",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_ridge",
+        "bank": "lateral",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.5565476190476191,
+        "inner_macro_f1": 0.5337086030584482
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_svm",
+        "bank": "lateral",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.4702380952380952,
+        "inner_macro_f1": 0.4395936422252211
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "topography_ridge",
+        "bank": "topography",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5148809523809524,
+        "inner_macro_f1": 0.49909741674447555
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "topography_svm",
+        "bank": "topography",
+        "parameters": {
+          "model__C": 0.1,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5357142857142857,
+        "inner_macro_f1": 0.42162698412698413
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "relative_spectrum_ridge",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5773809523809524,
+        "inner_macro_f1": 0.5702237305178482
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "relative_spectrum_svm",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__C": 0.1,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5535714285714285,
+        "inner_macro_f1": 0.48373590982286635
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "spectral_ridge",
+        "bank": "spectral",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.47321428571428575,
+        "inner_macro_f1": 0.46398345663051543
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "spectral_svm",
+        "bank": "spectral",
+        "parameters": {
+          "model__C": 0.1,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.44642857142857145,
+        "inner_macro_f1": 0.3323412698412698
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "lateral_lda",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.49404761904761907,
+        "inner_macro_f1": 0.4801742919389978
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "latent_alignment",
+        "bank": "domain",
+        "parameters": {
+          "align__clusters": 10,
+          "align__mode": "interact",
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.42559523809523814,
+        "inner_macro_f1": 0.4187402738873327
+      },
+      {
+        "study": "artifacts_domain_models",
+        "module": "train_domain_models",
+        "name": "majority",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_minirocket",
+        "module": "train_minirocket",
+        "name": "minirocket",
+        "bank": "raw",
+        "parameters": {
+          "model__alpha": 1.0,
+          "rocket__mode": "derivative"
+        },
+        "inner_balanced_accuracy": 0.42559523809523814,
+        "inner_macro_f1": 0.41111111111111115
+      },
+      {
+        "study": "artifacts_minirocket",
+        "module": "train_minirocket",
+        "name": "majority",
+        "bank": "raw",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__cls_ridge",
+        "bank": "physical__cls",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.44940476190476186,
+        "inner_macro_f1": 0.42540106951871665
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__cls_svm",
+        "bank": "physical__cls",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.4702380952380952,
+        "inner_macro_f1": 0.4508746155804979
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__mean_ridge",
+        "bank": "physical__mean",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.47321428571428575,
+        "inner_macro_f1": 0.455812324929972
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "physical__mean_svm",
+        "bank": "physical__mean",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.5119047619047619,
+        "inner_macro_f1": 0.48361683036605635
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__cls_ridge",
+        "bank": "normalized__cls",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5714285714285715,
+        "inner_macro_f1": 0.5694444444444444
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__cls_svm",
+        "bank": "normalized__cls",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.49404761904761907,
+        "inner_macro_f1": 0.3703703703703704
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__mean_ridge",
+        "bank": "normalized__mean",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.5565476190476191,
+        "inner_macro_f1": 0.5420868347338935
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "normalized__mean_svm",
+        "bank": "normalized__mean",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.49107142857142855,
+        "inner_macro_f1": 0.376984126984127
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__cls_ridge",
+        "bank": "car_physical__cls",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.48809523809523814,
+        "inner_macro_f1": 0.46441834309481367
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__cls_svm",
+        "bank": "car_physical__cls",
+        "parameters": {
+          "model__C": 1.0
+        },
+        "inner_balanced_accuracy": 0.5267857142857143,
+        "inner_macro_f1": 0.5120370370370371
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__mean_ridge",
+        "bank": "car_physical__mean",
+        "parameters": {
+          "model__alpha": 100.0
+        },
+        "inner_balanced_accuracy": 0.5267857142857143,
+        "inner_macro_f1": 0.5147221199852778
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_physical__mean_svm",
+        "bank": "car_physical__mean",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.5029761904761905,
+        "inner_macro_f1": 0.4842826019296608
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__cls_ridge",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.44642857142857145,
+        "inner_macro_f1": 0.4419545596016185
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__cls_svm",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.48809523809523814,
+        "inner_macro_f1": 0.376984126984127
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__mean_ridge",
+        "bank": "car_normalized__mean",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5089285714285715,
+        "inner_macro_f1": 0.49453901218607105
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "car_normalized__mean_svm",
+        "bank": "car_normalized__mean",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.5059523809523809,
+        "inner_macro_f1": 0.5000837942014412
+      },
+      {
+        "study": "artifacts_pretrained",
+        "module": "train_pretrained",
+        "name": "majority",
+        "bank": "physical__mean",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      },
+      {
+        "study": "artifacts_finetune",
+        "module": "train_finetune",
+        "name": "last_block",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.4851190476190476,
+        "inner_macro_f1": 0.39865319865319865
+      },
+      {
+        "study": "artifacts_finetune",
+        "module": "train_finetune",
+        "name": "majority",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33816425120772947
+      }
+    ]
+  },
+  "source_studies": {
+    "artifacts_accuracy": {
+      "plan": "04a4a2b72eb17c6070c6cbea200c8c3531c9c146289efb8f0f8f9660586a9f0d",
+      "verification": "828712cbf107e8297809ca457d690a405b56c40140292e35d0b4a52a962b48c6"
+    },
+    "artifacts_signal_models": {
+      "plan": "6981dd35590d16e2ed01194387606fc958303cd5900fb2a99e1faf451af1cca1",
+      "verification": "828712cbf107e8297809ca457d690a405b56c40140292e35d0b4a52a962b48c6"
+    },
+    "artifacts_domain_models": {
+      "plan": "dd35af2c0df2d44fe477d8ed8d00c87c6482663a04fec87c158756fe4d35262e",
+      "verification": "828712cbf107e8297809ca457d690a405b56c40140292e35d0b4a52a962b48c6"
+    },
+    "artifacts_minirocket": {
+      "plan": "6db467c4c79a20c79ebfd762079896e285405e66eeb5aa309223ea2c3e85cf6b",
+      "verification": "828712cbf107e8297809ca457d690a405b56c40140292e35d0b4a52a962b48c6"
+    },
+    "artifacts_pretrained": {
+      "plan": "f4c0e33466fa33b946811dd3c01407a8bfbd7aa3767ea506557fe78a810cd924",
+      "verification": "991781d204d3ea463f848b220bbeecf12aecb2197d258edcb10c7c11ae0e7daa"
+    },
+    "artifacts_finetune": {
+      "plan": "aff24187c679e83862cf2f705721caf6028d580dff0b711490231dafa0885741",
+      "verification": "ebdf1b93747b75a0a346159b436a1bfed2cd721b93702ad0b18630e264243dcb"
+    }
+  },
+  "new_refit_stage": "original train plus original validation groups; original source models preserved",
+  "evaluation": "original test only, previously reported in earlier research; exploratory",
+  "primary_model": "window, predeclared regardless final scores",
+  "subject_independent": false,
+  "prototype_target": {
+    "balanced_accuracy": 0.7,
+    "macro_f1": 0.7,
+    "approximate_lower_interval_above": 0.5
+  },
+  "no_duration_or_hyperparameter_selection_by_test": true,
+  "raw_window_sha256": "f8817a59d9c0c23092d06c46bd0b52cb3133e16e44695be68edcf278d7662476",
+  "manifest_sha256": "02fde675f487027fa35cb5ee740856655a7655f913da8e5adee389d5aa9dc601",
+  "driver_sha256": "e3f3871bbc3a256ff7eaa130b94d090c46499f0d977a1aa2524afb6009349e5c"
+}

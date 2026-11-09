@@ -1,0 +1,15 @@
+{
+  "shape": [
+    924,
+    14,
+    214
+  ],
+  "source_layers_sha256": "1b445a4c010995ac7afaa8c6372d57c374bc86f62adfd2cb55cbb174843d1e12",
+  "feature_code_sha256": "24173308994dd5c2425ce4274d6d796a6980645db8dccf8916b30fb81044449e",
+  "feature_spec_sha256": "317e69e0749eab91a70232f23141dc43d5870e9942a6de825a45cbd7be283db8",
+  "feature_array_sha256": "97f1f77303e57f11f9f9e0f3b23ec300a399261a3dc10e00fec8ad222fc0a7b0",
+  "source_manifest_sha256": "02fde675f487027fa35cb5ee740856655a7655f913da8e5adee389d5aa9dc601",
+  "feature_preparation_seconds_this_invocation": 0.046845436096191406,
+  "data": "EEGIS - Electroencephalogram Imagined Speech dataset",
+  "manifest": "artifacts/manifest.csv"
+}

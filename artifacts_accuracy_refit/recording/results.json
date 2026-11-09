@@ -1,0 +1,65 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "source_study": "artifacts_domain_models",
+  "family": "relative_spectrum_ridge",
+  "selection_cv_balanced_accuracy": 0.5773809523809524,
+  "metrics": {
+    "accuracy": 0.5333333333333333,
+    "balanced_accuracy": 0.5178571428571428,
+    "macro_f1": 0.49760765550239233
+  },
+  "majority": {
+    "accuracy": 0.5333333333333333,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.34782608695652173
+  },
+  "uncertainty": {
+    "method": "paired overlap-group bootstrap of nested OOF predictions; exploratory approximate intervals",
+    "draws": 10000,
+    "seed": 42,
+    "balanced_accuracy_ci95": [
+      0.2857142857142857,
+      0.75
+    ],
+    "difference_from_fold_majority_ci95": [
+      -0.2142857142857143,
+      0.25
+    ],
+    "does_not_account_for_all_adaptive_research_choices": true
+  },
+  "fit_windows_or_recordings": 62,
+  "test_windows_or_recordings": 15,
+  "fit_overlap_components": 62,
+  "test_overlap_components": 15,
+  "subject_independent": false,
+  "exploratory": true,
+  "test_previously_reported": true,
+  "classification_report": {
+    "No": {
+      "precision": 0.5454545454545454,
+      "recall": 0.75,
+      "f1-score": 0.631578947368421,
+      "support": 8.0
+    },
+    "S\u00ed": {
+      "precision": 0.5,
+      "recall": 0.2857142857142857,
+      "f1-score": 0.36363636363636365,
+      "support": 7.0
+    },
+    "accuracy": 0.5333333333333333,
+    "macro avg": {
+      "precision": 0.5227272727272727,
+      "recall": 0.5178571428571428,
+      "f1-score": 0.49760765550239233,
+      "support": 15.0
+    },
+    "weighted avg": {
+      "precision": 0.5242424242424242,
+      "recall": 0.5333333333333333,
+      "f1-score": 0.5065390749601275,
+      "support": 15.0
+    }
+  }
+}

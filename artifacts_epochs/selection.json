@@ -1,0 +1,44 @@
+{
+  "winner": "Majority",
+  "criterion": "highest mean training-only three-fold CV accuracy; macro-F1 tie-break",
+  "candidates": {
+    "SpectralLDA": {
+      "training_cv_accuracy": 0.07821824381926683,
+      "training_cv_macro_f1": 0.07534066317176052,
+      "parameters": {
+        "features__reference": "none"
+      }
+    },
+    "SpectralSVM": {
+      "training_cv_accuracy": 0.1219806763285024,
+      "training_cv_macro_f1": 0.03099365599365599,
+      "parameters": {
+        "features__reference": "none",
+        "model__C": 0.1,
+        "model__kernel": "rbf",
+        "pca__n_components": 20
+      }
+    },
+    "SpectralLogistic": {
+      "training_cv_accuracy": 0.09761295822676896,
+      "training_cv_macro_f1": 0.09249855949918091,
+      "parameters": {
+        "features__reference": "car",
+        "model__C": 0.01
+      }
+    },
+    "SpatialLDA": {
+      "training_cv_accuracy": 0.09768400113668656,
+      "training_cv_macro_f1": 0.09181594215133947,
+      "parameters": {
+        "features__reference": "none",
+        "tangent__normalize": true
+      }
+    },
+    "Majority": {
+      "training_cv_accuracy": 0.12688263711281614,
+      "training_cv_macro_f1": 0.02501202501202501,
+      "parameters": {}
+    }
+  }
+}

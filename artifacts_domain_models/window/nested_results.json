@@ -1,0 +1,97 @@
+{
+  "unit": "window",
+  "duration_seconds": 1.0,
+  "examples": 564,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.4592198581560284,
+    "balanced_accuracy": 0.4556159420289855,
+    "macro_f1": 0.44130304162133194
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "latent_alignment",
+        "bank": "domain",
+        "parameters": {
+          "align__clusters": 2,
+          "align__mode": "interact",
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5340608465608466,
+        "inner_macro_f1": 0.5333363364265192
+      },
+      "accuracy": 0.49166666666666664,
+      "balanced_accuracy": 0.4916666666666667,
+      "macro_f1": 0.49078260869565216
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "majority",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33888888888888885
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "lateral_ridge",
+        "bank": "lateral",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.5036375661375662,
+        "inner_macro_f1": 0.45398145355452324
+      },
+      "accuracy": 0.37037037037037035,
+      "balanced_accuracy": 0.39375,
+      "macro_f1": 0.35238095238095235
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "majority",
+        "bank": "lateral",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "latent_alignment",
+        "bank": "domain",
+        "parameters": {
+          "align__clusters": 10,
+          "align__mode": "center",
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5291005291005291,
+        "inner_macro_f1": 0.5251491054454451
+      },
+      "accuracy": 0.37037037037037035,
+      "balanced_accuracy": 0.37916666666666665,
+      "macro_f1": 0.3695054945054945
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

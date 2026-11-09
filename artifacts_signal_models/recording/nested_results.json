@@ -1,0 +1,101 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "examples": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.3191489361702128,
+    "balanced_accuracy": 0.31974637681159424,
+    "macro_f1": 0.3188405797101449
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "lagged_ridge",
+        "bank": "lagged",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 100
+        },
+        "inner_balanced_accuracy": 0.5119047619047619,
+        "inner_macro_f1": 0.4979705479705479
+      },
+      "accuracy": 0.3,
+      "balanced_accuracy": 0.30000000000000004,
+      "macro_f1": 0.29292929292929293
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "connectivity_svm",
+        "bank": "connectivity",
+        "parameters": {
+          "model__C": 10.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.6468253968253969,
+        "inner_macro_f1": 0.6037581699346405
+      },
+      "accuracy": 0.1,
+      "balanced_accuracy": 0.1,
+      "macro_f1": 0.09090909090909091
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "high_frequency_ridge",
+        "bank": "high_frequency",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.5515873015873015,
+        "inner_macro_f1": 0.5502886002886003
+      },
+      "accuracy": 0.4444444444444444,
+      "balanced_accuracy": 0.45,
+      "macro_f1": 0.4444444444444444
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "high_frequency_ridge",
+        "bank": "high_frequency",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.5793650793650794,
+        "inner_macro_f1": 0.576923076923077
+      },
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.675,
+      "macro_f1": 0.6666666666666666
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "high_frequency_ridge",
+        "bank": "high_frequency",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 100
+        },
+        "inner_balanced_accuracy": 0.6031746031746033,
+        "inner_macro_f1": 0.5887566137566138
+      },
+      "accuracy": 0.1111111111111111,
+      "balanced_accuracy": 0.1,
+      "macro_f1": 0.1
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

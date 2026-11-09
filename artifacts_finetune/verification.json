@@ -1,0 +1,32 @@
+{
+  "source_data_runtime_plan_checked": true,
+  "units": [
+    {
+      "unit": "recording",
+      "outer_models_independently_refitted": 5,
+      "selected_inner_models_independently_refitted": 15,
+      "all_outer_predictions_and_metrics_match": true,
+      "raw_cached_inference_match": true,
+      "raw_feature_max_absolute_error": 0.0,
+      "all_fold_groups_audited": true,
+      "stored_candidate_score_consistency_checked": true,
+      "all_candidate_fits_independently_repeated": false,
+      "final_model_independently_refitted": true
+    },
+    {
+      "unit": "window",
+      "outer_models_independently_refitted": 5,
+      "selected_inner_models_independently_refitted": 15,
+      "all_outer_predictions_and_metrics_match": true,
+      "raw_cached_inference_match": true,
+      "raw_feature_max_absolute_error": 2.592802047729492e-06,
+      "all_fold_groups_audited": true,
+      "stored_candidate_score_consistency_checked": true,
+      "all_candidate_fits_independently_repeated": false,
+      "final_model_independently_refitted": true
+    }
+  ],
+  "original_validation_test_not_evaluated": true,
+  "subject_independent": false,
+  "all_results_exploratory": true
+}

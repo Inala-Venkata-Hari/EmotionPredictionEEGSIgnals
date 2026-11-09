@@ -1,0 +1,42 @@
+{
+  "modes": [
+    {
+      "mode": "paper",
+      "population_states_checked": 2,
+      "stored_candidate_score_records_consistency_checked": 8,
+      "historical_genomes_independently_checked": 8,
+      "selected_fitness_all_seven_k_independently_recomputed": true,
+      "all_candidates_independently_recomputed": false,
+      "optimized_training_values_bitwise_equal_to_original_batch_transform": true,
+      "independent_per_example_transform_max_absolute_error": 6.177280909014371e-13,
+      "raw_and_cached_inference_match": true,
+      "final_model_independently_refitted": true,
+      "all_final_metrics_and_confusions_recomputed": true,
+      "overlap_audited": true
+    },
+    {
+      "mode": "grouped",
+      "population_states_checked": 2,
+      "stored_candidate_score_records_consistency_checked": 8,
+      "historical_genomes_independently_checked": 8,
+      "selected_fitness_all_seven_k_independently_recomputed": true,
+      "all_candidates_independently_recomputed": false,
+      "optimized_training_values_bitwise_equal_to_original_batch_transform": true,
+      "independent_per_example_transform_max_absolute_error": 6.712408406883696e-13,
+      "raw_and_cached_inference_match": true,
+      "final_model_independently_refitted": true,
+      "all_final_metrics_and_confusions_recomputed": true,
+      "overlap_audited": true
+    }
+  ],
+  "all_source_and_feature_hashes_match": true,
+  "four_raw_examples_rebuilt": true,
+  "both_masks_frozen_before_final_predictions": true,
+  "root_model_is_predeclared_grouped_model": true,
+  "generations": 1,
+  "root_model_predictions_and_metadata_verified": true,
+  "population": 4,
+  "subject_independent": false,
+  "grouped_result_exploratory": true,
+  "paper_result_diagnostic_only": true
+}

@@ -1,0 +1,5 @@
+{
+  "winner": "knn",
+  "criterion": "highest fixed inner fitness accuracy; earliest k/genome breaks ties",
+  "frozen_before_test_evaluation": true
+}

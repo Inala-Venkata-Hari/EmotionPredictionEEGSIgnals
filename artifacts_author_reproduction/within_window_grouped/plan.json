@@ -1,0 +1,45 @@
+{
+  "protocol": "grouped",
+  "diagnostic_only": false,
+  "seed": 42,
+  "normalization": "within-window",
+  "knn_backend": "sklearn CPU defaults, independent prediction per k",
+  "generations": 100,
+  "population_size": 100,
+  "knn_candidates": [
+    5,
+    7,
+    13,
+    15,
+    17,
+    21,
+    37
+  ],
+  "mutation_rate": 0.0043859649122807015,
+  "crossover": "uniform independent bit mask p=0.5",
+  "selection": "rank-weighted mating, top-100 parent+offspring survival",
+  "fitness": "fixed inner validation accuracy only; never outer test labels",
+  "split_sizes": {
+    "outer_train": 744,
+    "test": 180,
+    "fitness_fit": 600,
+    "fitness_validation": 144
+  },
+  "overlap_audit": {
+    "outer": {
+      "shared_overlap_groups": 0,
+      "heldout_windows_with_shared_samples": 0,
+      "shared_samples_counting_window_occurrences": 0
+    },
+    "inner": {
+      "shared_overlap_groups": 0,
+      "heldout_windows_with_shared_samples": 0,
+      "shared_samples_counting_window_occurrences": 0
+    }
+  },
+  "subject_independent": false,
+  "test_previously_reported": true,
+  "source": "author-source bank described in ../feature_spec.json or feature_spec.json",
+  "exact_original_ga_rates_and_split_seed_unknown": true,
+  "threadpool_limit": 4
+}

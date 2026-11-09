@@ -1,0 +1,12 @@
+{
+  "file": "best_model.joblib",
+  "unit": "window",
+  "class_ids": [
+    6,
+    8
+  ],
+  "input": "raw (N,128,14) EEG",
+  "selection": "original-training inner-CV balanced accuracy, macro-F1, declared study/family order",
+  "exploratory": true,
+  "subject_independent": false
+}

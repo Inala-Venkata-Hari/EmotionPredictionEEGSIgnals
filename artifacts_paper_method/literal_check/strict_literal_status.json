@@ -1,0 +1,5 @@
+{
+  "training_executed": false,
+  "reason": "A22-A24 require log of nonpositive signed curve lengths on actual EEG",
+  "undefined_cases_in_24_declared_checks": 18
+}

@@ -1,0 +1,101 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "examples": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.5319148936170213,
+    "balanced_accuracy": 0.5317028985507246,
+    "macro_f1": 0.5317028985507246
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "topography_svm",
+        "bank": "topography",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 10
+        },
+        "inner_balanced_accuracy": 0.6190476190476191,
+        "inner_macro_f1": 0.5950396825396825
+      },
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.4,
+      "macro_f1": 0.4
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "lateral_svm",
+        "bank": "lateral",
+        "parameters": {
+          "model__C": 1.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.6587301587301587,
+        "inner_macro_f1": 0.6322089947089947
+      },
+      "accuracy": 0.6,
+      "balanced_accuracy": 0.6,
+      "macro_f1": 0.6
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "relative_spectrum_ridge",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 20
+        },
+        "inner_balanced_accuracy": 0.6388888888888888,
+        "inner_macro_f1": 0.6331168831168831
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.575,
+      "macro_f1": 0.55
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "relative_spectrum_ridge",
+        "bank": "relative_spectrum",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 20
+        },
+        "inner_balanced_accuracy": 0.638888888888889,
+        "inner_macro_f1": 0.6222707847707848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.55,
+      "macro_f1": 0.55
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "topography_ridge",
+        "bank": "topography",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 3
+        },
+        "inner_balanced_accuracy": 0.6230158730158729,
+        "inner_macro_f1": 0.596518759018759
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.575,
+      "macro_f1": 0.55
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

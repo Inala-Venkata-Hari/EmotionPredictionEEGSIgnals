@@ -1,0 +1,18 @@
+{
+  "protocol": "paper-window",
+  "diagnostic_only": true,
+  "normalization": "train",
+  "source_split_and_overlap_counts_reproduced": true,
+  "all_population_states_checked": 101,
+  "candidate_score_records_checked_for_consistency": 9971,
+  "all_candidate_fitness_predictions_independently_recomputed": false,
+  "selected_fitness_prediction_backend": "legacy Torch float64; sklearn metrics",
+  "selected_fitness_recomputed_with_original_scorer": true,
+  "scaler_fitted_to_training_only": true,
+  "scaler_policy": "outer training population only",
+  "checkpoint_and_sklearn_predictions_match": true,
+  "six_layer_inference_matches": true,
+  "all_test_metrics_and_confusions_recomputed": true,
+  "target_status_verified": true,
+  "cuda_execution_verified": false
+}

@@ -1,0 +1,96 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "examples": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.44680851063829785,
+    "balanced_accuracy": 0.4483695652173913,
+    "macro_f1": 0.4445454545454546
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "normalized__mean_ridge",
+        "bank": "normalized__mean",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.7063492063492064,
+        "inner_macro_f1": 0.6986235986235987
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4949494949494949
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "physical__cls_ridge",
+        "bank": "physical__cls",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.7301587301587302,
+        "inner_macro_f1": 0.7269841269841271
+      },
+      "accuracy": 0.2,
+      "balanced_accuracy": 0.2,
+      "macro_f1": 0.16666666666666666
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "car_physical__mean_ridge",
+        "bank": "car_physical__mean",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.6865079365079366,
+        "inner_macro_f1": 0.6865079365079366
+      },
+      "accuracy": 0.4444444444444444,
+      "balanced_accuracy": 0.475,
+      "macro_f1": 0.41558441558441556
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "normalized__cls_ridge",
+        "bank": "normalized__cls",
+        "parameters": {
+          "model__alpha": 1.0
+        },
+        "inner_balanced_accuracy": 0.5873015873015873,
+        "inner_macro_f1": 0.5761904761904763
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.55,
+      "macro_f1": 0.55
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "car_physical__cls_svm",
+        "bank": "car_physical__cls",
+        "parameters": {
+          "model__C": 1.0
+        },
+        "inner_balanced_accuracy": 0.5912698412698413,
+        "inner_macro_f1": 0.5737373737373738
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.575,
+      "macro_f1": 0.55
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

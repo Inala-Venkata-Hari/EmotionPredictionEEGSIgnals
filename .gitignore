@@ -6,5 +6,10 @@ EEGIS*/
 artifacts/cache.npz
 *.joblib
 *.pt
+*.pth
+*.download
 *.log
 share/
+*.npz
+.venv-paper/
+.python-paper/

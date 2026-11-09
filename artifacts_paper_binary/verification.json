@@ -1,0 +1,20 @@
+{
+  "protocol": "grouped",
+  "diagnostic_only": false,
+  "source_split_reproduced": true,
+  "exact_sample_overlap_recounted": true,
+  "zero_cross_partition_overlap": true,
+  "selected_inner_fitness_recomputed": true,
+  "all_generations_and_population_scores_checked": true,
+  "final_scaler_training_only": true,
+  "checkpoint_predictions_match": true,
+  "sklearn_knn_reference_matches": true,
+  "raw_window_inference_matches": true,
+  "metrics_and_confusion_recomputed": true,
+  "selection_matches_fitness_only": true,
+  "classifiers_verified": [
+    "knn"
+  ],
+  "cuda_execution_verified": false,
+  "cuda_note": "This independent replay uses CPU; hardware CUDA test is conditional in the test suite."
+}

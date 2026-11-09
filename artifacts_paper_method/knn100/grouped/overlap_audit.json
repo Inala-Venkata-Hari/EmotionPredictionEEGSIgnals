@@ -1,0 +1,12 @@
+{
+  "search": {
+    "shared_overlap_groups": 0,
+    "heldout_windows_with_shared_samples": 0,
+    "shared_samples_counting_window_occurrences": 0
+  },
+  "final": {
+    "shared_overlap_groups": 0,
+    "heldout_windows_with_shared_samples": 0,
+    "shared_samples_counting_window_occurrences": 0
+  }
+}

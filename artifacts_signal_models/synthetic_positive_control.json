@@ -1,0 +1,10 @@
+{
+  "data": "synthetic sinusoids plus Gaussian noise, not EEGIS",
+  "train_examples": 48,
+  "test_examples": 32,
+  "epochs": 50,
+  "accuracy": 1.0,
+  "seed": 42,
+  "training_device": "cpu",
+  "used_to_tune_EEGIS_parameters": false
+}

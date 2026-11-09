@@ -1,0 +1,10 @@
+{
+  "reconstruction_replayed": true,
+  "identical_source_split": true,
+  "cross_split_shared_samples": 0,
+  "checkpoint_predictions_match": true,
+  "metrics_recomputed": true,
+  "confusion_matrix_verified": true,
+  "selection_uses_training_cv_only": true,
+  "shuffled_window_inference_matches": true
+}

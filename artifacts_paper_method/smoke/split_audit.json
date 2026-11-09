@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "stage1_fit": 739,
+    "stage1_fitness": 185,
+    "stage2_fit": 184,
+    "stage2_evaluation": 740
+  },
+  "stage1_overlap": {
+    "shared_overlap_groups": 71,
+    "heldout_windows_with_shared_samples": 165,
+    "shared_samples_counting_window_occurrences": 12240
+  },
+  "stage2_overlap": {
+    "shared_overlap_groups": 74,
+    "heldout_windows_with_shared_samples": 243,
+    "shared_samples_counting_window_occurrences": 12720
+  },
+  "later_evaluation_previously_used_for_fitness_labels": 140,
+  "diagnostic_only": true,
+  "subject_independent": false
+}
