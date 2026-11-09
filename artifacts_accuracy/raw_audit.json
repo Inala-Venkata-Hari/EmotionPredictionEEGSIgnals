@@ -1,0 +1,9 @@
+{
+  "window_sha256": "f8817a59d9c0c23092d06c46bd0b52cb3133e16e44695be68edcf278d7662476",
+  "recording_sha256": "4e4265f70da6ae0fc4ff40cfc4308dbb75affb9d03ffb947109558d6c7c6b8e1",
+  "exact_overlap": {
+    "cross_split_shared_samples": 0,
+    "cross_split_overlap_groups": 0
+  },
+  "subjects_available": false
+}

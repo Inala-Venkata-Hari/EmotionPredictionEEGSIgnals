@@ -4,6 +4,8 @@ This project trains an RBF SVM, Random Forest, and compact EEGNet-style CNN on t
 
 Latest work: the [verified 100-generation binary kNN study](artifacts_paper_method/knn100/README.md) is complete. Grouped exploratory accuracy is **45.00%** (macro-F1 **0.4500**), below its **53.33%** majority baseline. The paper-style diagnostic is **55.95%** (macro-F1 **0.5585**). The paper's reported 96% was not reproduced. See the [printed-paper implementation and ten-classifier functional test](artifacts_paper_method/README.md), [methodology recheck](artifacts_author_recheck/README.md), and [adversarial code review](artifacts_adversarial_review/README.md). These changes are shared on `experiment/reconstructed-recordings` through [draft PR #1](https://github.com/Inala-Venkata-Hari/EmotionPredictionEEGSIgnals/pull/1).
 
+Ongoing improvement work: [nested binary model comparison](artifacts_accuracy/README.md) and [phase-connectivity/CNN study](artifacts_signal_models/README.md). These searches use the original training groups only and keep their original holdouts out of tuning. No passable new accuracy is claimed yet.
+
 ## Dataset and provenance
 
 Source: [EEGIS version 1, DOI 10.17632/73g4fw884c.1](https://data.mendeley.com/datasets/73g4fw884c/1), Edgar Lara, Andras Takacs, and Juvenal Rodríguez, CC BY 4.0. The source describes ten participants, Emotiv EPOC+, and 128 Hz sampling. The release contains raw signals plus delta, theta, alpha, beta, and gamma variants. Windows contain 128 time samples and 14 channels, with an exported row-index column. The source reports 48-sample overlap after trimming each state recording. Channel names are AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4.

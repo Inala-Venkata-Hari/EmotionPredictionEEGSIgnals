@@ -49,6 +49,15 @@ literal = paper / 'literal_check'
 if (literal / 'strict_literal_status.json').exists():
     files.extend(sorted(p for p in literal.iterdir()
                         if p.is_file() and p.suffix in {'.json', '.csv'}))
+for directory in ['artifacts_accuracy', 'artifacts_signal_models']:
+    base = root / directory
+    if (base / 'verification.json').exists():
+        files.extend(sorted(p for p in base.rglob('*') if p.is_file()
+                            and p.suffix in {'.md', '.json', '.csv', '.png'}))
+    else:
+        for filename in ['README.md', 'plan.json', 'raw_audit.json']:
+            if (base / filename).is_file():
+                files.append(base / filename)
 files=sorted(set(files))
 share=root/'share';share.mkdir(exist_ok=True)
 archive=share/'eegis-team-project.zip'
