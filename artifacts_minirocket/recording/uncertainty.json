@@ -1,0 +1,14 @@
+{
+  "method": "paired overlap-group bootstrap of nested OOF predictions; exploratory approximate intervals",
+  "draws": 10000,
+  "seed": 42,
+  "balanced_accuracy_ci95": [
+    0.2972222222222222,
+    0.5439560439560439
+  ],
+  "difference_from_fold_majority_ci95": [
+    -0.20277777777777778,
+    0.04395604395604391
+  ],
+  "does_not_account_for_all_adaptive_research_choices": true
+}

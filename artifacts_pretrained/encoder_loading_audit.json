@@ -1,0 +1,47 @@
+{
+  "checkpoint_sha256": "7c50583826afac76c4ab18f43d958df40496c8229accc09ed6a227c9bb57c37c",
+  "missing_encoder_keys": [],
+  "unused_pretraining_keys": [
+    "mask_token",
+    "lm_head.weight",
+    "lm_head.bias"
+  ],
+  "encoder_parameters": 5819936,
+  "channel_names": [
+    "AF3",
+    "F7",
+    "F3",
+    "FC5",
+    "T7",
+    "P7",
+    "O1",
+    "O2",
+    "P8",
+    "T8",
+    "FC6",
+    "F4",
+    "F8",
+    "AF4"
+  ],
+  "position_indices_including_cls": [
+    0,
+    7,
+    16,
+    18,
+    28,
+    38,
+    60,
+    81,
+    83,
+    68,
+    46,
+    34,
+    22,
+    24,
+    11
+  ],
+  "frozen": true,
+  "device": "cpu",
+  "learned_on_EEGIS": false,
+  "pretraining_corpus_not_independently_audited": true
+}

@@ -1,0 +1,94 @@
+{
+  "unit": "window",
+  "duration_seconds": 1.0,
+  "examples": 564,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5095863526570048,
+    "macro_f1": 0.5088534107402032
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "car_normalized__cls_svm",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__C": 1.0
+        },
+        "inner_balanced_accuracy": 0.503968253968254,
+        "inner_macro_f1": 0.5028830087556752
+      },
+      "accuracy": 0.5166666666666667,
+      "balanced_accuracy": 0.5166666666666667,
+      "macro_f1": 0.5117845117845118
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "car_normalized__cls_ridge",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__alpha": 1000.0
+        },
+        "inner_balanced_accuracy": 0.5846560846560847,
+        "inner_macro_f1": 0.5828930679043279
+      },
+      "accuracy": 0.5666666666666667,
+      "balanced_accuracy": 0.5666666666666667,
+      "macro_f1": 0.5636363636363636
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "car_normalized__cls_svm",
+        "bank": "car_normalized__cls",
+        "parameters": {
+          "model__C": 1.0
+        },
+        "inner_balanced_accuracy": 0.5615079365079364,
+        "inner_macro_f1": 0.5586801859366541
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5041666666666667,
+      "macro_f1": 0.49982847341337905
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "majority",
+        "bank": "physical__mean",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "physical__mean_svm",
+        "bank": "physical__mean",
+        "parameters": {
+          "model__C": 0.1
+        },
+        "inner_balanced_accuracy": 0.5218253968253967,
+        "inner_macro_f1": 0.48143645904576243
+      },
+      "accuracy": 0.4074074074074074,
+      "balanced_accuracy": 0.3854166666666667,
+      "macro_f1": 0.37095012741172184
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

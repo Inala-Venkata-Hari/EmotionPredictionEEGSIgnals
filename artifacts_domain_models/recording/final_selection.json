@@ -1,0 +1,119 @@
+{
+  "winner": {
+    "name": "relative_spectrum_ridge",
+    "bank": "relative_spectrum",
+    "parameters": {
+      "model__alpha": 1.0,
+      "select__k": 3
+    },
+    "inner_balanced_accuracy": 0.5773809523809524,
+    "inner_macro_f1": 0.5702237305178482
+  },
+  "families": [
+    {
+      "name": "lateral_ridge",
+      "bank": "lateral",
+      "parameters": {
+        "model__alpha": 100.0,
+        "select__k": 10
+      },
+      "inner_balanced_accuracy": 0.5565476190476191,
+      "inner_macro_f1": 0.5337086030584482
+    },
+    {
+      "name": "lateral_svm",
+      "bank": "lateral",
+      "parameters": {
+        "model__C": 1.0,
+        "select__k": 10
+      },
+      "inner_balanced_accuracy": 0.4702380952380952,
+      "inner_macro_f1": 0.4395936422252211
+    },
+    {
+      "name": "topography_ridge",
+      "bank": "topography",
+      "parameters": {
+        "model__alpha": 100.0,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.5148809523809524,
+      "inner_macro_f1": 0.49909741674447555
+    },
+    {
+      "name": "topography_svm",
+      "bank": "topography",
+      "parameters": {
+        "model__C": 0.1,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.5357142857142857,
+      "inner_macro_f1": 0.42162698412698413
+    },
+    {
+      "name": "relative_spectrum_ridge",
+      "bank": "relative_spectrum",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.5773809523809524,
+      "inner_macro_f1": 0.5702237305178482
+    },
+    {
+      "name": "relative_spectrum_svm",
+      "bank": "relative_spectrum",
+      "parameters": {
+        "model__C": 0.1,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.5535714285714285,
+      "inner_macro_f1": 0.48373590982286635
+    },
+    {
+      "name": "spectral_ridge",
+      "bank": "spectral",
+      "parameters": {
+        "model__alpha": 1.0,
+        "select__k": 10
+      },
+      "inner_balanced_accuracy": 0.47321428571428575,
+      "inner_macro_f1": 0.46398345663051543
+    },
+    {
+      "name": "spectral_svm",
+      "bank": "spectral",
+      "parameters": {
+        "model__C": 0.1,
+        "select__k": 3
+      },
+      "inner_balanced_accuracy": 0.44642857142857145,
+      "inner_macro_f1": 0.3323412698412698
+    },
+    {
+      "name": "lateral_lda",
+      "bank": "lateral",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.49404761904761907,
+      "inner_macro_f1": 0.4801742919389978
+    },
+    {
+      "name": "latent_alignment",
+      "bank": "domain",
+      "parameters": {
+        "align__clusters": 10,
+        "align__mode": "interact",
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.42559523809523814,
+      "inner_macro_f1": 0.4187402738873327
+    },
+    {
+      "name": "majority",
+      "bank": "lateral",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.5,
+      "inner_macro_f1": 0.33816425120772947
+    }
+  ]
+}

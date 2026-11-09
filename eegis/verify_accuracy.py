@@ -45,7 +45,26 @@ def grouped_uncertainty(frame, seed=42, draws=10000):
 def verify(root, data, manifest):
     root = Path(root)
     plan = json.loads((root/'plan.json').read_text())
-    if 'window_data_sha256' in plan:
+    if plan.get('study_kind')=='finetune':
+        from .train_finetune import candidates as finetune_candidates,fingerprint as finetune_fingerprint
+        from .finetune_features import FineTuneModel
+        catalogue,source_hashes=finetune_candidates,finetune_fingerprint
+        factory=lambda estimator,bank,kernels,samples: FineTuneModel(estimator,bank,samples)
+    elif plan.get('study_kind')=='pretrained':
+        from .train_pretrained import candidates as pretrained_candidates, fingerprint as pretrained_fingerprint
+        from .pretrained_features import PretrainedModel
+        catalogue,source_hashes=pretrained_candidates,pretrained_fingerprint
+        factory=lambda estimator,bank,kernels,samples: PretrainedModel(estimator,bank,samples)
+    elif plan.get('study_kind')=='minirocket':
+        from .train_minirocket import candidates as rocket_candidates, fingerprint as rocket_fingerprint, MiniRocketModel
+        catalogue,source_hashes=rocket_candidates,rocket_fingerprint
+        factory=lambda estimator,bank,kernels,samples: MiniRocketModel(estimator,bank,samples)
+    elif plan.get('study_kind')=='domain':
+        from .train_domain_models import candidates as domain_candidates, fingerprint as domain_fingerprint
+        from .domain_features import DomainModel
+        catalogue, source_hashes = domain_candidates, domain_fingerprint
+        factory = lambda estimator,bank,kernels,samples: DomainModel(estimator,bank,samples)
+    elif 'window_data_sha256' in plan:
         catalogue, source_hashes, factory = candidates, fingerprint, BinaryAccuracyModel
     else:
         from .train_signal_models import candidates as signal_candidates, fingerprint as signal_fingerprint
@@ -76,6 +95,7 @@ def verify(root, data, manifest):
         membership = json.loads((directory/'cv_membership.json').read_text())
         actual_outer = folds(m,training,5,42)
         selected_refits = 0
+        raw_feature_max_error = 0.
         for fold,(fit,val) in enumerate(actual_outer):
             a,b = training[fit],training[val]
             fit_groups=set(m.overlap_group.iloc[a]); val_groups=set(m.overlap_group.iloc[b])
@@ -111,7 +131,14 @@ def verify(root, data, manifest):
             # Check raw-vs-cached values and exact predicted labels independently.
             raw_model=factory(estimator,bank,kernels,x.shape[1])
             rebuilt=raw_model.features(x[b[:2]])
-            np.testing.assert_allclose(rebuilt,banks[bank][b[:2]],rtol=1e-5,atol=1e-6)
+            raw_feature_max_error=max(raw_feature_max_error,float(np.max(np.abs(rebuilt-banks[bank][b[:2]]))))
+            # Float32 transformer GEMMs can vary in their final bits with batch
+            # size. The dedicated encoder-locality test uses the same bound;
+            # categorical predictions below still require exact equality.
+            if plan.get('study_kind') in ['pretrained','finetune']:
+                np.testing.assert_allclose(rebuilt,banks[bank][b[:2]],rtol=1e-4,atol=1e-4)
+            else:
+                np.testing.assert_allclose(rebuilt,banks[bank][b[:2]],rtol=1e-5,atol=1e-6)
             np.testing.assert_array_equal(raw_model.predict(x[b[:2]]),pred[:2])
             # Every stored candidate table's reported selection is checked for
             # consistency, distinct from independently repeating all candidates.
@@ -137,6 +164,7 @@ def verify(root, data, manifest):
         receipts.append({'unit':unit,'outer_models_independently_refitted':5,
                          'selected_inner_models_independently_refitted':selected_refits,
                          'all_outer_predictions_and_metrics_match':True,'raw_cached_inference_match':True,
+                         'raw_feature_max_absolute_error':raw_feature_max_error,
                          'all_fold_groups_audited':True,'stored_candidate_score_consistency_checked':True,
                          'all_candidate_fits_independently_repeated':False,'final_model_independently_refitted':True})
         print('Verified',unit,results['nested'],flush=True)

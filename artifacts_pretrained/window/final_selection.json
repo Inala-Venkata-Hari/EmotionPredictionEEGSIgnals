@@ -1,0 +1,164 @@
+{
+  "winner": {
+    "name": "car_normalized__cls_ridge",
+    "bank": "car_normalized__cls",
+    "parameters": {
+      "model__alpha": 100.0
+    },
+    "inner_balanced_accuracy": 0.513640873015873,
+    "inner_macro_f1": 0.5128924513621362
+  },
+  "families": [
+    {
+      "name": "physical__cls_ridge",
+      "bank": "physical__cls",
+      "parameters": {
+        "model__alpha": 100.0
+      },
+      "inner_balanced_accuracy": 0.46974206349206354,
+      "inner_macro_f1": 0.46392528493684465
+    },
+    {
+      "name": "physical__cls_svm",
+      "bank": "physical__cls",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "inner_balanced_accuracy": 0.46502976190476186,
+      "inner_macro_f1": 0.4025504364320742
+    },
+    {
+      "name": "physical__mean_ridge",
+      "bank": "physical__mean",
+      "parameters": {
+        "model__alpha": 1000.0
+      },
+      "inner_balanced_accuracy": 0.44022817460317465,
+      "inner_macro_f1": 0.4355166375924875
+    },
+    {
+      "name": "physical__mean_svm",
+      "bank": "physical__mean",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "inner_balanced_accuracy": 0.4662698412698412,
+      "inner_macro_f1": 0.40611931980429006
+    },
+    {
+      "name": "normalized__cls_ridge",
+      "bank": "normalized__cls",
+      "parameters": {
+        "model__alpha": 100.0
+      },
+      "inner_balanced_accuracy": 0.4694940476190476,
+      "inner_macro_f1": 0.46769812632806457
+    },
+    {
+      "name": "normalized__cls_svm",
+      "bank": "normalized__cls",
+      "parameters": {
+        "model__C": 10.0
+      },
+      "inner_balanced_accuracy": 0.45089285714285715,
+      "inner_macro_f1": 0.4500329504239238
+    },
+    {
+      "name": "normalized__mean_ridge",
+      "bank": "normalized__mean",
+      "parameters": {
+        "model__alpha": 100.0
+      },
+      "inner_balanced_accuracy": 0.49751984126984133,
+      "inner_macro_f1": 0.49642526235011447
+    },
+    {
+      "name": "normalized__mean_svm",
+      "bank": "normalized__mean",
+      "parameters": {
+        "model__C": 10.0
+      },
+      "inner_balanced_accuracy": 0.499751984126984,
+      "inner_macro_f1": 0.49877079143453096
+    },
+    {
+      "name": "car_physical__cls_ridge",
+      "bank": "car_physical__cls",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.48239087301587297,
+      "inner_macro_f1": 0.4822996187317348
+    },
+    {
+      "name": "car_physical__cls_svm",
+      "bank": "car_physical__cls",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "inner_balanced_accuracy": 0.4605654761904762,
+      "inner_macro_f1": 0.3795201883669083
+    },
+    {
+      "name": "car_physical__mean_ridge",
+      "bank": "car_physical__mean",
+      "parameters": {
+        "model__alpha": 100.0
+      },
+      "inner_balanced_accuracy": 0.4697420634920635,
+      "inner_macro_f1": 0.46801573524321016
+    },
+    {
+      "name": "car_physical__mean_svm",
+      "bank": "car_physical__mean",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "inner_balanced_accuracy": 0.4630456349206349,
+      "inner_macro_f1": 0.351429334387604
+    },
+    {
+      "name": "car_normalized__cls_ridge",
+      "bank": "car_normalized__cls",
+      "parameters": {
+        "model__alpha": 100.0
+      },
+      "inner_balanced_accuracy": 0.513640873015873,
+      "inner_macro_f1": 0.5128924513621362
+    },
+    {
+      "name": "car_normalized__cls_svm",
+      "bank": "car_normalized__cls",
+      "parameters": {
+        "model__C": 1.0
+      },
+      "inner_balanced_accuracy": 0.5079365079365079,
+      "inner_macro_f1": 0.5078998988196639
+    },
+    {
+      "name": "car_normalized__mean_ridge",
+      "bank": "car_normalized__mean",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.49082341269841273,
+      "inner_macro_f1": 0.49029694907918037
+    },
+    {
+      "name": "car_normalized__mean_svm",
+      "bank": "car_normalized__mean",
+      "parameters": {
+        "model__C": 0.1
+      },
+      "inner_balanced_accuracy": 0.4712301587301588,
+      "inner_macro_f1": 0.3592350221563705
+    },
+    {
+      "name": "majority",
+      "bank": "physical__mean",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.5,
+      "inner_macro_f1": 0.33816425120772947
+    }
+  ]
+}

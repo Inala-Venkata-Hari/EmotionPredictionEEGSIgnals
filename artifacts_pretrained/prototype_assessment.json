@@ -1,0 +1,33 @@
+{
+  "target_balanced_accuracy": 0.7,
+  "target_macro_f1": 0.7,
+  "results": [
+    {
+      "unit": "window",
+      "duration_seconds": 1.0,
+      "accuracy": 0.5106382978723404,
+      "balanced_accuracy": 0.5095863526570048,
+      "macro_f1": 0.5088534107402032,
+      "majority_balanced_accuracy": 0.5,
+      "balanced_accuracy_ci95_low": 0.425302503417635,
+      "balanced_accuracy_ci95_high": 0.5940171078921078,
+      "training_groups": 47,
+      "final_selected_family": "car_normalized__cls_ridge",
+      "prototype_gate_met": false
+    },
+    {
+      "unit": "recording",
+      "duration_seconds": 7.875,
+      "accuracy": 0.44680851063829785,
+      "balanced_accuracy": 0.4483695652173913,
+      "macro_f1": 0.4445454545454546,
+      "majority_balanced_accuracy": 0.5,
+      "balanced_accuracy_ci95_low": 0.3097903050108933,
+      "balanced_accuracy_ci95_high": 0.5927272727272728,
+      "training_groups": 47,
+      "final_selected_family": "normalized__cls_ridge",
+      "prototype_gate_met": false
+    }
+  ],
+  "independent_confirmation_available": false
+}

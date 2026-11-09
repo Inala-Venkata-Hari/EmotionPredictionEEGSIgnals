@@ -49,13 +49,17 @@ literal = paper / 'literal_check'
 if (literal / 'strict_literal_status.json').exists():
     files.extend(sorted(p for p in literal.iterdir()
                         if p.is_file() and p.suffix in {'.json', '.csv'}))
-for directory in ['artifacts_accuracy', 'artifacts_signal_models']:
+for directory in ['artifacts_accuracy', 'artifacts_signal_models', 'artifacts_domain_models', 'artifacts_minirocket', 'artifacts_pretrained', 'artifacts_finetune', 'artifacts_accuracy_refit', 'artifacts_signal_audit']:
     base = root / directory
     if (base / 'verification.json').exists():
-        files.extend(sorted(p for p in base.rglob('*') if p.is_file()
-                            and p.suffix in {'.md', '.json', '.csv', '.png'}))
+        # Per-family subdirectories are resume caches. Every candidate result
+        # and CNN history is consolidated into unit-root CSVs by the reporter.
+        for report_root in [base, base / 'window', base / 'recording']:
+            if report_root.is_dir():
+                files.extend(sorted(p for p in report_root.iterdir() if p.is_file()
+                                    and p.suffix in {'.md', '.json', '.csv', '.png'}))
     else:
-        for filename in ['README.md', 'plan.json', 'raw_audit.json']:
+        for filename in ['README.md', 'plan.json', 'raw_audit.json', 'vendor_provenance.json', 'source_provenance.json', 'checkpoint_provenance.json', 'encoder_loading_audit.json']:
             if (base / filename).is_file():
                 files.append(base / filename)
 files=sorted(set(files))

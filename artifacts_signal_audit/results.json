@@ -1,0 +1,47 @@
+{
+  "purpose": "exploratory group-level class-separation diagnostic, not a classifier accuracy",
+  "only_original_training_groups_used": true,
+  "overlap_components": 47,
+  "class_counts": {
+    "6": 24,
+    "8": 23
+  },
+  "permutations": 999,
+  "seed": 42,
+  "method": "biased RBF-kernel empirical mean discrepancy; median-distance bandwidth; Holm correction across five representations",
+  "results": [
+    {
+      "representation": "spectral",
+      "mmd_squared_biased": 0.02235002837451831,
+      "permutation_p": 0.89,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "representation": "spectral_shape",
+      "mmd_squared_biased": 0.023989857966680732,
+      "permutation_p": 0.941,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "representation": "spatial_topography",
+      "mmd_squared_biased": 0.025617911462401863,
+      "permutation_p": 0.731,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "representation": "phase_connectivity",
+      "mmd_squared_biased": 0.02878739174919383,
+      "permutation_p": 0.86,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "representation": "raw_offset_scale_artifact_control",
+      "mmd_squared_biased": 0.030625812284018127,
+      "permutation_p": 0.62,
+      "holm_adjusted_p": 1.0
+    }
+  ],
+  "interpretation": "A nonsignificant result does not prove absence of information or incorrect labels. The limited sample and adaptive research prevent a definitive signal/noise or upper-accuracy conclusion.",
+  "components_not_verified_trials_or_participants": true,
+  "subject_independent": false
+}

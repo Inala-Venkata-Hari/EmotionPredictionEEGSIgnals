@@ -6,6 +6,8 @@ EEGIS*/
 artifacts/cache.npz
 *.joblib
 *.pt
+*.pth
+*.download
 *.log
 share/
 *.npz

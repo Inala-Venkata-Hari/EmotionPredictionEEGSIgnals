@@ -1,0 +1,95 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "examples": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.425531914893617,
+    "balanced_accuracy": 0.42028985507246375,
+    "macro_f1": 0.38547215496368037
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "majority",
+        "bank": "raw",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33888888888888885
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "minirocket",
+        "bank": "raw",
+        "parameters": {
+          "model__alpha": 100.0,
+          "rocket__mode": "derivative"
+        },
+        "inner_balanced_accuracy": 0.5992063492063492,
+        "inner_macro_f1": 0.5889665889665889
+      },
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.4,
+      "macro_f1": 0.4
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "minirocket",
+        "bank": "raw",
+        "parameters": {
+          "model__alpha": 1.0,
+          "rocket__mode": "derivative"
+        },
+        "inner_balanced_accuracy": 0.511904761904762,
+        "inner_macro_f1": 0.4895604395604396
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.55,
+      "macro_f1": 0.55
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "majority",
+        "bank": "raw",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "minirocket",
+        "bank": "raw",
+        "parameters": {
+          "model__alpha": 1.0,
+          "rocket__mode": "derivative"
+        },
+        "inner_balanced_accuracy": 0.5714285714285715,
+        "inner_macro_f1": 0.552848621966269
+      },
+      "accuracy": 0.1111111111111111,
+      "balanced_accuracy": 0.125,
+      "macro_f1": 0.1
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

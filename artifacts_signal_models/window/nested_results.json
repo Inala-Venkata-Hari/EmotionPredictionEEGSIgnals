@@ -1,0 +1,101 @@
+{
+  "unit": "window",
+  "duration_seconds": 1.0,
+  "examples": 564,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.43617021276595747,
+    "balanced_accuracy": 0.43621678743961356,
+    "macro_f1": 0.43614185110663983
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "connectivity_ridge",
+        "bank": "connectivity",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.5231481481481481,
+        "inner_macro_f1": 0.5230443854754817
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4998610725201445
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "joint_ridge",
+        "bank": "joint",
+        "parameters": {
+          "model__alpha": 100.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.5803571428571429,
+        "inner_macro_f1": 0.5783510915017692
+      },
+      "accuracy": 0.375,
+      "balanced_accuracy": 0.375,
+      "macro_f1": 0.3739130434782609
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "lagged_ridge",
+        "bank": "lagged",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 100
+        },
+        "inner_balanced_accuracy": 0.5079365079365079,
+        "inner_macro_f1": 0.5044974099603576
+      },
+      "accuracy": 0.4074074074074074,
+      "balanced_accuracy": 0.4145833333333333,
+      "macro_f1": 0.4072041166380789
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "joint_ridge",
+        "bank": "joint",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 300
+        },
+        "inner_balanced_accuracy": 0.5092592592592592,
+        "inner_macro_f1": 0.501440125211495
+      },
+      "accuracy": 0.5740740740740741,
+      "balanced_accuracy": 0.5770833333333334,
+      "macro_f1": 0.573489010989011
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "connectivity_ridge",
+        "bank": "connectivity",
+        "parameters": {
+          "model__alpha": 1.0,
+          "select__k": 30
+        },
+        "inner_balanced_accuracy": 0.5896164021164022,
+        "inner_macro_f1": 0.5852327893705093
+      },
+      "accuracy": 0.32407407407407407,
+      "balanced_accuracy": 0.32708333333333334,
+      "macro_f1": 0.3240161193517963
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}

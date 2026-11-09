@@ -1,13 +1,30 @@
-# Binary accuracy research: search in progress
+# Verified binary accuracy research
 
-This follow-up tests No (6) versus Sí (8) using 19 model families and 86 hyperparameter configurations. The initial prototype target is 70% balanced accuracy; no passable result is claimed yet.
+This batch compares 19 model families with 86 hyperparameter configurations per inner search. Only the original training partition is used. All results below were measured and independently verified.
 
-Five outer group folds measure the complete model-selection procedure. Each outer fitting partition uses three inner group folds to select features, preprocessing and model parameters. Search uses only the original 47 training overlap components (564 one-second windows). Original validation/test partitions are excluded from search, tuning and epoch selection. All EEGIS examples appeared in earlier analyses, so these results will remain exploratory even with correct nested grouping. No verified participant IDs are available.
+| Decision | Accuracy | Balanced accuracy | Macro-F1 | Approximate balanced-accuracy 95% interval |
+|---|---:|---:|---:|---:|
+| 1 seconds | 48.76% | 48.63% | 0.4851 | 38.65%–58.66% |
+| 7.875 seconds | 46.81% | 47.01% | 0.4642 | 32.45%–61.57% |
 
-Two decision durations are evaluated separately: one second and a reconstructed 1,008-sample component (7.875 seconds). Each original component stays together in every fold. Longer-context accuracy must not be presented as one-second accuracy.
+The initial prototype gate requires at least 70% balanced accuracy and 0.70 macro-F1, with the approximate lower interval above chance. **This batch does not meet that gate.**
 
-Representations include spectral shape, common-average referencing, regularized covariance/tangent features, supervised filter-bank CSP, and fixed random multivariate temporal kernels with PPV/max pooling. Classifiers include regularized linear models, SVM, shrinkage LDA, Extra Trees, gradient boosting and majority controls. Imputation is unnecessary for these finite feature banks. Learned spatial filters, feature scaling and classifiers fit only the current training fold.
+These scores estimate the complete inner-selection procedure, not the performance of one fixed classifier. Five outer folds keep complete overlap groups separate. Three inner folds select the representation, feature selector, scalers and classifier using only each outer fitting partition. The final exported model is selected by a separate three-fold search over all original training groups, without using outer scores to pick its parameters. The original validation and test partitions were not evaluated by this batch.
 
-The temporal kernels are an independent implementation inspired by [ROCKET](https://arxiv.org/abs/1910.13051), not a claim of MiniROCKET reference-code parity. Weights and bias thresholds use a declared seed and input shape, without fitting EEG statistics or labels. Other feature-bank calculations are independent for each example.
+There are only **47 original training overlap components**: 564 correlated one-second windows, or 47 reconstructed components of 1,008 samples each. The two decision durations differ and cannot be reported as interchangeable accuracy measurements. Chance balanced accuracy is 50% for two classes.
 
-Run `.venv/bin/python -m eegis.train_accuracy`, then `.venv/bin/python -m eegis.verify_accuracy`. Use four numerical/Numba threads and the modern requirements-lock.txt environment. Source/data/runtime/configuration hashes guard resumes. Feature caches and models remain local; final measurements will be shared after verification. All earlier experiment results are preserved.
+The saved field independent_overlap_groups counts components with disjoint observed samples. It does not certify independence of participants, sessions or complete experimental trials.
+
+Every EEGIS example appeared in earlier project analyses. These follow-ups are exploratory, including repeated use of training folds while developing later batches. No verified participant IDs exist in the release, and no subject-independent or deployment-quality claim is made. The paired overlap-group bootstrap describes variation in saved out-of-fold predictions; it does not account for every adaptive research choice or all dependence caused by overlapping CV training sets.
+
+Verification independently refits five selected outer models and 15 selected inner models per decision duration, checks exact predictions and all reported metrics, audits all group boundaries, and verifies raw versus cached inference and the final exported model. All stored candidate-score tables are checked for selection consistency; every candidate fit is not independently repeated.
+
+Final models and feature caches stay local. Recreate them with the matching training module and run `python -m eegis.verify_accuracy --artifacts artifacts_accuracy` before reporting results. The frozen plan records source/data/runtime hashes and every candidate.
+
+![Nested comparison](comparison.png)
+
+![One-second confusion](window/nested_confusion.png)
+
+![Longer-context confusion](recording/nested_confusion.png)
+
+The random convolution bank is an independent [ROCKET-inspired](https://arxiv.org/abs/1910.13051) implementation with fixed, label-free thresholds; it is not the reference MiniRocket algorithm.

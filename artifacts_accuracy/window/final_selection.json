@@ -1,0 +1,187 @@
+{
+  "winner": {
+    "name": "car_ridge",
+    "bank": "car",
+    "parameters": {
+      "model__alpha": 1.0
+    },
+    "inner_balanced_accuracy": 0.5270337301587301,
+    "inner_macro_f1": 0.5255357414529882
+  },
+  "families": [
+    {
+      "name": "spectral_ridge",
+      "bank": "spectral",
+      "parameters": {
+        "model__alpha": 10.0
+      },
+      "inner_balanced_accuracy": 0.4771825396825397,
+      "inner_macro_f1": 0.47324063738174466
+    },
+    {
+      "name": "spectral_svm",
+      "bank": "spectral",
+      "parameters": {
+        "model__C": 0.01
+      },
+      "inner_balanced_accuracy": 0.47098214285714285,
+      "inner_macro_f1": 0.3402469135802469
+    },
+    {
+      "name": "car_ridge",
+      "bank": "car",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.5270337301587301,
+      "inner_macro_f1": 0.5255357414529882
+    },
+    {
+      "name": "car_svm",
+      "bank": "car",
+      "parameters": {
+        "model__C": 10.0
+      },
+      "inner_balanced_accuracy": 0.4868551587301588,
+      "inner_macro_f1": 0.4806854047161653
+    },
+    {
+      "name": "shape_ridge",
+      "bank": "shape",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.46999007936507936,
+      "inner_macro_f1": 0.46799890055196475
+    },
+    {
+      "name": "shape_svm",
+      "bank": "shape",
+      "parameters": {
+        "model__C": 0.01
+      },
+      "inner_balanced_accuracy": 0.4712301587301588,
+      "inner_macro_f1": 0.33893470828318967
+    },
+    {
+      "name": "rocket_ridge",
+      "bank": "rocket",
+      "parameters": {
+        "model__alpha": 1.0
+      },
+      "inner_balanced_accuracy": 0.4481646825396825,
+      "inner_macro_f1": 0.44617314137963593
+    },
+    {
+      "name": "derivative_ridge",
+      "bank": "derivative",
+      "parameters": {
+        "model__alpha": 1000.0
+      },
+      "inner_balanced_accuracy": 0.4312996031746032,
+      "inner_macro_f1": 0.4290418281219643
+    },
+    {
+      "name": "combined_ridge",
+      "bank": "combined",
+      "parameters": {
+        "model__alpha": 1000.0
+      },
+      "inner_balanced_accuracy": 0.4223710317460318,
+      "inner_macro_f1": 0.42017937267925176
+    },
+    {
+      "name": "spectral_lda",
+      "bank": "spectral",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.46502976190476186,
+      "inner_macro_f1": 0.46170421863357625
+    },
+    {
+      "name": "covariance_tangent",
+      "bank": "covariance",
+      "parameters": {
+        "model__alpha": 1.0,
+        "spatial__normalize": false
+      },
+      "inner_balanced_accuracy": 0.4449404761904762,
+      "inner_macro_f1": 0.44470329663763447
+    },
+    {
+      "name": "covariance_svm",
+      "bank": "covariance",
+      "parameters": {
+        "model__C": 0.1,
+        "spatial__normalize": true
+      },
+      "inner_balanced_accuracy": 0.4990079365079365,
+      "inner_macro_f1": 0.3838283280791992
+    },
+    {
+      "name": "covariance_csp",
+      "bank": "covariance",
+      "parameters": {
+        "model__C": 0.01,
+        "spatial__pairs": 1
+      },
+      "inner_balanced_accuracy": 0.4600694444444445,
+      "inner_macro_f1": 0.45637573045833085
+    },
+    {
+      "name": "car_covariance_tangent",
+      "bank": "car_covariance",
+      "parameters": {
+        "model__alpha": 1.0,
+        "spatial__normalize": false
+      },
+      "inner_balanced_accuracy": 0.47991071428571425,
+      "inner_macro_f1": 0.47813107471789057
+    },
+    {
+      "name": "car_covariance_svm",
+      "bank": "car_covariance",
+      "parameters": {
+        "model__C": 0.1,
+        "spatial__normalize": true
+      },
+      "inner_balanced_accuracy": 0.4848710317460318,
+      "inner_macro_f1": 0.37194453889455587
+    },
+    {
+      "name": "car_covariance_csp",
+      "bank": "car_covariance",
+      "parameters": {
+        "model__C": 0.01,
+        "spatial__pairs": 1
+      },
+      "inner_balanced_accuracy": 0.5168650793650794,
+      "inner_macro_f1": 0.5166749626679942
+    },
+    {
+      "name": "extra_trees",
+      "bank": "spectral",
+      "parameters": {
+        "max_features": "sqrt",
+        "min_samples_leaf": 2
+      },
+      "inner_balanced_accuracy": 0.4290674603174603,
+      "inner_macro_f1": 0.4249785884856581
+    },
+    {
+      "name": "boosted",
+      "bank": "spectral",
+      "parameters": {
+        "l2_regularization": 10.0
+      },
+      "inner_balanced_accuracy": 0.4412202380952381,
+      "inner_macro_f1": 0.4391412767166358
+    },
+    {
+      "name": "majority",
+      "bank": "spectral",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.5,
+      "inner_macro_f1": 0.33816425120772947
+    }
+  ]
+}

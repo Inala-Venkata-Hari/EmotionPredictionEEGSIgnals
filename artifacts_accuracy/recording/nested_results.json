@@ -1,0 +1,97 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "windows": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.46808510638297873,
+    "balanced_accuracy": 0.4701086956521739,
+    "macro_f1": 0.4642042863657091
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "boosted",
+        "bank": "spectral",
+        "parameters": {
+          "l2_regularization": 10.0
+        },
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.33888888888888885
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "car_svm",
+        "bank": "car",
+        "parameters": {
+          "model__C": 10.0
+        },
+        "inner_balanced_accuracy": 0.6468253968253969,
+        "inner_macro_f1": 0.6420843045843045
+      },
+      "accuracy": 0.6,
+      "balanced_accuracy": 0.6000000000000001,
+      "macro_f1": 0.5833333333333333
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "car_ridge",
+        "bank": "car",
+        "parameters": {
+          "model__alpha": 10.0
+        },
+        "inner_balanced_accuracy": 0.7301587301587302,
+        "inner_macro_f1": 0.7011946386946386
+      },
+      "accuracy": 0.4444444444444444,
+      "balanced_accuracy": 0.475,
+      "macro_f1": 0.41558441558441556
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "car_svm",
+        "bank": "car",
+        "parameters": {
+          "model__C": 0.01
+        },
+        "inner_balanced_accuracy": 0.5277777777777778,
+        "inner_macro_f1": 0.4185185185185185
+      },
+      "accuracy": 0.4444444444444444,
+      "balanced_accuracy": 0.425,
+      "macro_f1": 0.41558441558441556
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "car_covariance_csp",
+        "bank": "car_covariance",
+        "parameters": {
+          "model__C": 1.0,
+          "spatial__pairs": 1
+        },
+        "inner_balanced_accuracy": 0.6428571428571428,
+        "inner_macro_f1": 0.63000888000888
+      },
+      "accuracy": 0.3333333333333333,
+      "balanced_accuracy": 0.325,
+      "macro_f1": 0.325
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}
