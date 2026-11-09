@@ -1,0 +1,25 @@
+{
+  "winner": {
+    "name": "majority",
+    "bank": "tokens",
+    "parameters": {},
+    "inner_balanced_accuracy": 0.5,
+    "inner_macro_f1": 0.33816425120772947
+  },
+  "families": [
+    {
+      "name": "last_block",
+      "bank": "tokens",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.4851190476190476,
+      "inner_macro_f1": 0.39865319865319865
+    },
+    {
+      "name": "majority",
+      "bank": "tokens",
+      "parameters": {},
+      "inner_balanced_accuracy": 0.5,
+      "inner_macro_f1": 0.33816425120772947
+    }
+  ]
+}

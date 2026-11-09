@@ -1,0 +1,23 @@
+{
+  "units": [
+    {
+      "unit": "window",
+      "selected_by_training_cv_only": true,
+      "refit_has_no_test_groups": true,
+      "independent_final_refit_matches_all_predictions": true,
+      "saved_raw_inference_matches": true,
+      "all_test_metrics_and_confusion_computed_from_saved_predictions": true
+    },
+    {
+      "unit": "recording",
+      "selected_by_training_cv_only": true,
+      "refit_has_no_test_groups": true,
+      "independent_final_refit_matches_all_predictions": true,
+      "saved_raw_inference_matches": true,
+      "all_test_metrics_and_confusion_computed_from_saved_predictions": true
+    }
+  ],
+  "frozen_plan_before_any_final_prediction": true,
+  "primary_predeclared_window_model_verified": true,
+  "source_study_measurements_preserved": true
+}

@@ -1,0 +1,86 @@
+{
+  "unit": "recording",
+  "duration_seconds": 7.875,
+  "examples": 47,
+  "independent_overlap_groups": 47,
+  "nested": {
+    "accuracy": 0.5531914893617021,
+    "balanced_accuracy": 0.5461956521739131,
+    "macro_f1": 0.4946236559139785
+  },
+  "majority": {
+    "accuracy": 0.5106382978723404,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3380281690140845
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "winner": {
+        "name": "last_block",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5079365079365079,
+        "inner_macro_f1": 0.4670090258325552
+      },
+      "accuracy": 0.7,
+      "balanced_accuracy": 0.7,
+      "macro_f1": 0.696969696969697
+    },
+    {
+      "fold": 1,
+      "winner": {
+        "name": "last_block",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5317460317460317,
+        "inner_macro_f1": 0.48291316526610645
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4949494949494949
+    },
+    {
+      "fold": 2,
+      "winner": {
+        "name": "majority",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 3,
+      "winner": {
+        "name": "majority",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3216374269005848
+      },
+      "accuracy": 0.5555555555555556,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.35714285714285715
+    },
+    {
+      "fold": 4,
+      "winner": {
+        "name": "majority",
+        "bank": "tokens",
+        "parameters": {},
+        "inner_balanced_accuracy": 0.5,
+        "inner_macro_f1": 0.3444444444444444
+      },
+      "accuracy": 0.4444444444444444,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3076923076923077
+    }
+  ],
+  "exploratory": true,
+  "subject_independent": false,
+  "original_validation_test_evaluated": false
+}
